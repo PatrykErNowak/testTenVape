@@ -1,0 +1,127 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.6rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.wrapper {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.header {
+  position: relative;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+.header .wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  width: 100%;
+  text-align: left;
+  color: white;
+}
+.header img {
+  width: 600px;
+}
+.header__heading {
+  margin-top: 0.3em;
+  font-size: 8rem;
+  letter-spacing: 5px;
+  text-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+.header__heading .for-reader {
+  display: none;
+}
+.header__text {
+  margin: 2em 0;
+  max-width: 50%;
+  font-size: 3rem;
+  line-height: 5rem;
+}
+.header__btn {
+  padding: 1.5em 3em;
+  border: 1px solid transparent;
+  border-radius: 35px;
+  background-color: #1ed75f;
+  cursor: pointer;
+}
+.header__btn a {
+  height: 100%;
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  font-size: 3rem;
+  font-weight: 500;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+.header__bg-video {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  z-index: -2;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.navbar {
+  position: fixed;
+  padding: 0.7em 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 500;
+}
+.navbar .wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar__logo {
+  width: 60px;
+}
+.navbar__list {
+  display: flex;
+  margin-left: auto;
+  list-style: none;
+}
+.navbar__list-item {
+  padding: 1em 2em;
+  font-size: 1.8rem;
+}
+.navbar__list-item a {
+  font-weight: 500;
+}
+.navbar__socials {
+  padding-left: 1em;
+  border-left: 1px solid white;
+}
+.navbar__socials-item {
+  padding: 1em;
+}
+.navbar__socials-item i {
+  font-size: 3rem;
+}/*# sourceMappingURL=main.css.map */

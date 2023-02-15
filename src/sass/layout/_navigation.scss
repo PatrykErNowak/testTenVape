@@ -1,0 +1,115 @@
+@use '../utilities/colors' as c;
+
+.navbar {
+	position: fixed;
+	padding: 0.7em 0;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	// box-shadow: 0 25px 30px rgba(0, 0, 0, 0.4);
+	z-index: 500;
+	.wrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__logo {
+		position: relative;
+		width: 60px;
+		cursor: pointer;
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-image: url('../src/img/nav-logo.png');
+			background-size: contain;
+			z-index: 100;
+			opacity: 0;
+			transition: opacity 0.3s;
+		}
+
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			z-index: 0;
+		}
+
+		&:focus {
+			outline: none;
+		}
+		&:focus::after,
+		&:hover::after {
+			opacity: 1;
+		}
+	}
+
+	&__list {
+		display: flex;
+		margin-left: auto;
+		list-style: none;
+	}
+	&__list-item a {
+		display: inline-block;
+		position: relative;
+		padding: 1em 2em;
+		font-size: 1.8rem;
+		font-weight: 500;
+		transition: color 0.3s;
+
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 15%;
+			height: 3px;
+			width: 70%;
+			background-color: c.$main;
+			transform: scaleX(0);
+			transition: transform 0.5s;
+			transform-origin: right;
+		}
+		&:focus,
+		&:hover {
+			color: c.$main;
+			outline: none;
+		}
+		&:focus::after,
+		&:hover::after {
+			transform: scaleX(1);
+			transform-origin: left;
+		}
+	}
+
+	&__socials {
+		position: relative;
+		margin-left: 1em;
+		padding-left: 1em;
+		&::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 0;
+			transform: translate(0, -50%);
+			height: 50%;
+			width: 1px;
+			background-color: c.$third;
+		}
+	}
+	&__socials-item {
+		transition: color 0.3s;
+		i {
+			padding: 0.5em;
+			font-size: 3rem;
+		}
+		&:hover,
+		&:focus {
+			color: c.$main;
+			outline: none;
+		}
+	}
+}

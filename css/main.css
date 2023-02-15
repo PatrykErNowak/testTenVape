@@ -16,6 +16,10 @@ body {
   font-size: 1.6rem;
 }
 
+h1 {
+  font-size: clamp(3rem, 2rem + 2vw, 8rem);
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -23,8 +27,127 @@ a {
 
 .wrapper {
   max-width: 1400px;
-  width: 100%;
+  width: min(100% - 4rem, 140rem);
   margin: 0 auto;
+}
+
+.navbar {
+  position: fixed;
+  padding: 0.7em 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 500;
+}
+.navbar .wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar__logo {
+  position: relative;
+  width: 60px;
+  cursor: pointer;
+}
+.navbar__logo::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../src/img/nav-logo.png");
+  background-size: contain;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.navbar__logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.navbar__logo:focus {
+  outline: none;
+}
+.navbar__logo:focus::after, .navbar__logo:hover::after {
+  opacity: 1;
+}
+.navbar__list {
+  display: flex;
+  margin-left: auto;
+  list-style: none;
+}
+.navbar__list-item a {
+  display: inline-block;
+  position: relative;
+  padding: 1em 2em;
+  font-size: 1.8rem;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.navbar__list-item a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 15%;
+  height: 3px;
+  width: 70%;
+  background-color: #1ed75f;
+  transform: scaleX(0);
+  transition: transform 0.5s;
+  transform-origin: right;
+}
+.navbar__list-item a:focus, .navbar__list-item a:hover {
+  color: #1ed75f;
+  outline: none;
+}
+.navbar__list-item a:focus::after, .navbar__list-item a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.navbar__socials {
+  position: relative;
+  margin-left: 1em;
+  padding-left: 1em;
+}
+.navbar__socials::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+  height: 50%;
+  width: 1px;
+  background-color: #fff;
+}
+.navbar__socials-item {
+  transition: color 0.3s;
+}
+.navbar__socials-item i {
+  padding: 0.5em;
+  font-size: 3rem;
+}
+.navbar__socials-item:hover, .navbar__socials-item:focus {
+  color: #1ed75f;
+  outline: none;
+}
+
+.btn {
+  padding: 1.5em 3em;
+  border: 1px solid transparent;
+  border-radius: 35px;
+  background-color: #1ed75f;
+  cursor: pointer;
+}
+.btn a {
+  height: 100%;
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  font-size: 3rem;
+  font-weight: 500;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .header {
@@ -39,16 +162,15 @@ a {
   justify-content: center;
   align-items: flex-start;
   height: 100vh;
-  width: 100%;
   text-align: left;
   color: white;
 }
 .header img {
   width: 600px;
+  width: clamp(200px, 100px + 30vw, 600px);
 }
 .header__heading {
   margin-top: 0.3em;
-  font-size: 8rem;
   letter-spacing: 5px;
   text-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
@@ -58,24 +180,8 @@ a {
 .header__text {
   margin: 2em 0;
   max-width: 50%;
-  font-size: 3rem;
+  font-size: clamp(1.6rem, 1rem + 1vw, 3rem);
   line-height: 5rem;
-}
-.header__btn {
-  padding: 1.5em 3em;
-  border: 1px solid transparent;
-  border-radius: 35px;
-  background-color: #1ed75f;
-  cursor: pointer;
-}
-.header__btn a {
-  height: 100%;
-  width: 100%;
-  font-family: "Roboto", sans-serif;
-  color: white;
-  font-size: 3rem;
-  font-weight: 500;
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 .header__bg-video {
   display: block;
@@ -87,42 +193,4 @@ a {
   z-index: -2;
   -o-object-fit: cover;
      object-fit: cover;
-}
-
-.navbar {
-  position: fixed;
-  padding: 0.7em 0;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 500;
-}
-.navbar .wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.navbar__logo {
-  width: 60px;
-}
-.navbar__list {
-  display: flex;
-  margin-left: auto;
-  list-style: none;
-}
-.navbar__list-item {
-  padding: 1em 2em;
-  font-size: 1.8rem;
-}
-.navbar__list-item a {
-  font-weight: 500;
-}
-.navbar__socials {
-  padding-left: 1em;
-  border-left: 1px solid white;
-}
-.navbar__socials-item {
-  padding: 1em;
-}
-.navbar__socials-item i {
-  font-size: 3rem;
 }/*# sourceMappingURL=main.css.map */

@@ -24,20 +24,43 @@
 <body>
     <nav class="navbar">
         <div class="wrapper">
+
             <a class="navbar__logo" href="#">
-                <img src="./src/img/nav-logo-white.png" alt="">
+                <!-- <img src="./src/img/nav-logo-white.png" alt=""> -->
             </a>
 
-            <ul class="navbar__list">
+            <!-- <ul class="navbar__list">
                 <li class="navbar__list-item"><a href="#">Ten Vape</a></li>
                 <li class="navbar__list-item"><a href="#">Jak nas znaleźć?</a></li>
                 <li class="navbar__list-item"><a href="#">Oferta sklepu</a></li>
                 <li class="navbar__list-item"><a href="#">Kontakt</a></li>
             </ul>
+
             <div class="navbar__socials">
                 <a class="navbar__socials-item" href="#"><i class="fa-brands fa-facebook"></i></a><a
                     class="navbar__socials-item" href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div> -->
+            <div class="navbar__menu">
+
+                <ul class="navbar__list">
+                    <li class="navbar__list-item"><a href="#">Ten Vape</a></li>
+                    <li class="navbar__list-item"><a href="#">Jak nas znaleźć?</a></li>
+                    <li class="navbar__list-item"><a href="#">Oferta sklepu</a></li>
+                    <li class="navbar__list-item"><a href="#">Kontakt</a></li>
+                </ul>
+
+                <ul class="navbar__socials">
+                    <li class="navbar__socials-item"><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li class="navbar__socials-item"><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                </ul>
+
             </div>
+
+            <button class="hamburger hamburger--elastic" type="button">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
 
         </div>
     </nav>
@@ -52,7 +75,9 @@
                 excepturi adipisci vel officiis facilis corrupti placeat sint.</p>
             <button class="header__btn btn"><a href="#">Dowiedz się więcej</a></button>
         </div>
-        <video autoplay loop play-inline muted src="./src/video/header-1080p.mp4" class="header__bg-video"></video>
+        <div class="header__video-c">
+            <video autoplay loop play-inline muted src="./src/video/header-1080p.mp4" type="video/mp4"></video>
+        </div>
     </header>
 
     <!-- <div class="header__right-c">

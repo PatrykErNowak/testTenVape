@@ -1,6 +1,9 @@
 // Boilerplate
 @use './base';
 
+// Vendors
+@use './vendors/hamburgers/hamburgers.scss' as *;
+
 // Helpers Styling
 @use './utilities/helpers';
 

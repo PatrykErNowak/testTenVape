@@ -1,6 +1,9 @@
+@use './breakpoints' as b;
+
 .wrapper {
-	max-width: 1400px;
-	width: min(100% - 4rem, 140rem);
-	// width: 100%;
+	width: min(100% - 2rem, 120rem);
 	margin: 0 auto;
+	@media (min-width: b.$xx-large) {
+		width: min(100% - 4rem, 140rem);
+	}
 }

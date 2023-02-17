@@ -1,6 +1,6 @@
+@use '../utilities/breakpoints' as b;
 .header {
 	position: relative;
-	text-align: center;
 	background-color: rgba(0, 0, 0, 0.3);
 	overflow: hidden;
 
@@ -14,8 +14,9 @@
 		color: white;
 	}
 	img {
+		margin-top: 4em;
 		width: 600px;
-		width: clamp(200px, 100px + 30vw, 600px);
+		width: clamp(200px, 100px + 25vw, 600px);
 	}
 
 	&__heading {
@@ -29,9 +30,11 @@
 	}
 	&__text {
 		margin: 2em 0;
-		max-width: 50%;
 		font-size: clamp(1.6rem, 1rem + 1vw, 3rem);
-		line-height: 5rem;
+		line-height: clamp(3rem, 1rem + 2vw, 5rem);
+		@media (min-width: b.$medium) {
+			max-width: 60%;
+		}
 	}
 
 	&__video-c {

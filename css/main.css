@@ -937,13 +937,13 @@ a {
   width: 950px;
   height: 950px;
   z-index: 100;
-  transition: transform 0.3s;
+  transition: opacity 0.5s, transform 0.5s;
+  opacity: 0;
 }
 .navbar__menu::before {
   content: "";
   transform: translate(50%, -50%) scale(0);
   background-color: #1ed75f;
-  opacity: 0.8;
   border-radius: 50%;
 }
 .navbar__menu::after {
@@ -958,9 +958,11 @@ a {
 }
 .navbar__menu--active::before {
   transform: translate(45%, -50%) scale(1.15);
+  opacity: 0.8;
 }
 .navbar__menu--active::after {
   transform: translate(45%, -50%) scale(1);
+  opacity: 1;
 }
 @media (min-width: 48rem) {
   .navbar__menu {

@@ -14,10 +14,16 @@ body {
   color: white;
   font-family: "Roboto", sans-serif;
   font-size: 1.6rem;
+  background-color: #000;
+  scroll-behavior: smooth;
 }
 
 h1 {
   font-size: clamp(3rem, 2rem + 2vw, 8rem);
+}
+
+h2 {
+  font-size: clamp(2.5rem, 2rem + 1.5vw, 5rem);
 }
 
 a {
@@ -883,6 +889,73 @@ a {
   }
 }
 
+.section {
+  text-align: center;
+  padding: 7em 0;
+}
+.section__title {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 2em;
+  font-family: "Cinzel", serif;
+  color: rgb(253, 253, 254);
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 4px;
+  text-shadow: 1px 1px 3px rgba(253, 253, 254, 0.05), 2px 3px 4px rgba(253, 253, 254, 0.1), 3px 5px 4px rgba(253, 253, 254, 0.15), 4px 6px 4px rgba(253, 253, 254, 0.2);
+}
+.section__title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10%;
+  transform: translate(-50%);
+  height: 5px;
+  width: 45%;
+  background-color: #1ed75f;
+  border-radius: 25px;
+}
+
+main {
+  position: relative;
+}
+
+.fog {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100vw;
+  overflow: hidden;
+  z-index: -10;
+}
+.fog__img {
+  position: absolute;
+  height: 100%;
+  width: 300vw;
+  z-index: -5;
+  background-repeat: repeat-x;
+  background-size: contain;
+  background-position: center;
+  opacity: 0.4;
+}
+.fog__img--first {
+  background-image: url("../src/img/fog/fog-1.png");
+  animation: fog 180s linear infinite;
+}
+.fog__img--second {
+  background-image: url("../src/img/fog/fog-2.png");
+  animation: fog 90s linear infinite;
+}
+@keyframes fog {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-200vw);
+  }
+}
+
 .navbar {
   position: fixed;
   padding: 0.7em 0;
@@ -1183,4 +1256,21 @@ a {
   min-height: 100%;
   width: auto;
   height: auto;
+}
+
+.brands {
+  position: relative;
+  background-image: url("../src/img/brands/bg-3.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.brands__container {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2vw;
+}
+.brands__item {
+  width: 100%;
 }/*# sourceMappingURL=main.css.map */

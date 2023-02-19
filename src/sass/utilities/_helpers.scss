@@ -1,3 +1,4 @@
+@use './colors' as c;
 @use './breakpoints' as b;
 
 .wrapper {
@@ -5,5 +6,78 @@
 	margin: 0 auto;
 	@media (min-width: b.$xx-large) {
 		width: min(100% - 4rem, 140rem);
+	}
+}
+
+$title-shadow: #3b8656;
+.section {
+	text-align: center;
+	padding: 7em 0;
+	&__title {
+		display: inline-block;
+		position: relative;
+		margin-bottom: 2em;
+		font-family: 'Cinzel', serif;
+		color: rgb(253, 253, 254);
+		font-weight: 500;
+		text-align: center;
+		letter-spacing: 4px;
+		text-shadow: 1px 1px 3px rgba(253, 253, 254, 0.05), 2px 3px 4px rgba(253, 253, 254, 0.1),
+			3px 5px 4px rgba(253, 253, 254, 0.15), 4px 6px 4px rgba(253, 253, 254, 0.2);
+
+		&::after {
+			content: '';
+			position: absolute;
+			left: 50%;
+			bottom: -10%;
+			transform: translate(-50%);
+			height: 5px;
+			width: 45%;
+			background-color: c.$main;
+			border-radius: 25px;
+		}
+	}
+}
+
+main {
+	position: relative;
+}
+
+// Fog animation for main bg
+.fog {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100vw;
+	overflow: hidden;
+	z-index: -10;
+	&__img {
+		position: absolute;
+		height: 100%;
+		width: 300vw;
+		z-index: -5;
+
+		background-repeat: repeat-x;
+		background-size: contain;
+		background-position: center;
+		opacity: 0.4;
+		&--first {
+			background-image: url('../src/img/fog/fog-1.png');
+			animation: fog 180s linear infinite;
+		}
+		&--second {
+			background-image: url('../src/img/fog/fog-2.png');
+			animation: fog 90s linear infinite;
+		}
+	}
+
+	@keyframes fog {
+		from {
+			transform: translateX(0);
+		}
+		to {
+			transform: translateX(-200vw);
+		}
 	}
 }

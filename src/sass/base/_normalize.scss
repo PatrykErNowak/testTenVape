@@ -1,3 +1,5 @@
+@use '../utilities/colors' as c;
+
 *,
 *::before,
 *::after {
@@ -14,4 +16,6 @@ body {
 	color: white;
 	font-family: 'Roboto', sans-serif;
 	font-size: 1.6rem;
+	background-color: c.$second;
+	scroll-behavior: smooth;
 }

@@ -1,4 +1,5 @@
 @use '../utilities/breakpoints' as b;
+@use '../utilities/colors' as c;
 .header {
 	position: relative;
 	background-color: rgba(0, 0, 0, 0.3);
@@ -55,5 +56,23 @@
 			width: auto;
 			height: auto;
 		}
+	}
+}
+
+.brands {
+	position: relative;
+	background-image: url('../src/img/brands/bg-3.jpg');
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+
+	&__container {
+		display: grid;
+		align-items: center;
+		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+		gap: 2vw;
+	}
+	&__item {
+		width: 100%;
 	}
 }

@@ -14,7 +14,7 @@ body {
   color: white;
   font-family: "Roboto", sans-serif;
   font-size: 1.6rem;
-  background-color: #000;
+  background-color: #1ed75f;
   scroll-behavior: smooth;
 }
 
@@ -23,7 +23,7 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(2.5rem, 2rem + 1.5vw, 5rem);
+  font-size: clamp(2.7rem, 2rem + 1.5vw, 5rem);
 }
 
 a {
@@ -908,7 +908,7 @@ a {
   content: "";
   position: absolute;
   left: 50%;
-  bottom: -10%;
+  bottom: -15%;
   transform: translate(-50%);
   height: 5px;
   width: 45%;
@@ -1258,19 +1258,45 @@ main {
   height: auto;
 }
 
+.about-us__strenghts {
+  width: 100%;
+  height: 300px;
+  background-color: #000;
+}
+
 .brands {
   position: relative;
   background-image: url("../src/img/brands/bg-3.jpg");
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
+  -webkit-backdrop-filter: grayscale(50%);
+          backdrop-filter: grayscale(50%);
+}
+.brands::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: -10;
 }
 .brands__container {
-  display: grid;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 2vw;
+  flex-wrap: wrap;
+  gap: calc(2em + 1vw);
 }
 .brands__item {
-  width: 100%;
+  width: min(60%, 270px);
+  transition: transform 0.3s;
+}
+.brands__item:focus, .brands__item:hover {
+  transform: scale(1.1);
+}
+.brands__item--white {
+  filter: invert(1);
 }/*# sourceMappingURL=main.css.map */

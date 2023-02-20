@@ -61,7 +61,7 @@ main {
 		background-repeat: repeat-x;
 		background-size: contain;
 		background-position: center;
-		opacity: 0.4;
+		opacity: 1;
 		&--first {
 			background-image: url('../src/img/fog/fog-1.png');
 			animation: fog 180s linear infinite;

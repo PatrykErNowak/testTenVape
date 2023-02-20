@@ -58,11 +58,70 @@
 		}
 	}
 }
+
 .about-us {
+	background-image: url('../src/img/bg-header.png');
+	background-position: center;
+	background-size: cover;
+	&__container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr auto;
+	}
+
+	&__section-left {
+		grid-column: 1/2;
+		grid-row: 1/2;
+	}
+	&__section-right {
+		grid-column: 2/3;
+		grid-row: 1/2;
+		text-align: center;
+	}
+	&__logo {
+		width: 400px;
+	}
+
 	&__strenghts {
+		grid-column: 1/3;
+		grid-row: 2/3;
+
+		padding: 2em 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+		align-items: center;
 		width: 100%; // temporary
-		height: 300px; // temporary
-		background-color: c.$second;
+		// background-color: c.$second;
+		border-radius: 50px;
+
+		@media (min-width: b.$medium) {
+			flex-direction: row;
+			align-items: flex-start;
+		}
+	}
+}
+
+.strength {
+	padding: 2em;
+	max-width: 40rem;
+	color: c.$third;
+	&__icon {
+		i {
+			font-size: 4rem;
+			color: c.$main;
+			text-shadow: 0 0 10px rgba(28, 202, 89, 0.4);
+		}
+	}
+	&__title {
+		margin: 1em 0;
+		font-size: clamp(2.2rem, 1rem + 2vw, 2.3rem);
+		letter-spacing: 1px;
+	}
+	&__desc {
+		font-size: clamp(1.6rem, 1rem + 2vw, 1.8rem);
+		line-height: 2.5rem;
+		text-align: center;
 	}
 }
 

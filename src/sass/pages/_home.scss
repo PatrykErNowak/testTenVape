@@ -60,39 +60,92 @@
 }
 
 .about-us {
-	background-image: url('../src/img/bg-header.png');
+	background-image: url('../src/img/bg-header-2.png');
 	background-position: center;
 	background-size: cover;
+	border-top: 10px solid black;
 	&__container {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		grid-template-rows: 1fr auto;
+		display: flex;
+		flex-direction: column;
+		gap: 3em;
+
+		@media (min-width: b.$medium) {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: 1fr auto;
+			row-gap: 5em;
+		}
 	}
 
 	&__section-left {
-		grid-column: 1/2;
-		grid-row: 1/2;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+
+		@media (min-width: b.$medium) {
+			grid-column: 1/2;
+			grid-row: 1/2;
+		}
 	}
 	&__section-right {
-		grid-column: 2/3;
-		grid-row: 1/2;
-		text-align: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		@media (min-width: b.$medium) {
+			grid-column: 2/3;
+			grid-row: 1/2;
+		}
 	}
 	&__logo {
-		width: 400px;
+		width: min(80%, 450px);
+	}
+
+	&__title {
+		font-family: 'Dancing Script', cursive;
+		font-size: clamp(5rem, 3rem + 2vw, 7rem);
+		background-image: linear-gradient(0deg, rgba(28, 202, 89, 1) 0%, rgba(41, 53, 86, 1) 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+	&__desc {
+		margin: 2em 0;
+	}
+	&__address {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2em;
+		a {
+			font-size: clamp(1.4rem, 1rem + 1.5vw, 1.8rem);
+		}
+		a i {
+			margin-right: 0.5em;
+			color: c.$main;
+			font-size: 3rem;
+			vertical-align: middle;
+			opacity: 0.6;
+		}
+	}
+	&__socials {
+		display: flex;
+		justify-content: center;
+		gap: 4em;
+		margin-bottom: 4em;
+		a {
+			font-size: 5rem;
+		}
 	}
 
 	&__strenghts {
 		grid-column: 1/3;
 		grid-row: 2/3;
-
-		padding: 2em 0;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-evenly;
 		align-items: center;
-		width: 100%; // temporary
-		// background-color: c.$second;
+		gap: 4em;
+		width: 100%;
 		border-radius: 50px;
 
 		@media (min-width: b.$medium) {
@@ -103,7 +156,7 @@
 }
 
 .strength {
-	padding: 2em;
+	padding: 0 2em;
 	max-width: 40rem;
 	color: c.$third;
 	&__icon {
@@ -132,7 +185,16 @@
 	background-size: cover;
 	background-attachment: fixed;
 	backdrop-filter: grayscale(50%);
-	&::after {
+
+	--mask: radial-gradient(67.08px at 50% 90px, #000 99%, #0000 101%) calc(50% - 60px) 0/120px 51% repeat-x,
+		radial-gradient(67.08px at 50% -60px, #0000 99%, #000 101%) 50% 30px/120px calc(51% - 30px) repeat-x,
+		radial-gradient(67.08px at 50% calc(100% - 90px), #000 99%, #0000 101%) calc(50% - 60px) 100%/120px 51% repeat-x,
+		radial-gradient(67.08px at 50% calc(100% + 60px), #0000 99%, #000 101%) 50% calc(100% - 30px) / 120px
+			calc(51% - 30px) repeat-x;
+	-webkit-mask: var(--mask);
+	mask: var(--mask);
+
+	::after {
 		content: '';
 		position: absolute;
 		top: 0;

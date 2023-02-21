@@ -10,13 +10,13 @@
 
 html {
 	font-size: 62.5%;
+	scroll-behavior: smooth;
 }
 
 body {
 	color: white;
 	font-family: 'Roboto', sans-serif;
 	font-size: 1.6rem;
-	background-color: c.$main;
-	scroll-behavior: smooth;
+	background-color: c.$second;
 	// background-image: url('../src/img/eliquid-g3e2add2af_1920.jpg');
 }

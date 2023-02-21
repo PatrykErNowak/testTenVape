@@ -9,3 +9,7 @@ a {
 	text-decoration: none;
 	color: inherit;
 }
+p {
+	font-size: clamp(1.4rem, 1rem + 1.5vw, 1.8rem);
+	line-height: clamp(3rem, 1rem + 1.5vw, 3.2rem);
+}

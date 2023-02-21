@@ -9,7 +9,6 @@
 	}
 }
 
-$title-shadow: #3b8656;
 .section {
 	text-align: center;
 	padding: 7em 0;
@@ -25,7 +24,7 @@ $title-shadow: #3b8656;
 		text-shadow: 1px 1px 3px rgba(253, 253, 254, 0.05), 2px 3px 4px rgba(253, 253, 254, 0.1),
 			3px 5px 4px rgba(253, 253, 254, 0.15), 4px 6px 4px rgba(253, 253, 254, 0.2);
 
-		&::after {
+		&::before {
 			content: '';
 			position: absolute;
 			left: 50%;
@@ -36,6 +35,9 @@ $title-shadow: #3b8656;
 			background-color: c.$main;
 			border-radius: 25px;
 		}
+	}
+	&--wavy {
+		padding: 9em 0;
 	}
 }
 

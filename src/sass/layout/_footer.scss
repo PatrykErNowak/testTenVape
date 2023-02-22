@@ -1,0 +1,86 @@
+@use '../utilities/colors' as c;
+@use '../utilities/breakpoints' as b;
+
+.footer {
+	padding: 4em 0;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.4);
+	color: rgba($color: c.$third, $alpha: 0.8);
+
+	.wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 4em;
+
+		@media (min-width: b.$medium) {
+			flex-direction: row;
+			align-items: flex-start;
+		}
+	}
+
+	// * styling for main container - logo and socials
+
+	&__main {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 2em;
+	}
+
+	&__logo {
+		width: min(80%, 450px);
+	}
+	&__socials {
+		display: flex;
+		justify-content: center;
+		gap: 4em;
+		a {
+			font-size: 4rem;
+			transition: color 0.3s;
+			&:focus,
+			&:hover {
+				color: rgba($color: c.$main, $alpha: 1);
+				outline: none;
+			}
+		}
+	}
+
+	// * styling for list container
+
+	&__list {
+		ul {
+			display: flex;
+			flex-direction: column;
+			gap: 1em;
+		}
+	}
+
+	&__list-title {
+		margin-bottom: 1.5em;
+		color: c.$main;
+		letter-spacing: 1px;
+	}
+	&__list-item {
+		a {
+			font-size: clamp(1.4rem, 1rem + 1.5vw, 1.6rem);
+			transition: color 0.3s;
+			&:focus,
+			&:hover {
+				color: rgba($color: c.$main, $alpha: 1);
+				outline: none;
+			}
+		}
+		a i {
+			margin-right: 0.5em;
+			color: c.$main;
+			font-size: 2rem;
+			vertical-align: middle;
+			opacity: 0.6;
+			width: 20px;
+			text-align: center;
+		}
+	}
+}

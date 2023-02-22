@@ -5,6 +5,10 @@ h2 {
 	font-size: clamp(2.7rem, 2rem + 1.5vw, 5rem);
 }
 
+h4 {
+	font-size: clamp(1.6rem, 1rem + 1.5vw, 1.8rem);
+}
+
 a {
 	text-decoration: none;
 	color: inherit;
@@ -12,4 +16,8 @@ a {
 p {
 	font-size: clamp(1.4rem, 1rem + 1.5vw, 1.8rem);
 	line-height: clamp(3rem, 1rem + 1.5vw, 3.2rem);
+}
+
+ul {
+	list-style: none;
 }

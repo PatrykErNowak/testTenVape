@@ -17,27 +17,14 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Dancing+Script:wght@700&family=Pacifico&family=Roboto:wght@400;500;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="./css/main.css">
-    <script defer src="./src/js/main.js"></script>
+    <link rel="stylesheet" href="../css/main.css">
+    <script defer src="../src/js/main.js"></script>
     <script src="https://kit.fontawesome.com/1fb0f1f080.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
-
-
-    <header class="header">
-        <div class="wrapper">
-            <img src="./src/img/5.png" alt="">
-            <h1 class="header__heading"><span class="for-reader">Ten Vape</span> Elektroniczne Papierosy</h1>
-            <p class="header__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero ad architecto
-                alias
-                excepturi adipisci vel officiis facilis corrupti placeat sint.</p>
-            <button class="header__btn btn btn--glass"><a href="#about-us">Dowiedz się więcej</a></button>
-        </div>
-        <div class="header__video-c">
-            <video autoplay loop play-inline muted src="./src/video/header-1080p.mp4" type="video/mp4"></video>
-        </div>
+    <header>
         <nav class="navbar">
             <div class="wrapper">
 
@@ -108,8 +95,8 @@
                 <div class="navbar__menu">
 
                     <ul class="navbar__list">
-                        <li class="navbar__list-item"><a href="#">Ten Vape</a></li>
-                        <li class="navbar__list-item"><a href="./adres">Jak nas znaleźć?</a></li>
+                        <li class="navbar__list-item"><a href="../">Ten Vape</a></li>
+                        <li class="navbar__list-item"><a href="#">Jak nas znaleźć?</a></li>
                         <li class="navbar__list-item"><a href="#">Oferta sklepu</a></li>
                         <li class="navbar__list-item"><a href="#">Kontakt</a></li>
                     </ul>
@@ -131,97 +118,27 @@
         </nav>
     </header>
 
+
     <main>
-        <section class="about-us section" id="about-us">
-            <h2 class="section__title">O NAS</h2>
-            <div class="about-us__container wrapper">
 
-                <div class="about-us__section-left">
-                    <h3 class="about-us__title">Ten Vape</h3>
-                    <p class="about-us__desc">W ofercie naszego sklepu znajdziecie elektroniczne papierosy, liquidy,
-                        jednorazówki, cbd, grzałki, bazy, premixy, longfille, kartridże i blablabla wszystkie inne
-                        akcesoria z tą branżą związane !</p>
-                    <div class="about-us__socials">
-                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    </div>
-                    <address class="about-us__address">
-                        <a target="_blank"
-                            href="https://www.google.com/maps/place/TEN+VAPE+-+VAPE+SHOP+LUBLIN/@51.2455857,22.5498704,17z/data=!3m1!4b1!4m6!3m5!1s0x472257c6514cc25f:0x3cf1e3663a22bae7!8m2!3d51.2455824!4d22.5520591!16s%2Fg%2F11s5vz063c"><i
-                                class="fa-solid fa-location-dot"></i> Ul. Marii Curie-Skłodowskiej 2,
-                            Lublin</a>
-                        <a href="mailto:tenvape@gmail.com"><i class="fa-solid fa-envelope"></i>
-                            tenvape@gmail.com
-                        </a>
-                        <a href="tel:+48797699658"><i class="fa-solid fa-phone"></i>
-                            +48 797 699 658
-                        </a>
-                    </address>
+        <article class="find-us section">
+            <h1 class="section__title">MAPA</h1>
+            <div class="wrapper">
 
-                </div>
-                <div class="about-us__section-right">
-                    <img class="about-us__logo" src="./src/img/logo-green.png" alt="">
-                </div>
 
-                <div class="about-us__strenghts">
-                    <div class="strength">
-                        <div class="strength__icon">
-                            <i class="fa-regular fa-clock"></i>
-                        </div>
-                        <h4 class="strength__title">Otwarte 7 dni w tygodniu</h4>
-                        <p class="strength__desc">Poniedziałek - Piątek <br> 08:00 - 20:00
-                        </p>
-                        <p class="strength__desc">Sobota - Niedziela
-                            <br> 10:00 - 20:00
-                        </p>
-                    </div>
-                    <div class="strength">
-                        <div class="strength__icon">
-                            <i class="fa-solid fa-basket-shopping"></i>
-                        </div>
-                        <h4 class="strength__title">Indywidualne Zamówienia</h4>
-                        <p class="strength__desc">Nie mamy tego czego potrzebujesz?<br> Bez obaw. Specjalnie dla
-                            Ciebie
-                            zrobimy
-                            zamówienie 🙂
-                        </p>
-                    </div>
-                    <div class="strength">
-                        <div class="strength__icon">
-                            <i class="fa-solid fa-credit-card"></i>
-                        </div>
-                        <h4 class="strength__title">Dogodne Płatności</h4>
-                        <p class="strength__desc">W naszym sklepie zapłacisz gotówką, kartą czy też Blikiem.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="brands">
-            <div class="section section--wavy wrapper">
-                <h2 class="section__title">NASI DOSTAWCY</h2>
-                <div class="brands__container">
-                    <img src="./src/img/brands/geek-vape.png" alt="" class="brands__item brands__item--white">
-                    <img src="./src/img/brands/smok-vape.png" alt="" class="brands__item brands__item--white">
-                    <img src="./src/img/brands/wotofo.webp" alt="" class="brands__item">
-                    <img src="./src/img/brands/voopoo-vape.png" alt="" class="brands__item brands__item--white">
-                    <img src="./src/img/brands/vandy_vape.png" alt="" class="brands__item brands__item--white">
-                    <img src="./src/img/brands/lost-vape.png" alt="" class="brands__item">
-                </div>
+                <iframe class="find-us__map"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9990.243353479938!2d22.5520591!3d51.2455824!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x472257c6514cc25f%3A0x3cf1e3663a22bae7!2sTEN%20VAPE%20-%20VAPE%20SHOP%20LUBLIN!5e0!3m2!1spl!2spl!4v1677160856537!5m2!1spl!2spl"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
 
-        </section>
-        <section class="faq section">
-            <h2 class="section__title">FAQ</h2>
-        </section>
-
+        </article>
 
     </main>
+
     <footer class="footer">
         <div class="wrapper">
             <div class="footer__main">
-                <img class="footer__logo" src="./src/img/ten vape logo svg.svg" alt="">
+                <img class="footer__logo" src="../src/img/ten vape logo svg.svg" alt="">
                 <div class="footer__socials">
                     <a href="#"><i class="fa-brands fa-facebook"></i></a>
                     <a href="#"><i class="fa-brands fa-instagram"></i></a>

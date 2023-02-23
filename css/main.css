@@ -192,6 +192,8 @@ main {
 
 .navbar {
   position: fixed;
+  top: 0;
+  left: 0;
   padding: 0.7em 0;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.8);
@@ -417,7 +419,9 @@ main {
   }
 }
 .footer {
-  padding: 4em 0;
+  padding: 4em 0 1em;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.4);
   color: rgba(255, 255, 255, 0.8);
@@ -485,6 +489,23 @@ main {
   width: 20px;
   text-align: center;
 }
+.footer__copy {
+  padding-top: 1em;
+  margin-top: 1em;
+  position: relative;
+  text-align: center;
+}
+.footer__copy::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%);
+  height: 1px;
+  width: 40%;
+  background-color: #1cca59;
+  opacity: 0.6;
+}
 
 .btn {
   border: 1px solid transparent;
@@ -509,7 +530,7 @@ main {
   background-color: rgba(0, 0, 0, 0.3);
   overflow: hidden;
 }
-.header .wrapper {
+.header > .wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -738,4 +759,10 @@ main {
 }
 .brands__item--white {
   filter: invert(1);
+}
+
+.find-us__map {
+  width: 800px;
+  height: 600px;
+  border-radius: 25px;
 }/*# sourceMappingURL=main.css.map */

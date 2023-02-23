@@ -2,7 +2,9 @@
 @use '../utilities/breakpoints' as b;
 
 .footer {
-	padding: 4em 0;
+	padding: 4em 0 1em;
+	display: flex;
+	flex-direction: column;
 	width: 100%;
 	background-color: rgba(0, 0, 0, 0.4);
 	color: rgba($color: c.$third, $alpha: 0.8);
@@ -81,6 +83,25 @@
 			opacity: 0.6;
 			width: 20px;
 			text-align: center;
+		}
+	}
+
+	&__copy {
+		padding-top: 1em;
+		margin-top: 1em;
+		position: relative;
+		text-align: center;
+
+		&::before {
+			content: '';
+			position: absolute;
+			left: 50%;
+			top: 0;
+			transform: translate(-50%);
+			height: 1px;
+			width: 40%;
+			background-color: c.$main;
+			opacity: 0.6;
 		}
 	}
 }

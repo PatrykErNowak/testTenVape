@@ -63,7 +63,7 @@
 	background-image: url('../src/img/bg-header-2.png');
 	background-position: center;
 	background-size: cover;
-	border-top: 10px solid black;
+	border-top: 5px solid c.$main;
 	&__container {
 		display: flex;
 		flex-direction: column;

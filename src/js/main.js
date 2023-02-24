@@ -1,6 +1,6 @@
 // Video
 const headerVideoEl = document.querySelector('.header__video-c video');
-headerVideoEl.playbackRate = 0.8;
+if (headerVideoEl) headerVideoEl.playbackRate = 0.8;
 
 // ---------------------------------
 // Navigation handling

@@ -1,7 +1,121 @@
+@use '../utilities/colors' as c;
+@use '../utilities/breakpoints' as b;
+
 .find-us {
+	&__container {
+		padding: 2em;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 2em;
+
+		@media (min-width: b.$medium) {
+			flex-direction: row;
+		}
+	}
+	&__title {
+		display: inline-block;
+		text-align: center;
+		position: relative;
+		font-size: clamp(2.7rem, 2rem + 1.5vw, 4rem);
+		text-transform: uppercase;
+		letter-spacing: 2px;
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			height: 30px;
+			width: 30px;
+		}
+
+		&::before {
+			left: -3%;
+			bottom: -12%;
+			border-left: 2px solid c.$main;
+			border-bottom: 2px solid c.$main;
+		}
+		&::after {
+			right: -3%;
+			top: -12%;
+			border-right: 2px solid c.$main;
+			border-top: 2px solid c.$main;
+		}
+	}
+	&__container-l {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 4em;
+
+		@media (min-width: b.$medium) {
+			align-items: flex-start;
+		}
+	}
+	&__address {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+
+		div {
+			display: flex;
+			margin-bottom: 2em;
+		}
+
+		i {
+			color: c.$main;
+		}
+		span {
+			display: inline-block;
+			text-align: left;
+			> i {
+				margin-right: 0.5em;
+				font-size: 3rem;
+				vertical-align: -5px;
+			}
+			a {
+				display: inline-block;
+				margin-top: 1em;
+				font-weight: 500;
+				text-transform: uppercase;
+				font-style: normal;
+				text-decoration: underline;
+				letter-spacing: 1px;
+				i {
+					margin-left: 0.5em;
+					font-size: 2rem;
+				}
+			}
+		}
+		> a {
+			display: inline-block;
+			margin-top: 1.5em;
+			text-transform: uppercase;
+
+			i {
+				margin-right: 0.2em;
+				font-size: 2.5rem;
+				vertical-align: middle;
+			}
+		}
+		a {
+			transition: color 0.3s, transform 0.3s;
+			&:hover {
+				color: c.$main;
+				transform: scale(1.1);
+			}
+		}
+	}
+
 	&__map {
-		width: 800px;
-		height: 600px;
+		width: min(100%, 800px);
+		height: min(100vw, 600px);
 		border-radius: 25px;
+		border: 1px solid transparent;
+		padding: 6px;
+		background: linear-gradient(45deg, rgba(28, 202, 89, 1) 0%, #161a1d 40%, #161a1d 60%, rgba(28, 202, 89, 1) 100%);
+		background-repeat: no-repeat;
 	}
 }

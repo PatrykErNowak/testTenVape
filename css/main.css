@@ -586,7 +586,7 @@ main {
   background-image: url("../src/img/bg-header-2.png");
   background-position: center;
   background-size: cover;
-  border-top: 10px solid black;
+  border-top: 5px solid #1cca59;
 }
 .about-us__container {
   display: flex;
@@ -761,8 +761,114 @@ main {
   filter: invert(1);
 }
 
+.find-us__container {
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2em;
+}
+@media (min-width: 48rem) {
+  .find-us__container {
+    flex-direction: row;
+  }
+}
+.find-us__title {
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  font-size: clamp(2.7rem, 2rem + 1.5vw, 4rem);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.find-us__title::before, .find-us__title::after {
+  content: "";
+  position: absolute;
+  height: 30px;
+  width: 30px;
+}
+.find-us__title::before {
+  left: -3%;
+  bottom: -12%;
+  border-left: 2px solid #1cca59;
+  border-bottom: 2px solid #1cca59;
+}
+.find-us__title::after {
+  right: -3%;
+  top: -12%;
+  border-right: 2px solid #1cca59;
+  border-top: 2px solid #1cca59;
+}
+.find-us__container-l {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4em;
+}
+@media (min-width: 48rem) {
+  .find-us__container-l {
+    align-items: flex-start;
+  }
+}
+.find-us__address {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.find-us__address div {
+  display: flex;
+  margin-bottom: 2em;
+}
+.find-us__address i {
+  color: #1cca59;
+}
+.find-us__address span {
+  display: inline-block;
+  text-align: left;
+}
+.find-us__address span > i {
+  margin-right: 0.5em;
+  font-size: 3rem;
+  vertical-align: -5px;
+}
+.find-us__address span a {
+  display: inline-block;
+  margin-top: 1em;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-style: normal;
+  text-decoration: underline;
+  letter-spacing: 1px;
+}
+.find-us__address span a i {
+  margin-left: 0.5em;
+  font-size: 2rem;
+}
+.find-us__address > a {
+  display: inline-block;
+  margin-top: 1.5em;
+  text-transform: uppercase;
+}
+.find-us__address > a i {
+  margin-right: 0.2em;
+  font-size: 2.5rem;
+  vertical-align: middle;
+}
+.find-us__address a {
+  transition: color 0.3s, transform 0.3s;
+}
+.find-us__address a:hover {
+  color: #1cca59;
+  transform: scale(1.1);
+}
 .find-us__map {
-  width: 800px;
-  height: 600px;
+  width: min(100%, 800px);
+  height: min(100vw, 600px);
   border-radius: 25px;
+  border: 1px solid transparent;
+  padding: 6px;
+  background: linear-gradient(45deg, rgb(28, 202, 89) 0%, #161a1d 40%, #161a1d 60%, rgb(28, 202, 89) 100%);
+  background-repeat: no-repeat;
 }/*# sourceMappingURL=main.css.map */

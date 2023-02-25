@@ -3,7 +3,7 @@
 
 .find-us {
 	&__container {
-		padding: 2em;
+		padding: 2em 0;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -117,5 +117,11 @@
 		padding: 6px;
 		background: linear-gradient(45deg, rgba(28, 202, 89, 1) 0%, #161a1d 40%, #161a1d 60%, rgba(28, 202, 89, 1) 100%);
 		background-repeat: no-repeat;
+		transition: 0.3s;
 	}
+}
+
+.hidden {
+	opacity: 0;
+	transform: scaleY(0);
 }

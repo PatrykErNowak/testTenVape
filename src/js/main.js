@@ -13,3 +13,13 @@ const mobileMenuHandle = function () {
 };
 
 hamburgerEl.addEventListener('click', mobileMenuHandle);
+
+// test lazy loading
+
+document.addEventListener('DOMContentLoaded', () => {
+	const googleMapEl = document.querySelector('.find-us__map');
+
+	googleMapEl.addEventListener('load', () => {
+		googleMapEl.classList.remove('hidden');
+	});
+});

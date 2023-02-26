@@ -1,6 +1,11 @@
 // Video
 const headerVideoEl = document.querySelector('.header__video-c video');
-if (headerVideoEl) headerVideoEl.playbackRate = 0.8;
+
+headerVideoEl.playbackRate = 0.8;
+
+// Change video quality depends of screen size
+const videoQuality = window.screen.height > 1080 ? '1080' : window.screen.height > 720 ? '720' : '';
+headerVideoEl.src = `./src/video/header-${videoQuality}p.mp4`;
 
 // ---------------------------------
 // Navigation handling
@@ -19,7 +24,7 @@ hamburgerEl.addEventListener('click', mobileMenuHandle);
 document.addEventListener('DOMContentLoaded', () => {
 	const googleMapEl = document.querySelector('.find-us__map');
 
-	googleMapEl.addEventListener('load', () => {
+	googleMapEl?.addEventListener('load', () => {
 		googleMapEl.classList.remove('hidden');
 	});
 });

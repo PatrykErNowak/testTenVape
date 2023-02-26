@@ -36,7 +36,7 @@
             <button class="header__btn btn btn--glass"><a href="#about-us">Dowiedz się więcej</a></button>
         </div>
         <div class="header__video-c">
-            <video autoplay loop play-inline muted src="./src/video/header-1080p.mp4" type="video/mp4"
+            <video autoplay loop play-inline muted src="./src/video/header-480p.mp4" type="video/mp4"
                 poster="./src/video/video-poster.jpg">
                 "Twoja przeglądarka nie obsługuje tagu video lub formatu tego pliku.
 
@@ -249,6 +249,35 @@
         <p class="footer__copy">© 2023 TEN VAPE. Wszelkie prawa zastrzeżone.</p>
     </footer>
 
+    <!-- Messenger Wtyczka czatu Code -->
+    <div id="fb-root"></div>
+    <!-- Your Wtyczka czatu code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+        var chatbox = document.getElementById('fb-customer-chat');
+        chatbox.setAttribute("page_id", "109763205136637");
+        chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
+    <!-- Your SDK code -->
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                xfbml: true,
+                version: 'v16.0'
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/pl_PL/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
 </body>
 
 </html>

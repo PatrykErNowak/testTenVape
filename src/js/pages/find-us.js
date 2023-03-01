@@ -1,11 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
-	const googleMapEl = document.querySelector('.find-us__map');
-
-	googleMapEl.addEventListener('load', () => {
-		googleMapEl.classList.remove('hidden');
-	});
-});
-
 // ! Canvas
 
 const canvas = document.getElementById('canvas1');

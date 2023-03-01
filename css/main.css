@@ -762,6 +762,108 @@ main {
   filter: invert(1);
 }
 
+.faq__items-c {
+  text-align: left;
+}
+.faq__item {
+  position: relative;
+  padding: 2em 0;
+  transition: color 0.4s;
+  cursor: pointer;
+}
+.faq__item--active {
+  color: #1cca59;
+}
+@media (min-width: 75rem) {
+  .faq__item:focus-within, .faq__item:hover {
+    color: #1cca59;
+  }
+}
+.faq__item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(28, 202, 89, 0.8);
+  box-shadow: 0 0 3px rgba(28, 202, 89, 0.9), 0 0 8px rgba(28, 202, 89, 0.9), 0 0 11px rgba(28, 202, 89, 0.9), 0 0 14px rgba(28, 202, 89, 0.9), 0 0 17px rgba(28, 202, 89, 0.9);
+}
+.faq__item:first-child::before {
+  display: none;
+}
+.faq__item-header {
+  display: flex;
+  justify-content: space-between;
+}
+.faq__item-question {
+  font-size: clamp(1.6rem, 1rem + 1.7vw, 2.1rem);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.faq__item-btn {
+  margin-left: 1em;
+  font-size: 3rem;
+  color: inherit;
+  background: none;
+  border: 1px solid transparent;
+  cursor: inherit;
+  vertical-align: middle;
+  transition: transform 0.4s;
+}
+.faq__item-btn:focus, .faq__item-btn:hover {
+  transform: scale(1.2);
+  outline: none;
+}
+.faq__item-answer {
+  padding: 0.5em 1em 0;
+  max-height: 0;
+  text-align: justify;
+  color: rgba(255, 255, 255, 0.8);
+  transition: max-height 0.5s ease-out;
+  overflow: hidden;
+}
+.faq__footer {
+  margin-top: 2em;
+}
+.faq__footer h3 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.faq__footer p {
+  margin: 1em 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+.faq__footer i {
+  margin-top: 0.2em;
+  font-size: 5rem;
+  transition: color 0.3s;
+  animation: shake 4s linear infinite;
+}
+.faq__footer i:hover {
+  color: #1876f2;
+}
+
+@keyframes shake {
+  0%, 42% {
+    transform: rotate(0deg) scale(1);
+  }
+  45% {
+    transform: rotate(-20deg) scale(1.1);
+  }
+  48% {
+    transform: rotate(20deg) scale(1.1);
+  }
+  51% {
+    transform: rotate(-20deg) scale(1.1);
+  }
+  54% {
+    transform: rotate(20deg) scale(1.1);
+  }
+  57%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
 .find-us__container {
   padding: 2em 0;
   display: flex;
@@ -874,16 +976,7 @@ main {
   padding: 6px;
   background: linear-gradient(45deg, rgb(28, 202, 89) 0%, #161a1d 40%, #161a1d 60%, rgb(28, 202, 89) 100%);
   background-repeat: no-repeat;
-  transition: 0.3s;
-}
-
-.hidden {
-  opacity: 0;
-  transform: scaleY(0);
-}
-
-.slide {
-  transform: translateX(-300%);
+  animation: show-map 1s forwards ease-out;
 }
 
 @keyframes slide-left {
@@ -894,6 +987,16 @@ main {
   to {
     transform: translateX(0);
     opacity: 1;
+  }
+}
+@keyframes show-map {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 #canvas1 {

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TEN VAPE LUBLIN - VAPE SHOP</title>
-    <link rel="shortcut icon" type="image/x-icon" href="./src/img/ten vape logo svg.svg" />
+    <link rel="shortcut icon" type="image/x-icon" href="../src/img/ten vape logo svg.svg" />
     <meta name="description"
         content="Vape shop Lublin sklep z elektronicznymi papierosami, Czynny 7 DNI ul. Marii Curie-Skłodowskiej 2.">
     <meta name="keywords"
@@ -17,32 +17,17 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Dancing+Script:wght@700&family=Pacifico&family=Roboto:wght@400;500;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="./css/main.css">
-    <script defer src="./src/js/main.js"></script>
-    <script defer src="./src/js/pages/home.js"></script>
+    <link rel="stylesheet" href="../css/main.css">
+    <script defer src="../src/js/main.js"></script>
+    <script defer src="../src/js/pages/offer.js"></script>
     <script src="https://kit.fontawesome.com/1fb0f1f080.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
 
-
     <header class="header">
-        <div class="wrapper">
-            <img class="header__logo" src="./src/img/5.png" alt="">
-            <h1 class="header__heading"><span class="for-reader">Ten Vape</span> Elektroniczne Papierosy</h1>
-            <p class="header__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero ad architecto
-                alias
-                excepturi adipisci vel officiis facilis corrupti placeat sint.</p>
-            <button class="header__btn btn btn--glass"><a href="#about-us">Dowiedz się więcej</a></button>
-        </div>
-        <div class="header__video-c">
-            <video autoplay loop play-inline muted src="./src/video/header-480p.mp4" type="video/mp4"
-                poster="./src/video/video-poster.jpg">
-                "Twoja przeglądarka nie obsługuje tagu video lub formatu tego pliku.
 
-            </video>
-        </div>
         <nav class="navbar">
             <div class="wrapper">
 
@@ -113,9 +98,9 @@
                 <div class="navbar__menu">
 
                     <ul class="navbar__list">
-                        <li class="navbar__list-item"><a href="#">Ten Vape</a></li>
-                        <li class="navbar__list-item"><a href="./oferta">Oferta sklepu</a></li>
-                        <li class="navbar__list-item"><a href="./adres">Jak nas znaleźć?</a></li>
+                        <li class="navbar__list-item"><a href="../">Ten Vape</a></li>
+                        <li class="navbar__list-item"><a href="#">Oferta sklepu</a></li>
+                        <li class="navbar__list-item"><a href="../adres">Jak nas znaleźć?</a></li>
                     </ul>
 
                     <ul class="navbar__socials">
@@ -135,182 +120,78 @@
         </nav>
     </header>
 
+
     <main>
-        <section class="about-us section" id="about-us">
-            <h2 class="section__title">O NAS</h2>
-            <div class="about-us__container wrapper">
-
-                <div class="about-us__section-left">
-                    <h3 class="about-us__title">Ten Vape</h3>
-                    <p class="about-us__desc">W ofercie naszego sklepu znajdziecie elektroniczne papierosy, liquidy,
-                        jednorazówki, cbd, grzałki, bazy, premixy, longfille, kartridże i blablabla wszystkie inne
-                        akcesoria z tą branżą związane !</p>
-                    <div class="about-us__socials">
-                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    </div>
-                    <address class="about-us__address">
-                        <a target="_blank"
-                            href="https://www.google.com/maps/place/TEN+VAPE+-+VAPE+SHOP+LUBLIN/@51.2455857,22.5498704,17z/data=!3m1!4b1!4m6!3m5!1s0x472257c6514cc25f:0x3cf1e3663a22bae7!8m2!3d51.2455824!4d22.5520591!16s%2Fg%2F11s5vz063c"><i
-                                class="fa-solid fa-location-dot"></i> Ul. Marii Curie-Skłodowskiej 2,
-                            Lublin</a>
-                        <a href="mailto:tenvape@gmail.com"><i class="fa-solid fa-envelope"></i>
-                            tenvape@gmail.com
-                        </a>
-                        <a href="tel:+48797699658"><i class="fa-solid fa-phone"></i>
-                            +48 797 699 658
-                        </a>
-                    </address>
-
+        <section class="categories section wrapper">
+            <div class="category">
+                <div class="category__text-c">
+                    <h3 class="category__title">Elektroniczne Papierosy</h3>
+                    <p class="category__desc">E-papieros to inaczej elektroniczny system dostarczający nikotynę. Są to
+                        urządzenia elektroniczne, które
+                        podgrzewają specjalną ciecz i wytwarzają aerozol lub mieszankę małych cząstek w powietrzu.
+                        E-papierosy
+                        mają wiele kształtów i rozmiarów. Większość ma baterię, element grzewczy i miejsce na tzw.
+                        e-liquid.
+                        Korzystanie z e-papierosa jest czasem nazywane „wapowaniem” lub „JUULINGIEM”.</p>
                 </div>
-                <div class="about-us__section-right">
-                    <img class="about-us__logo" src="./src/img/logo-green.png" alt="">
+                <div class="category__img">
+                    <img src="../src/img/offer/category/category-1--mobile.jpg" alt="">
                 </div>
-
-                <div class="about-us__strenghts">
-                    <div class="strength">
-                        <div class="strength__icon">
-                            <i class="fa-regular fa-clock"></i>
-                        </div>
-                        <h4 class="strength__title">Otwarte 7 dni w tygodniu</h4>
-                        <p class="strength__desc">Poniedziałek - Piątek <br> 08:00 - 20:00
-                        </p>
-                        <p class="strength__desc">Sobota - Niedziela
-                            <br> 10:00 - 20:00
-                        </p>
-                    </div>
-                    <div class="strength">
-                        <div class="strength__icon">
-                            <i class="fa-solid fa-basket-shopping"></i>
-                        </div>
-                        <h4 class="strength__title">Indywidualne Zamówienia</h4>
-                        <p class="strength__desc">Nie mamy tego czego potrzebujesz?<br> Bez obaw. Specjalnie dla
-                            Ciebie
-                            zrobimy
-                            zamówienie 🙂
-                        </p>
-                    </div>
-                    <div class="strength">
-                        <div class="strength__icon">
-                            <i class="fa-solid fa-credit-card"></i>
-                        </div>
-                        <h4 class="strength__title">Dogodne Płatności</h4>
-                        <p class="strength__desc">W naszym sklepie zapłacisz gotówką, kartą czy też Blikiem.
-                        </p>
-                    </div>
+            </div>
+            <div class="category">
+                <div class="category__text-c">
+                    <h3 class="category__title">Jednorazowe E-Papierosy</h3>
+                    <p class="category__desc">Jednorazowe e-papierosy nadają się do jednorazowego użycia. Gdy bateria
+                        się w nim rozładuje albo liquid skończy, wtedy najzwyczajniej wyrzuca się je do kosza. Ich
+                        działanie nie różni się od tradycyjnych e-papierosów. Działają one na zasadzie inhalacji
+                        podgrzanego liquida, czyli specjalnego płynu z nikotyną lub bez dostępnego w wielu rodzajach.
+                        Płyn ten zmienia się w parę wodną pozbawioną substancji smolistych. Jednorazowe e-papierosy
+                        dostępne są w wielu wariantach, tak aby każdy mógł znaleźć coś odpowiedniego dla siebie. W
+                        ofercie sklepu <span class="green">Ten Vape</span> znajdziemy wysokiej jakości jednorazowe
+                        e-papierosy.</p>
+                </div>
+                <div class="category__img">
+                    <img src="../src/img/offer/category/category-2--mobile.jpg" alt="">
+                </div>
+            </div>
+            <div class="category">
+                <div class="category__text-c">
+                    <h3 class="category__title">Liquidy CBD</h3>
+                    <p class="category__desc">Liquid CBD, czyli płyn do elektronicznych papierosów z kannabidiolem, to
+                        środek stosowany do wapowania za pomocą e-papierosów lub urządzeń do waporyzacji CBD. Różnica
+                        między wapowaniem a paleniem polega na tym, że przy pierwszym sposobie substancje nie są
+                        spalane, a jedynie podgrzewane. Używanie e-papierosów wprawdzie nie jest aż tak bezpieczne, jak
+                        wdychanie pary powstającej podczas odparowywania suszu za pomocą waporyzatora CBD, za to wciąż
+                        dużo mniej szkodliwe od tradycyjnego spalania.</p>
+                </div>
+                <div class="category__img">
+                    <img src="../src/img/offer/category/category-3--mobile.jpg" alt="">
+                </div>
+            </div>
+            <div class="category">
+                <div class="category__text-c">
+                    <h3 class="category__title">Akcesoria</h3>
+                    <p class="category__desc">Ważną częścią asortymentu naszego sklepu i nieodłączną częścią życia,
+                        niektórych vaperów są akcesoria, a wśród nich:
+                        🔸prebuildy 🔸siatki mesh 🔸wata 🔸akumulatory 🔸ładowarki 🔸butelki 🔸otwieracze do butelek
+                        🔸druty 🔸etui 🔸vape bandy 🔸ustniki 🔸szkiełka 🔸koszulki na akumulatory 🔸narzędzia 🔸
+                        kartridże 🔸grzałki</p>
+                </div>
+                <div class="category__img">
+                    <img src="../src/img/offer/category/category-4--mobile.png" alt="">
                 </div>
             </div>
         </section>
-
-        <section class="brands">
-            <div class="section section--wavy wrapper">
-                <h2 class="section__title">NASI DOSTAWCY</h2>
-                <div class="brands__container">
-                    <img src="./src/img/brands/geek-vape.png" alt="" class="brands__item brands__item--white">
-                    <img src="./src/img/brands/smok-vape.png" alt="" class="brands__item brands__item--white">
-                    <img src="./src/img/brands/wotofo.webp" alt="" class="brands__item">
-                    <img src="./src/img/brands/voopoo-vape.png" alt="" class="brands__item brands__item--white">
-                    <img src="./src/img/brands/vandy_vape.png" alt="" class="brands__item brands__item--white">
-                    <img src="./src/img/brands/lost-vape.png" alt="" class="brands__item">
-                </div>
-            </div>
-
+        <section class="products section wrapper">
+            <h2 class="section__title">Przykładowe produkty</h2>
+            <p>in progress</p>
         </section>
-        <section class="faq section wrapper" id="faq">
-            <header>
-                <h2 class="section__title">FAQ</h2>
-            </header>
-            <div class="faq__items-c">
-
-                <div class="faq__item">
-                    <div class="faq__item-header">
-                        <p class="faq__item-question">Czy e-papieros jest gorszy od tradycyjnego papierosa?
-                        </p>
-                        <button class="faq__item-btn"><i class="fa-solid fa-circle-plus"></i></button>
-                    </div>
-                    <div class="faq__item-answer">
-                        <p>Wyniki badań przeprowadzonych przez Public Health England, czyli odpowiednik polskiego
-                            Ministerstwa Zdrowia, dowodzą, że używanie e-papierosów jest o 95% mniej szkodliwe niż
-                            palenie zwykłych papierosów.
-                        </p>
-                    </div>
-                </div>
-                <div class="faq__item">
-                    <div class="faq__item-header">
-                        <p class="faq__item-question">W tym roku kończę 18 lat, czy mogę kupić liquid do e-papierosa?
-                        </p>
-                        <button class="faq__item-btn"><i class="fa-solid fa-circle-plus"></i></button>
-                    </div>
-                    <div class="faq__item-answer">
-                        <p>Nie. Tylko osoba pełnoletnia, czyli taka, która ma ukończone 18 lat może dokonać zakupu.
-                        </p>
-                    </div>
-                </div>
-                <div class="faq__item">
-                    <div class="faq__item-header">
-                        <p class="faq__item-question">Czy można dolewać coś do liquidów?</p>
-                        <button class="faq__item-btn"><i class="fa-solid fa-circle-plus"></i></button>
-                    </div>
-                    <div class="faq__item-answer">
-                        <p>Liquid do e-papierosów jest produktem specjalnego przeznaczenia, który
-                            przechodzi szereg testów przed dopuszczeniem go do sprzedaży. Standardowy liquid składa się
-                            z
-                            glikolu propylenowgo, gliceryny roślinnej, aromatów spożywczych oraz opcjonalnie nikotyny o
-                            odpowiednim stężeniu. Producenci zdecydowanie odradzają dodawanie innych substancji do
-                            gotowego
-                            produktu ze względu na możliwość zmiany składu chemicznego co w konsekwencji może stanowić
-                            zagrożenie dla zdrowia człowieka. Wyjątkiem są substancje dopuszczone do sprzedaży
-                            detalicznej
-                            takie jak: aromaty spożywcze lub sama baza nikotynowa.
-                        </p>
-                    </div>
-                </div>
-                <div class="faq__item">
-                    <div class="faq__item-header">
-                        <p class="faq__item-question">Dlaczego e-papieros wybucha?</p>
-                        <button class="faq__item-btn"><i class="fa-solid fa-circle-plus"></i></button>
-                    </div>
-                    <div class="faq__item-answer">
-                        <p>E-papierosy jak większość urządzeń elektronicznych w tym telefony i laptopy, posiadają
-                            wbudowane lub wymienne ogniwa Litowo-Jonowe. Podczas niewłaściwego użytkowania mogą one ulec
-                            samozapłonowi. Dlatego tak ważne jest, aby kupować urządzenia z legalnego i sprawdzonego
-                            miejsca. W każdym sklepie sprzedawca dokładnie wyjaśni nam jak prawidłowo ładować
-                            urządzenie, czego unikać oraz jak dbać o samo urządzenie np. kupując specjalne „koszulki
-                            naprawcze”, które znacznie minimalizują ryzyko samozapłonu wymiennych ogniw litowo-jonowych.
-                        </p>
-                    </div>
-                </div>
-                <div class="faq__item">
-                    <div class="faq__item-header">
-                        <p class="faq__item-question">Czy e-papierosy (liquidy do e-papierosów) zawierają tytoń?</p>
-                        <button class="faq__item-btn"><i class="fa-solid fa-circle-plus"></i></button>
-                    </div>
-                    <div class="faq__item-answer">
-                        <p>Liquidy do e-papierosów nie zawierają tytoniu. Niektóre firmy jednak próbują bazować na
-                            reputacji e-papierosów i reklamują swoje alternatywne produkty (inne niż papierosy
-                            tradycyjne) pod nazwą e-papieros, a w rzeczywistości stosują wkłady z prasowanym odpowiednio
-                            tytoniem, co nie ma nic absolutnie wspólnego z e-papierosem i wprowadza konsumenta w błąd.
-
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-            <footer class="faq__footer">
-                <h3>Masz więcej pytań?</h3>
-                <p>Nie znalazłeś odpowiedzi na pytanie? Napisz do nas!</p>
-                <button class="faq__footer-btn">
-                    <i class="fa-brands fa-facebook-messenger"></i>
-                </button>
-            </footer>
-        </section>
-
-
     </main>
+
     <footer class="footer">
         <div class="wrapper">
             <div class="footer__main">
-                <img class="footer__logo" src="./src/img/ten vape logo svg.svg" alt="">
+                <img class="footer__logo" src="../src/img/ten vape logo svg.svg" alt="">
                 <div class="footer__socials">
                     <a href="#"><i class="fa-brands fa-facebook"></i></a>
                     <a href="#"><i class="fa-brands fa-instagram"></i></a>

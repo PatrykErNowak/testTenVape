@@ -26,6 +26,10 @@ h2 {
   font-size: clamp(2.7rem, 2rem + 1.5vw, 5rem);
 }
 
+h3 {
+  font-size: clamp(2rem, 1rem + 1.5vw, 2.5rem);
+}
+
 h4 {
   font-size: clamp(1.6rem, 1rem + 1.5vw, 1.8rem);
 }
@@ -834,13 +838,17 @@ main {
   margin: 1em 0;
   color: rgba(255, 255, 255, 0.8);
 }
-.faq__footer i {
+.faq__footer-btn {
   margin-top: 0.2em;
   font-size: 5rem;
+  color: inherit;
+  background: none;
+  border: 1px solid transparent;
   transition: color 0.3s;
+  cursor: pointer;
   animation: shake 4s linear infinite;
 }
-.faq__footer i:hover {
+.faq__footer-btn:hover {
   color: #1876f2;
 }
 
@@ -862,6 +870,63 @@ main {
   }
   57%, 100% {
     transform: rotate(0deg) scale(1);
+  }
+}
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+@media (min-width: 48rem) {
+  .category {
+    flex-direction: row;
+    gap: 5em;
+  }
+}
+@media (min-width: 48rem) {
+  .category__text-c {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 60%;
+  }
+}
+.category__title {
+  margin-bottom: 1em;
+  color: #1cca59;
+  letter-spacing: 1px;
+}
+.category__desc {
+  text-align: justify;
+}
+.category__desc .green {
+  color: #1cca59;
+}
+.category__img {
+  width: 100%;
+  will-change: transform;
+}
+.category__img img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  border-radius: 25px;
+  transition: box-shadow 0.4s;
+}
+.category__img img:hover {
+  box-shadow: 4px 21px 44px rgba(0, 0, 0, 0.75);
+}
+
+@media (min-width: 48rem) {
+  .category:nth-child(even) .category__text-c {
+    order: 1;
   }
 }
 .find-us__container {

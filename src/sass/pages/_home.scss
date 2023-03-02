@@ -307,6 +307,7 @@
 		cursor: inherit;
 		vertical-align: middle;
 		transition: transform 0.4s;
+
 		&:focus,
 		&:hover {
 			transform: scale(1.2);
@@ -335,10 +336,14 @@
 			margin: 1em 0;
 			color: rgba($color: c.$third, $alpha: 0.8);
 		}
-		i {
+		&-btn {
 			margin-top: 0.2em;
 			font-size: 5rem;
+			color: inherit;
+			background: none;
+			border: 1px solid transparent;
 			transition: color 0.3s;
+			cursor: pointer;
 			animation: shake 4s linear infinite;
 			&:hover {
 				color: #1876f2;

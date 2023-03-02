@@ -1,0 +1,64 @@
+@use '../utilities/colors' as c;
+@use '../utilities/breakpoints' as b;
+
+.categories {
+	display: flex;
+	flex-direction: column;
+	gap: 3em;
+}
+
+.category {
+	display: flex;
+	flex-direction: column;
+	gap: 2em;
+
+	@media (min-width: b.$medium) {
+		flex-direction: row;
+		gap: 5em;
+	}
+	&__text-c {
+		@media (min-width: b.$medium) {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-start;
+			max-width: 60%;
+		}
+	}
+
+	&__title {
+		margin-bottom: 1em;
+		color: c.$main;
+		letter-spacing: 1px;
+	}
+	&__desc {
+		text-align: justify;
+		.green {
+			color: c.$main;
+		}
+	}
+
+	&__img {
+		width: 100%;
+		will-change: transform;
+		img {
+			display: block;
+			height: 100%;
+			width: 100%;
+			border-radius: 25px;
+			transition: box-shadow 0.4s;
+
+			&:hover {
+				box-shadow: 4px 21px 44px rgba(0, 0, 0, 75%);
+			}
+		}
+	}
+}
+
+@media (min-width: b.$medium) {
+	.category:nth-child(even) {
+		.category__text-c {
+			order: 1;
+		}
+	}
+}

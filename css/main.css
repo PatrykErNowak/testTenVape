@@ -880,7 +880,7 @@ main {
   .categories {
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     grid-auto-rows: 1fr;
-    gap: 3em;
+    gap: 2em;
   }
 }
 
@@ -949,6 +949,8 @@ main {
   text-align: left;
   letter-spacing: 1px;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
   background-color: #1cca59;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
   transition: 0.5s;

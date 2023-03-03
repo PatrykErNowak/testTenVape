@@ -68,18 +68,14 @@
 	@media (min-width: b.$medium) {
 		grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
 		grid-auto-rows: 1fr;
-		gap: 3em;
+		gap: 2em;
 	}
 }
 
 .category {
 	position: relative;
-	// height: 600px;
-
 	background-position: center;
 	background-size: cover;
-	// border: 3px solid c.$main;
-	// border-radius: 25px;
 	box-shadow: inset 0 0 15px rgba(0, 0, 0, 1);
 	overflow: hidden;
 	transition: 0.4s;
@@ -139,14 +135,13 @@
 		position: absolute;
 		bottom: 1em;
 		left: 0;
-		// right: 0;
 		color: c.$third;
 		text-align: left;
 		letter-spacing: 1px;
 		text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-		// border-radius: 25px;
+		border-top-right-radius: 25px;
+		border-bottom-right-radius: 25px;
 		background-color: c.$main;
-		// background-color: rgba($color: c.$second, $alpha: 0.6);
 		box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 		transition: 0.5s;
 	}

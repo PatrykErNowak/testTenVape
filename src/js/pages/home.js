@@ -60,4 +60,4 @@ faqItems.addEventListener('click', (e) => {
 // Invoking messenger chat by clicking btn under the section
 const faqBtn = document.querySelector('.faq__footer-btn');
 
-faqBtn.addEventListener('click', () => chatbox.click());
+faqBtn.addEventListener('click', () => FB.CustomerChat.showDialog());

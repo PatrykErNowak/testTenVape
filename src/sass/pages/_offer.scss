@@ -1,64 +1,186 @@
 @use '../utilities/colors' as c;
 @use '../utilities/breakpoints' as b;
 
+// .categories {
+// 	display: flex;
+// 	flex-direction: column;
+// 	gap: 3em;
+// }
+
+// .category {
+// 	display: flex;
+// 	flex-direction: column;
+// 	gap: 2em;
+
+// 	@media (min-width: b.$medium) {
+// 		flex-direction: row;
+// 		gap: 5em;
+// 	}
+// 	&__text-c {
+// 		@media (min-width: b.$medium) {
+// 			display: flex;
+// 			flex-direction: column;
+// 			justify-content: center;
+// 			align-items: flex-start;
+// 			max-width: 60%;
+// 		}
+// 	}
+
+// 	&__title {
+// 		margin-bottom: 1em;
+// 		color: c.$main;
+// 		letter-spacing: 1px;
+// 	}
+// 	&__desc {
+// 		text-align: justify;
+// 		.green {
+// 			color: c.$main;
+// 		}
+// 	}
+
+// 	&__img {
+// 		width: 100%;
+// 		will-change: transform;
+// 		img {
+// 			display: block;
+// 			height: 100%;
+// 			width: 100%;
+// 			border-radius: 25px;
+// 			transition: box-shadow 0.4s;
+
+// 			&:hover {
+// 				box-shadow: 4px 21px 44px rgba(0, 0, 0, 75%);
+// 			}
+// 		}
+// 	}
+// }
+
+// @media (min-width: b.$medium) {
+// 	.category:nth-child(even) {
+// 		.category__text-c {
+// 			order: 1;
+// 		}
+// 	}
+// }
 .categories {
-	display: flex;
-	flex-direction: column;
-	gap: 3em;
+	display: grid;
+	gap: 1em;
+	@media (min-width: b.$medium) {
+		grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+		grid-auto-rows: 1fr;
+		gap: 3em;
+	}
 }
 
 .category {
-	display: flex;
-	flex-direction: column;
-	gap: 2em;
+	position: relative;
+	// height: 600px;
 
-	@media (min-width: b.$medium) {
-		flex-direction: row;
-		gap: 5em;
+	background-position: center;
+	background-size: cover;
+	// border: 3px solid c.$main;
+	// border-radius: 25px;
+	box-shadow: inset 0 0 15px rgba(0, 0, 0, 1);
+	overflow: hidden;
+	transition: 0.4s;
+
+	&--1 {
+		background-image: url('../src/img/offer/category/category-1--mobile.jpg');
 	}
-	&__text-c {
-		@media (min-width: b.$medium) {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: flex-start;
-			max-width: 60%;
+	&--2 {
+		background-image: url('../src/img/offer/category/category-2--mobile.jpg');
+	}
+	&--3 {
+		background-image: url('../src/img/offer/category/category-3--mobile.jpg');
+	}
+	&--4 {
+		background-image: url('../src/img/offer/category/category-4--mobile.png');
+	}
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: rgba(0, 0, 0, 0.8);
+		box-shadow: inset 0 0 20px rgba(0, 0, 0, 1);
+		transition: 0.4s;
+		opacity: 0;
+		z-index: -1;
+	}
+
+	&:hover {
+		z-index: 100;
+		box-shadow: 0 0 15px rgba($color: c.$main, $alpha: 0.8);
+		&::before {
+			opacity: 1;
+		}
+		.category__title {
+			box-shadow: 5px 5px 25px rgba($color: c.$main, $alpha: 0.8);
+		}
+		.category__desc {
+			opacity: 1;
+			transform: translateX(0);
+		}
+		.category__btn {
+			transform: translate(-50%, -100%);
 		}
 	}
 
+	&__svg {
+		position: absolute;
+		bottom: -15%;
+		left: 0;
+		right: 0;
+	}
 	&__title {
-		margin-bottom: 1em;
-		color: c.$main;
+		padding: 0.5em 1em;
+		position: absolute;
+		bottom: 1em;
+		left: 0;
+		// right: 0;
+		color: c.$third;
+		text-align: left;
 		letter-spacing: 1px;
+		text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+		// border-radius: 25px;
+		background-color: c.$main;
+		// background-color: rgba($color: c.$second, $alpha: 0.6);
+		box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+		transition: 0.5s;
 	}
+
 	&__desc {
+		padding: 2em 2em 5.5em;
+		opacity: 0;
+		z-index: 100;
 		text-align: justify;
-		.green {
-			color: c.$main;
-		}
+		transition: 0.5s;
+		transform: translateY(-20em);
 	}
-
-	&__img {
-		width: 100%;
-		will-change: transform;
-		img {
-			display: block;
-			height: 100%;
-			width: 100%;
-			border-radius: 25px;
-			transition: box-shadow 0.4s;
-
-			&:hover {
-				box-shadow: 4px 21px 44px rgba(0, 0, 0, 75%);
-			}
-		}
+	&__btn {
+		padding: 0.2em 1.4em 0.3em;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translate(-50%);
+		font-size: 2rem;
+		color: c.$third;
+		background: rgba(0, 0, 0, 0.7);
+		border: 1px solid transparent;
+		border-bottom-left-radius: 50%;
+		border-bottom-right-radius: 50%;
+		transition: 0.5s;
+		animation: arrow-down 1.5s infinite ease-out alternate;
 	}
 }
 
-@media (min-width: b.$medium) {
-	.category:nth-child(even) {
-		.category__text-c {
-			order: 1;
-		}
+@keyframes arrow-down {
+	from {
+		color: c.$third;
+	}
+	to {
+		color: c.$main;
 	}
 }

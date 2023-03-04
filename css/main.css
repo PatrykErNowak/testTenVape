@@ -40,7 +40,7 @@ a {
 }
 
 p {
-  font-size: clamp(1.4rem, 1rem + 1.5vw, 1.8rem);
+  font-size: clamp(1.4rem, 1rem + 1.2vw, 1.8rem);
   line-height: clamp(3rem, 1rem + 1.5vw, 3.2rem);
 }
 
@@ -886,11 +886,20 @@ main {
 
 .category {
   position: relative;
+  max-height: 150px;
   background-position: center;
   background-size: cover;
   box-shadow: inset 0 0 15px rgb(0, 0, 0);
   overflow: hidden;
-  transition: 0.4s;
+  transition: 0.5s;
+  cursor: pointer;
+}
+@media (min-width: 48rem) {
+  .category {
+    max-height: -moz-fit-content;
+    max-height: fit-content;
+    cursor: auto;
+  }
 }
 .category--1 {
   background-image: url("../src/img/offer/category/category-1--mobile.jpg");
@@ -913,25 +922,61 @@ main {
   right: 0;
   background-color: rgba(0, 0, 0, 0.8);
   box-shadow: inset 0 0 20px rgb(0, 0, 0);
-  transition: 0.4s;
+  transition: 0.5s;
   opacity: 0;
   z-index: -1;
 }
-.category:hover {
+.category:focus-within {
   z-index: 100;
   box-shadow: 0 0 15px rgba(28, 202, 89, 0.8);
 }
-.category:hover::before {
+.category:focus-within::before {
   opacity: 1;
 }
-.category:hover .category__title {
+.category:focus-within .category__title {
   box-shadow: 5px 5px 25px rgba(28, 202, 89, 0.8);
 }
-.category:hover .category__desc {
+.category:focus-within .category__desc {
   opacity: 1;
   transform: translateX(0);
 }
-.category:hover .category__btn {
+.category:focus-within .category__btn {
+  transform: translate(-50%, -100%);
+}
+@media (min-width: 48rem) {
+  .category:hover {
+    z-index: 100;
+    box-shadow: 0 0 15px rgba(28, 202, 89, 0.8);
+  }
+  .category:hover::before {
+    opacity: 1;
+  }
+  .category:hover .category__title {
+    box-shadow: 5px 5px 25px rgba(28, 202, 89, 0.8);
+  }
+  .category:hover .category__desc {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .category:hover .category__btn {
+    transform: translate(-50%, -100%);
+  }
+}
+.category--active {
+  z-index: 100;
+  box-shadow: 0 0 15px rgba(28, 202, 89, 0.8);
+}
+.category--active::before {
+  opacity: 1;
+}
+.category--active .category__title {
+  box-shadow: 5px 5px 25px rgba(28, 202, 89, 0.8);
+}
+.category--active .category__desc {
+  opacity: 1;
+  transform: translateX(0);
+}
+.category--active .category__btn {
   transform: translate(-50%, -100%);
 }
 .category__svg {
@@ -957,11 +1002,12 @@ main {
 }
 .category__desc {
   padding: 2em 2em 5.5em;
+  transform: translateY(-20em);
+  font-size: clamp(1.4rem, 1rem + 1.2vw, 1.6rem);
+  text-align: justify;
   opacity: 0;
   z-index: 100;
-  text-align: justify;
   transition: 0.5s;
-  transform: translateY(-20em);
 }
 .category__btn {
   padding: 0.2em 1.4em 0.3em;

@@ -163,3 +163,51 @@
 		color: c.$main;
 	}
 }
+.products {
+	&__container {
+		display: grid;
+		gap: 1em;
+		@media (min-width: b.$medium) {
+			grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+			grid-auto-rows: 1fr;
+			gap: 2em;
+		}
+	}
+}
+.product {
+	display: flex;
+	flex-direction: column-reverse;
+	border: 2px solid c.$second;
+	overflow: hidden;
+	box-shadow: 2px 2px 15px rgba($color: c.$main, $alpha: 0.4);
+	background-color: c.$third;
+
+	&__title {
+		padding: 1em;
+		color: c.$second;
+	}
+	&__body {
+		position: relative;
+	}
+	&__front {
+		> img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__back {
+		// display: none;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		background-color: rgba($color: c.$main, $alpha: 1);
+		z-index: 500;
+	}
+}

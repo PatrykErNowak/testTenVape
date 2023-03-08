@@ -163,28 +163,29 @@
 		color: c.$main;
 	}
 }
+
+// Section products
+
 .products {
-	&__container {
+	&__list {
 		padding: 0 1em;
 		display: grid;
+		grid-auto-rows: 1fr;
 		gap: 2em;
 		@media (min-width: b.$medium) {
 			padding: 0;
 			grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
-			grid-auto-rows: 1fr;
-			gap: 2em;
 		}
 	}
 }
+
+// Prduct card component
 .product {
 	position: relative;
 	display: flex;
 	flex-direction: column-reverse;
-	border: 2px solid c.$second;
-	box-shadow: 2px 2px 15px rgba($color: c.$main, $alpha: 0.4);
 	background-color: c.$second;
-
-	transition: 0.4s;
+	box-shadow: 2px 2px 15px rgba($color: c.$main, $alpha: 0.4);
 
 	&::before {
 		content: '';
@@ -207,74 +208,78 @@
 		inset: -1px;
 		filter: blur(8px);
 		animation: rgb 6s infinite linear;
-		z-index: -100;
+		transition: opacity 0.4s;
 		opacity: 0;
-		transition: 0.4s;
+	}
+	&__title,
+	&__body {
+		position: relative;
+	}
+
+	&__body,
+	&__front,
+	&__back {
+		height: 100%;
+		width: 100%;
+	}
+
+	&__back,
+	&__info-list {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5em;
 	}
 
 	&__title {
-		position: relative;
 		padding: 0.8em;
 		font-family: 'Cinzel', serif;
 		color: c.$main;
 		font-weight: 500;
 		text-shadow: 2px 2px 15px rgba($color: c.$third, $alpha: 0.3);
 		background-color: c.$second;
+		transition: color 0.4s;
+
+		&::before {
+			content: '';
+			position: absolute;
+			left: 50%;
+			top: 3px;
+			transform: translateX(-50%) scaleX(0);
+			height: 3px;
+			width: 75%;
+			background-color: c.$main;
+			border-radius: 15px;
+			transition: transform 0.4s ease;
+		}
 	}
 	&__body {
-		position: relative;
-		height: 100%;
-		width: 100%;
+		overflow: hidden;
 	}
+
+	// Front side of card
 	&__front {
 		position: absolute;
-		width: 100%;
-		height: 100%;
-		display: block;
-		overflow: hidden;
-		img {
+		> img {
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
 		}
 	}
 
+	// Back side of card
 	&__back {
-		pointer-events: none; // !
-
 		padding: 2em 1em;
-		display: flex;
-		flex-direction: column;
 		justify-content: space-between;
 		align-items: center;
-		gap: 2em;
+		transform: translateY(100%);
 		background-color: rgba($color: c.$second, $alpha: 1);
-		opacity: 0;
-		overflow: hidden;
-
-		transition: 0.4s;
-		height: 100%;
-		&::before {
-			content: '';
-			position: absolute;
-			left: 50%;
-			bottom: 3px;
-			transform: translateX(-50%) scaleX(0);
-			height: 3px;
-			width: 75%;
-			background-color: c.$main;
-			border-radius: 15px;
-			transition: 0.6s;
-		}
+		pointer-events: none;
+		transition: transform 0.4s ease;
 	}
 	&__info-list {
-		display: flex;
-		flex-direction: column;
-		gap: 1.5em;
 		text-transform: uppercase;
 		li {
 			position: relative;
-			background-color: c.$second;
 			&::before {
 				content: '';
 				position: absolute;
@@ -294,36 +299,39 @@
 		padding: 0.5em;
 		color: c.$main;
 		font-size: 3rem;
-		background: none;
-		border: 1px solid transparent;
-		cursor: pointer;
-		transition: transform 0.3s, color 0.3s;
+		text-shadow: 0 0 35px rgba($color: c.$main, $alpha: 0.7);
+		transition: transform 0.3s, color 0.3s, text-shadow 0.3s;
 		&:hover {
 			transform: scale(1.3);
 			color: c.$third;
+			text-shadow: 0 0 15px rgba($color: c.$main, $alpha: 1), 0 0 35px rgba($color: c.$main, $alpha: 1);
 		}
 	}
 
-	// animation
+	// Hover behavior for entire product card
 
 	&:hover {
-		transform: scale(1.05);
+		// RGB Border
 		&::before {
 			opacity: 1;
 		}
 
-		.product__back {
-			pointer-events: all;
-			opacity: 1;
-			transform: translateZ(10px);
+		.product__title {
+			color: c.$third;
+
+			// Bar above title
 			&::before {
 				transform: translateX(-50%) scaleX(1);
 			}
 		}
-
-		//  Animated rgb borders
+		.product__back {
+			pointer-events: all;
+			transform: translateZ(10px);
+		}
 	}
 }
+
+// Animation for RGB border background
 @keyframes rgb {
 	0% {
 		background-position: 0% 50%;

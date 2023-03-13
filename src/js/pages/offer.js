@@ -4,21 +4,19 @@ const categoryAnimationMobile = function () {
 
 	categoryContainer.addEventListener('click', (e) => {
 		const categoryTarget = e.target.closest('.category');
-		if (window.innerWidth < 768) {
-			categoryItems.forEach((cat) => {
-				if (categoryTarget !== cat) {
-					cat.classList.remove('category--active');
-					cat.style.maxHeight = '150px';
-				}
-			});
-
-			if (categoryTarget.classList.contains('category--active')) {
-				categoryTarget.classList.remove('category--active');
-				categoryTarget.style.maxHeight = '150px';
-			} else if (categoryTarget) {
-				categoryTarget.classList.add('category--active');
-				categoryTarget.style.maxHeight = categoryTarget.scrollHeight + 'px';
+		categoryItems.forEach((cat) => {
+			if (categoryTarget !== cat) {
+				cat.classList.remove('category--active');
+				if (window.innerWidth < 768) cat.style.maxHeight = '150px';
 			}
+		});
+
+		if (categoryTarget.classList.contains('category--active')) {
+			categoryTarget.classList.remove('category--active');
+			if (window.innerWidth < 768) categoryTarget.style.maxHeight = '150px';
+		} else if (categoryTarget) {
+			categoryTarget.classList.add('category--active');
+			if (window.innerWidth < 768) categoryTarget.style.maxHeight = categoryTarget.scrollHeight + 'px';
 		}
 	});
 };

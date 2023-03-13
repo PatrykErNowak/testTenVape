@@ -899,14 +899,13 @@ main {
   }
 }
 .categories {
-  display: grid;
-  gap: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
 }
 @media (min-width: 48rem) {
   .categories {
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    grid-auto-rows: 1fr;
-    gap: 2em;
+    flex-direction: row;
   }
 }
 
@@ -916,15 +915,17 @@ main {
   background-position: center;
   background-size: cover;
   box-shadow: inset 0 0 15px rgb(0, 0, 0);
+  border-radius: 10px;
   overflow: hidden;
   transition: 0.5s;
   cursor: pointer;
 }
 @media (min-width: 48rem) {
   .category {
-    max-height: -moz-fit-content;
-    max-height: fit-content;
-    cursor: auto;
+    max-height: none;
+    height: 600px;
+    flex-grow: 1;
+    transition: flex-grow 0.8s;
   }
 }
 .category--1 {
@@ -952,45 +953,9 @@ main {
   opacity: 0;
   z-index: -1;
 }
-.category:focus-within {
-  z-index: 100;
-  box-shadow: 0 0 15px rgba(28, 202, 89, 0.8);
-}
-.category:focus-within::before {
-  opacity: 1;
-}
-.category:focus-within .category__title {
-  box-shadow: 5px 5px 25px rgba(28, 202, 89, 0.8);
-}
-.category:focus-within .category__desc {
-  opacity: 1;
-  transform: translateX(0);
-}
-.category:focus-within .category__btn {
-  transform: translate(-50%, -100%);
-}
-@media (min-width: 48rem) {
-  .category:hover {
-    z-index: 100;
-    box-shadow: 0 0 15px rgba(28, 202, 89, 0.8);
-  }
-  .category:hover::before {
-    opacity: 1;
-  }
-  .category:hover .category__title {
-    box-shadow: 5px 5px 25px rgba(28, 202, 89, 0.8);
-  }
-  .category:hover .category__desc {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  .category:hover .category__btn {
-    transform: translate(-50%, -100%);
-  }
-}
 .category--active {
   z-index: 100;
-  box-shadow: 0 0 15px rgba(28, 202, 89, 0.8);
+  box-shadow: inset 0 0 15px rgb(0, 0, 0), 0 0 15px rgba(28, 202, 89, 0.8);
 }
 .category--active::before {
   opacity: 1;
@@ -1005,11 +970,31 @@ main {
 .category--active .category__btn {
   transform: translate(-50%, -100%);
 }
-.category__svg {
-  position: absolute;
-  bottom: -15%;
-  left: 0;
-  right: 0;
+@media (min-width: 48rem) {
+  .category--active {
+    box-shadow: inset 0 0 15px rgb(0, 0, 0);
+    flex-grow: 8;
+  }
+  .category--active::before {
+    opacity: 0;
+  }
+  .category--active .category__title {
+    bottom: 80%;
+    width: 100%;
+    font-size: 2.2rem;
+    text-align: center;
+    letter-spacing: 2px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 0;
+    box-shadow: none;
+    writing-mode: horizontal-tb;
+    text-orientation: sideways;
+  }
+  .category--active .category__desc {
+    opacity: 0;
+    animation: show-cat-content 0.8s 0.7s forwards;
+    transform: translateX(-50%) translateY(-50%);
+  }
 }
 .category__title {
   padding: 0.5em 1em;
@@ -1026,14 +1011,37 @@ main {
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
   transition: 0.5s;
 }
+@media (min-width: 48rem) {
+  .category__title {
+    padding: 0.5em;
+    font-size: clamp(2rem, 1rem + 1.5vw, 2rem);
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    transition: 0.8s;
+  }
+}
 .category__desc {
+  position: relative;
   padding: 2em 2em 5.5em;
   transform: translateY(-20em);
   font-size: clamp(1.4rem, 1rem + 1.2vw, 1.6rem);
   text-align: justify;
   opacity: 0;
   z-index: 100;
-  transition: 0.5s;
+}
+@media (min-width: 48rem) {
+  .category__desc {
+    padding: 2em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+  }
 }
 .category__btn {
   padding: 0.2em 1.4em 0.3em;
@@ -1050,6 +1058,11 @@ main {
   transition: 0.5s;
   animation: arrow-down 1.5s infinite ease-out alternate;
 }
+@media (min-width: 48rem) {
+  .category__btn {
+    display: none;
+  }
+}
 
 @keyframes arrow-down {
   from {
@@ -1057,6 +1070,14 @@ main {
   }
   to {
     color: #1cca59;
+  }
+}
+@keyframes show-cat-content {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 .products__list {

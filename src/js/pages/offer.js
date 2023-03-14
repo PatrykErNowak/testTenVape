@@ -1,27 +1,32 @@
-const categoryAnimationMobile = function () {
+const categorySlider = function () {
 	const categoryContainer = document.querySelector('.categories');
 	const categoryItems = categoryContainer.querySelectorAll('.category');
+	const mobileScreen = window.innerWidth < 768;
+	const categoryBarHeight = `125px`;
+
+	//Init for desktop
+	if (!mobileScreen) categoryItems[0].classList.add('category--active');
 
 	categoryContainer.addEventListener('click', (e) => {
 		const categoryTarget = e.target.closest('.category');
 		categoryItems.forEach((cat) => {
 			if (categoryTarget !== cat) {
 				cat.classList.remove('category--active');
-				if (window.innerWidth < 768) cat.style.maxHeight = '150px';
+				if (mobileScreen) cat.style.maxHeight = categoryBarHeight;
 			}
 		});
 
-		if (categoryTarget.classList.contains('category--active')) {
+		if (categoryTarget.classList.contains('category--active') && mobileScreen) {
+			categoryTarget.style.maxHeight = categoryBarHeight;
 			categoryTarget.classList.remove('category--active');
-			if (window.innerWidth < 768) categoryTarget.style.maxHeight = '150px';
 		} else if (categoryTarget) {
 			categoryTarget.classList.add('category--active');
-			if (window.innerWidth < 768) categoryTarget.style.maxHeight = categoryTarget.scrollHeight + 'px';
+			if (mobileScreen) categoryTarget.style.maxHeight = categoryTarget.scrollHeight + 'px';
 		}
 	});
 };
 
-categoryAnimationMobile();
+categorySlider();
 
 const productsList = document.querySelector('.products__list');
 

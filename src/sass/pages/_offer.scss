@@ -11,8 +11,11 @@
 }
 
 .category {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 	position: relative;
-	max-height: 150px;
+	max-height: 125px;
 	background-position: center;
 	background-size: cover;
 	box-shadow: inset 0 0 15px rgba(0, 0, 0, 1);
@@ -90,24 +93,85 @@
 	// 		}
 	// 	}
 	// }
-	// class handled by JS only for mobile devices
+
+	&__title {
+		padding: 0.5em 1em;
+		font-size: clamp(1.8rem, 1rem + 1vw, 2rem);
+		color: c.$third;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+		background-color: c.$main;
+		border-radius: 0 0 25px 0;
+		box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+		z-index: 100;
+		transition: 0.8s;
+
+		@media (min-width: b.$medium) {
+			position: absolute;
+			bottom: 1em;
+			left: 0;
+			padding: 0.5em;
+			letter-spacing: 0px;
+			writing-mode: vertical-rl;
+			text-orientation: upright;
+			border-radius: 0 25px 25px 0;
+		}
+	}
+
+	&__body {
+		padding: 2em;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 1em;
+		opacity: 0;
+
+		@media (min-width: b.$medium) {
+			padding: 2em;
+			gap: 2em;
+			position: absolute;
+			top: 150px;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 80%;
+			background-color: rgba(0, 0, 0, 0.7);
+			border-radius: 10px;
+		}
+	}
+
+	&__desc {
+		font-size: clamp(1.4rem, 1.5vw, 1.7rem);
+		text-align: justify;
+	}
+
+	&__btn {
+		padding: 1em 1.5em;
+		align-self: flex-end;
+		font-size: clamp(1.4rem, 1rem + 1.2vw, 1.7rem);
+		color: c.$third;
+		background-color: c.$main;
+		border-radius: 25px;
+	}
+
+	// Active state
 	&--active {
 		z-index: 100;
 		box-shadow: inset 0 0 15px rgba(0, 0, 0, 1), 0 0 15px rgba($color: c.$main, $alpha: 0.8);
+		cursor: default;
+
 		&::before {
 			opacity: 1;
 		}
 		.category__title {
 			box-shadow: 5px 5px 25px rgba($color: c.$main, $alpha: 0.8);
 		}
-		.category__desc {
+
+		.category__body {
 			opacity: 1;
-			transform: translateX(0);
-		}
-		.category__btn {
-			transform: translate(-50%, -100%);
 		}
 
+		// Active state for desktop
 		@media (min-width: b.$medium) {
 			box-shadow: inset 0 0 15px rgba(0, 0, 0, 1);
 			flex-grow: 8;
@@ -115,7 +179,7 @@
 				opacity: 0;
 			}
 			.category__title {
-				bottom: 80%;
+				bottom: 85%;
 				width: 100%;
 				font-size: 2.2rem;
 				text-align: center;
@@ -126,89 +190,13 @@
 				writing-mode: horizontal-tb;
 				text-orientation: sideways;
 			}
-			.category__desc {
+
+			.category__body {
 				opacity: 0;
 				animation: show-cat-content 0.8s 0.7s forwards;
-				transform: translateX(-50%) translateY(-50%);
+				transform: translateX(-50%);
 			}
 		}
-	}
-
-	&__title {
-		padding: 0.5em 1em;
-		position: absolute;
-		bottom: 1em;
-		left: 0;
-		color: c.$third;
-		text-align: left;
-		letter-spacing: 1px;
-		text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-		border-top-right-radius: 25px;
-		border-bottom-right-radius: 25px;
-		background-color: c.$main;
-		box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-		transition: 0.5s;
-
-		@media (min-width: b.$medium) {
-			padding: 0.5em;
-			font-size: clamp(2rem, 1rem + 1.5vw, 2rem);
-			letter-spacing: 0px;
-			text-transform: uppercase;
-			writing-mode: vertical-rl;
-			text-orientation: upright;
-			transition: 0.8s;
-		}
-	}
-
-	&__desc {
-		position: relative;
-		padding: 2em 2em 5.5em;
-		transform: translateY(-20em);
-		font-size: clamp(1.4rem, 1rem + 1.2vw, 1.6rem);
-		text-align: justify;
-		opacity: 0;
-		z-index: 100;
-		// transition: 0.5s;
-
-		// !!!
-		@media (min-width: b.$medium) {
-			padding: 2em;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translateY(-50%) translateX(-50%);
-			width: 80%;
-			background-color: rgba(0, 0, 0, 0.7);
-			border-radius: 10px;
-		}
-	}
-	&__btn {
-		padding: 0.2em 1.4em 0.3em;
-		position: absolute;
-		top: 0;
-		left: 50%;
-		transform: translate(-50%);
-		font-size: 2rem;
-		color: c.$third;
-		background: rgba(0, 0, 0, 0.7);
-		border: 1px solid transparent;
-		border-bottom-left-radius: 50%;
-		border-bottom-right-radius: 50%;
-		transition: 0.5s;
-		animation: arrow-down 1.5s infinite ease-out alternate;
-
-		@media (min-width: b.$medium) {
-			display: none;
-		}
-	}
-}
-
-@keyframes arrow-down {
-	from {
-		color: c.$third;
-	}
-	to {
-		color: c.$main;
 	}
 }
 

@@ -5,7 +5,7 @@ const categorySlider = function () {
 	const categoryBarHeight = `125px`;
 
 	//Init for desktop
-	if (!mobileScreen) categoryItems[0].classList.add('category--active');
+	if (mobileScreen) categoryItems[0].style.maxHeight = categoryItems[0].scrollHeight + 'px';
 
 	categoryContainer.addEventListener('click', (e) => {
 		const categoryTarget = e.target.closest('.category');

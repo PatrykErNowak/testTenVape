@@ -28,7 +28,7 @@ h2 {
 }
 
 h3 {
-  font-size: clamp(2rem, 1rem + 1.5vw, 2.4rem);
+  font-size: clamp(2rem, 1rem + 1.5vw, 2.6rem);
 }
 
 h4 {
@@ -41,7 +41,7 @@ a {
 }
 
 p {
-  font-size: clamp(1.4rem, 1rem + 1.2vw, 1.8rem);
+  font-size: clamp(1.4rem, 1rem + 1.1vw, 1.8rem);
   line-height: clamp(3rem, 1rem + 1.5vw, 3.2rem);
 }
 
@@ -1017,7 +1017,7 @@ main {
 .category--active {
   z-index: 100;
   box-shadow: inset 0 0 15px rgb(0, 0, 0), 0 0 15px rgba(28, 202, 89, 0.8);
-  cursor: default;
+  cursor: auto;
 }
 .category--active::before {
   opacity: 1;
@@ -1063,16 +1063,37 @@ main {
     opacity: 1;
   }
 }
+.products__category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4em;
+}
+.products__category-title {
+  position: relative;
+  margin-bottom: 1em;
+  padding: 0.5em 0.5em 0.5em 0;
+  text-align: left;
+  letter-spacing: 2px;
+}
+.products__category-title::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #1cca59;
+}
 .products__list {
-  padding: 0 1em;
   display: grid;
   grid-auto-rows: 1fr;
-  gap: 2em;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
 }
 @media (min-width: 48rem) {
   .products__list {
     padding: 0;
     grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+    gap: 2em;
   }
 }
 
@@ -1106,7 +1127,7 @@ main {
   gap: 1.5em;
 }
 .product__title {
-  padding: 0.8em;
+  padding: 0.4em;
   font-family: "Cinzel", serif;
   color: #1cca59;
   font-weight: 500;
@@ -1125,6 +1146,11 @@ main {
   background-color: #1cca59;
   border-radius: 15px;
   transition: transform 0.4s ease;
+}
+@media (min-width: 48rem) {
+  .product__title {
+    padding: 0.8em;
+  }
 }
 .product__body {
   overflow: hidden;
@@ -1148,6 +1174,7 @@ main {
   transition: transform 0.4s ease;
 }
 .product__info-list {
+  display: none;
   text-transform: uppercase;
 }
 .product__info-list li {
@@ -1166,6 +1193,11 @@ main {
 .product__info-list li:last-child::before {
   display: none;
 }
+@media (min-width: 48rem) {
+  .product__info-list {
+    display: flex;
+  }
+}
 .product__btn {
   position: relative;
   padding: 0.5em;
@@ -1182,7 +1214,7 @@ main {
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%) translateY(300%);
+  transform: translateX(-50%) translateY(15px);
   color: #fff;
   font-size: 1rem;
   line-height: 1.5rem;
@@ -1195,6 +1227,11 @@ main {
 }
 .product__btn:hover::before {
   transform: translateX(-50%) translateY(15px);
+}
+@media (min-width: 48rem) {
+  .product__btn::before {
+    transform: translateX(-50%) translateY(300%);
+  }
 }
 .product:hover::before {
   opacity: 1;

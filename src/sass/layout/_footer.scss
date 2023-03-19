@@ -2,107 +2,97 @@
 @use '../utilities/breakpoints' as b;
 
 .footer {
-	padding: 4em 0 1em;
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	background-color: rgba(0, 0, 0, 1);
+	position: relative;
+	background-color: c.$footer-bg;
 	color: rgba($color: c.$third, $alpha: 0.8);
 	z-index: 1000;
 
-	.wrapper {
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-start;
-		align-items: center;
-		gap: 4em;
+	position: relative;
 
-		@media (min-width: b.$medium) {
-			flex-direction: row;
-			align-items: flex-start;
-		}
+	.wrapper {
+		padding: 2em 0;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: auto 1fr;
 	}
 
-	// * styling for main container - logo and socials
-
 	&__main {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		gap: 2em;
+		padding-bottom: 2em;
+		grid-column: 1/3;
+		grid-row: 1/2;
+		text-align: center;
+		border-bottom: 1px solid rgba($color: c.$main, $alpha: 0.5);
 	}
 
 	&__logo {
-		width: min(80%, 450px);
+		width: min(40%, 80px);
 	}
-	&__socials {
-		display: flex;
-		justify-content: center;
-		gap: 4em;
-		a {
-			font-size: 4rem;
-			transition: color 0.3s;
-			&:focus,
-			&:hover {
-				color: rgba($color: c.$main, $alpha: 1);
-				outline: none;
-			}
-		}
+	&__title {
+		margin-top: 0.5em;
+		font-family: 'Dancing Script', cursive;
+		font-size: clamp(2.8rem, 1rem + 1.5vw, 3.4rem);
 	}
 
-	// * styling for list container
-
-	&__list {
-		ul {
-			display: flex;
-			flex-direction: column;
-			gap: 1em;
-		}
-	}
-
-	&__list-title {
-		margin-bottom: 1.5em;
-		color: c.$main;
-		letter-spacing: 1px;
-	}
-	&__list-item {
-		a {
-			font-size: clamp(1.4rem, 1rem + 1.5vw, 1.6rem);
-			transition: color 0.3s;
-			&:focus,
-			&:hover {
-				color: rgba($color: c.$main, $alpha: 1);
-				outline: none;
-			}
-		}
-		a i {
-			margin-right: 0.5em;
-			color: c.$main;
-			font-size: 2rem;
-			vertical-align: middle;
-			opacity: 0.6;
-			width: 20px;
-			text-align: center;
-		}
-	}
-
-	&__copy {
+	&__copyright,
+	&__creator {
 		padding-top: 1em;
-		margin-top: 1em;
-		position: relative;
-		text-align: center;
+		font-size: clamp(1.4rem, 1rem + 1vw, 1.5rem);
+		color: rgba($color: c.$third, $alpha: 0.7);
+	}
 
-		&::before {
+	&__copyright {
+		grid-column: 1/2;
+		grid-row: 2/3;
+		text-align: left;
+	}
+	&__creator {
+		grid-column: 2/3;
+		grid-row: 2/3;
+		text-align: right;
+	}
+
+	&__wave-c,
+	&__wave,
+	&__wave::after {
+		position: absolute;
+	}
+
+	&__wave-c {
+		top: -100px;
+		left: 0;
+		right: 0;
+		height: 100px;
+		overflow: hidden;
+	}
+
+	&__wave,
+	&__wave::after {
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background-image: url('../src/img/footer/wave.svg');
+		background-repeat: repeat-x;
+		background-position: bottom;
+	}
+
+	&__wave {
+		animation: wave-animation 25s infinite linear;
+		&::after {
 			content: '';
-			position: absolute;
-			left: 50%;
-			top: 0;
-			transform: translate(-50%);
-			height: 1px;
-			width: 40%;
-			background-color: c.$main;
-			opacity: 0.6;
+			transform: translateX(100%);
 		}
+		@media (min-width: b.$medium) {
+			animation: wave-animation 75s infinite linear;
+		}
+	}
+}
+
+@keyframes wave-animation {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-100%);
 	}
 }

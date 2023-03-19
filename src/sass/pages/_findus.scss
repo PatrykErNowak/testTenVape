@@ -2,6 +2,11 @@
 @use '../utilities/breakpoints' as b;
 
 .find-us {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
 	&__container {
 		padding: 2em 0;
 		display: flex;

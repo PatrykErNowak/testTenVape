@@ -1,8 +1,10 @@
+const mobileScreen = window.innerWidth < 768;
+
+//
 const categorySlider = function () {
 	const categoryContainer = document.querySelector('.categories');
 	const categoryItems = categoryContainer.querySelectorAll('.category');
-	const mobileScreen = window.innerWidth < 768;
-	const categoryBarHeight = `125px`;
+	const categoryBarHeight = 125;
 
 	//Init for desktop
 	if (mobileScreen) categoryItems[0].style.maxHeight = categoryItems[0].scrollHeight + 'px';
@@ -12,12 +14,12 @@ const categorySlider = function () {
 		categoryItems.forEach((cat) => {
 			if (categoryTarget !== cat) {
 				cat.classList.remove('category--active');
-				if (mobileScreen) cat.style.maxHeight = categoryBarHeight;
+				if (mobileScreen) cat.style.maxHeight = `${categoryBarHeight}px`;
 			}
 		});
 
 		if (categoryTarget.classList.contains('category--active') && mobileScreen) {
-			categoryTarget.style.maxHeight = categoryBarHeight;
+			categoryTarget.style.maxHeight = `${categoryBarHeight}px`;
 			categoryTarget.classList.remove('category--active');
 		} else if (categoryTarget) {
 			categoryTarget.classList.add('category--active');
@@ -27,6 +29,31 @@ const categorySlider = function () {
 };
 
 categorySlider();
+
+// ----------------------------------------------------------
+
+// Scroll to products clicking by button on specified category
+const scrollToCategoryOfProducts = function () {
+	const productsContainer = document.querySelector('.products');
+	const catLinksContainer = document.querySelector('.categories');
+	const navHeight = document.querySelector('.navbar').getBoundingClientRect().height;
+
+	catLinksContainer.addEventListener('click', (e) => {
+		if (e.target.classList.contains('category__btn')) {
+			const category = e.target.closest('.category').dataset.category;
+			const section = productsContainer.querySelector(`[data-category="${category}"]`);
+			const categoryHeight = e.target.closest('.category__body').getBoundingClientRect().height;
+
+			section.style.scrollMarginTop = `${mobileScreen ? +categoryHeight : +navHeight}px`;
+			section.scrollIntoView({ behavior: 'smooth' });
+		}
+	});
+};
+
+scrollToCategoryOfProducts();
+
+// ----------------------------------------------------------
+// TODO not completed
 
 const productsList = document.querySelector('.products__list');
 

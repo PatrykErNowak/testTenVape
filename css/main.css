@@ -19,8 +19,12 @@ body {
   background-color: #161a1d;
 }
 
+main {
+  background-color: #161a1d;
+}
+
 h1 {
-  font-size: clamp(3rem, 2rem + 2vw, 8rem);
+  font-size: clamp(3rem, 2rem + 4vw, 6rem);
 }
 
 h2 {
@@ -571,33 +575,35 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   height: 100vh;
-  text-align: left;
+  text-align: center;
   color: white;
 }
 .header__logo {
-  margin-top: 4em;
   width: 600px;
-  width: clamp(200px, 100px + 25vw, 600px);
+  width: clamp(200px, 100px + 50vw, 400px);
 }
 .header__heading {
   margin-top: 0.3em;
+  max-width: 500px;
   letter-spacing: 5px;
   text-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
-.header__heading .for-reader {
-  display: none;
+.header__btn {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  font-size: 4rem;
+  color: #fff;
+  transition: color 0.3s;
+  animation: arrow-down 3s infinite ease-out;
 }
-.header__text {
-  margin: 2em 0;
-  font-size: clamp(1.6rem, 1rem + 1vw, 3rem);
-  line-height: clamp(3rem, 1rem + 2vw, 5rem);
+.header__btn i {
+  padding: 0.5em;
 }
-@media (min-width: 48rem) {
-  .header__text {
-    max-width: 60%;
-  }
+.header__btn:hover {
+  color: #1cca59;
 }
 .header__video-c {
   position: absolute;
@@ -609,7 +615,7 @@ main {
   z-index: -2;
 }
 .header__video-c video {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -617,13 +623,26 @@ main {
   min-height: 100%;
   width: auto;
   height: auto;
+  z-index: -100;
+}
+.header__layer-peaks-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 150px;
+  width: 100vw;
+  z-index: 100;
+}
+.header__layer-peaks {
+  width: 100%;
+  height: 100%;
+  background-image: url("../src/img/home/layered-peaks-haikei.svg");
+  background-position: bottom;
+  background-size: cover;
 }
 
 .about-us {
-  background-image: url("../src/img/bg-header-2.png");
-  background-position: center;
-  background-size: cover;
-  border-top: 5px solid #1cca59;
+  background-color: #161a1d;
 }
 .about-us__container {
   display: flex;
@@ -902,6 +921,14 @@ main {
   }
   57%, 100% {
     transform: rotate(0deg) scale(1);
+  }
+}
+@keyframes arrow-down {
+  from {
+    transform: translate(-50%, 0);
+  }
+  to {
+    transform: translate(-50%, 30px);
   }
 }
 .categories {
@@ -1518,5 +1545,5 @@ main {
   width: 100%;
   height: 100vh;
   opacity: 0.2;
-  z-index: -1;
+  z-index: 0;
 }/*# sourceMappingURL=main.css.map */

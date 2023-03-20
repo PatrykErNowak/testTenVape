@@ -9,34 +9,49 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		align-items: flex-start;
+		align-items: center;
 		height: 100vh;
-		text-align: left;
+		text-align: center;
 		color: white;
 	}
 	&__logo {
-		margin-top: 4em;
 		width: 600px;
-		width: clamp(200px, 100px + 25vw, 600px);
+		width: clamp(200px, 100px + 50vw, 400px);
 	}
 
 	&__heading {
 		margin-top: 0.3em;
+		max-width: 500px;
 		letter-spacing: 5px;
 		text-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+	}
+	&__btn {
+		position: absolute;
+		bottom: 20%;
+		left: 50%;
+		font-size: 4rem;
+		color: c.$third;
+		transition: color 0.3s;
+		animation: arrow-down 3s infinite ease-out;
 
-		.for-reader {
-			display: none;
+		i {
+			padding: 0.5em;
+		}
+
+		&:hover {
+			color: c.$main;
 		}
 	}
-	&__text {
-		margin: 2em 0;
-		font-size: clamp(1.6rem, 1rem + 1vw, 3rem);
-		line-height: clamp(3rem, 1rem + 2vw, 5rem);
-		@media (min-width: b.$medium) {
-			max-width: 60%;
-		}
-	}
+
+	// ! prawdpodobnie do usuniecia tekst w headerze
+	// &__text {
+	// 	margin: 2em 0;
+	// 	font-size: clamp(1.6rem, 1rem + 1vw, 3rem);
+	// 	line-height: clamp(3rem, 1rem + 2vw, 5rem);
+	// 	@media (min-width: b.$medium) {
+	// 		max-width: 60%;
+	// 	}
+	// }
 
 	&__video-c {
 		position: absolute;
@@ -46,8 +61,9 @@
 		height: 100%;
 		overflow: hidden;
 		z-index: -2;
+
 		video {
-			position: absolute;
+			position: fixed;
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);
@@ -55,15 +71,31 @@
 			min-height: 100%;
 			width: auto;
 			height: auto;
+			z-index: -100;
 		}
+	}
+
+	// Layer peaks for smooth transition between sections
+	&__layer-peaks-container {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		height: 150px;
+		width: 100vw;
+		z-index: 100;
+	}
+
+	&__layer-peaks {
+		width: 100%;
+		height: 100%;
+		background-image: url('../src/img/home/layered-peaks-haikei.svg');
+		background-position: bottom;
+		background-size: cover;
 	}
 }
 
 .about-us {
-	background-image: url('../src/img/bg-header-2.png');
-	background-position: center;
-	background-size: cover;
-	border-top: 5px solid c.$main;
+	background-color: c.$second;
 	&__container {
 		display: flex;
 		flex-direction: column;
@@ -372,5 +404,14 @@
 	57%,
 	100% {
 		transform: rotate(0deg) scale(1);
+	}
+}
+
+@keyframes arrow-down {
+	from {
+		transform: translate(-50%, 0);
+	}
+	to {
+		transform: translate(-50%, 30px);
 	}
 }

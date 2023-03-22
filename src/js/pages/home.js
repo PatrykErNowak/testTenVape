@@ -1,13 +1,18 @@
 // ! Background Video
-const headerVideoEl = document.querySelector('.header__video-c video');
+const videoHandler = function () {
+	const headerVideoEl = document.querySelector('.header__video-c video');
+	const videoTabletSrc = headerVideoEl.dataset.tabletSrc;
+	const videoDesktopSrc = headerVideoEl.dataset.desktopSrc;
 
-headerVideoEl.playbackRate = 0.7;
+	headerVideoEl.playbackRate = 0.8;
 
-// Change video quality depends of screen size
-// const videoQuality = window.screen.height > 1080 ? '1080' : window.screen.height > 720 ? '720' : '';
-// headerVideoEl.src = `./src/video/header-${videoQuality}p.mp4`;
+	// Change video quality depends of screen size
+	if (window.screen.width >= 1200) headerVideoEl.src = videoDesktopSrc;
+	else if (window.screen.width >= 768) headerVideoEl.src = videoTabletSrc;
+};
+videoHandler();
 
-// ! Aniated logo in section about us
+// ! Animated logo in section about us
 
 const imageEl = document.querySelector('.about-us__logo');
 

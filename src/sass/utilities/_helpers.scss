@@ -12,6 +12,7 @@
 .section {
 	text-align: center;
 	padding: 7em 0;
+
 	&__title {
 		display: inline-block;
 		position: relative;
@@ -36,6 +37,18 @@
 			border-radius: 25px;
 		}
 	}
+	// &__title {
+	// 	position: relative;
+	// 	margin-bottom: 2em;
+	// 	font-family: 'Cinzel', serif;
+	// 	font-weight: 400;
+	// 	text-align: left;
+
+	// 	span {
+	// 		color: c.$main;
+	// 		font-weight: 700;
+	// 	}
+	// }
 
 	&--wavy {
 		padding: 9em 0;

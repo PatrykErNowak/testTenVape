@@ -1,9 +1,12 @@
 @use '../utilities/breakpoints' as b;
 @use '../utilities/colors' as c;
+
 .header {
 	position: relative;
-	background-color: rgba(0, 0, 0, 0.3);
+	// background-color: rgba(0, 0, 0, 0.3);
 	overflow: hidden;
+
+	// Content layers
 
 	> .wrapper {
 		display: flex;
@@ -14,6 +17,7 @@
 		text-align: center;
 		color: white;
 	}
+
 	&__logo {
 		width: 600px;
 		width: clamp(200px, 100px + 50vw, 400px);
@@ -43,15 +47,7 @@
 		}
 	}
 
-	// ! prawdpodobnie do usuniecia tekst w headerze
-	// &__text {
-	// 	margin: 2em 0;
-	// 	font-size: clamp(1.6rem, 1rem + 1vw, 3rem);
-	// 	line-height: clamp(3rem, 1rem + 2vw, 5rem);
-	// 	@media (min-width: b.$medium) {
-	// 		max-width: 60%;
-	// 	}
-	// }
+	// Video background
 
 	&__video-c {
 		position: absolute;
@@ -93,6 +89,10 @@
 		background-size: cover;
 	}
 }
+
+// * -------------------------------------------------------------------------------
+// MAIN
+// About us section
 
 .about-us {
 	background-color: c.$second;
@@ -244,8 +244,9 @@
 		radial-gradient(67.08px at 50% calc(100% - 90px), #000 99%, #0000 101%) calc(50% - 60px) 100%/120px 51% repeat-x,
 		radial-gradient(67.08px at 50% calc(100% + 60px), #0000 99%, #000 101%) 50% calc(100% - 30px) / 120px
 			calc(51% - 30px) repeat-x;
-	-webkit-mask: var(--mask);
+
 	mask: var(--mask);
+	-webkit-mask: var(--mask);
 
 	::after {
 		content: '';
@@ -383,6 +384,34 @@
 		}
 	}
 }
+
+// Instagram curator.io styling
+
+// Link under feed
+.crt-widget.crt-widget-branded .crt-logo.crt-tag {
+	display: none;
+}
+
+// Container bg
+.crt-widget-mosaic .crt-post-instagram {
+	background-color: c.$second;
+	// background-color: rgba($color: c.$main, $alpha: 0.8);
+}
+.crt-widget-mosaic .crt-feed {
+	box-shadow: 0 0 50px rgba($color: c.$main, $alpha: 0.2);
+	border-radius: 15px;
+}
+// button
+.crt-widget .crt-load-more-container .crt-load-more {
+	background-color: c.$main;
+	border-radius: 25px;
+	transition: background-color 0.3s;
+	&:hover {
+		background-color: rgba($color: c.$main, $alpha: 0.8);
+	}
+}
+
+// Keyframes
 
 @keyframes shake {
 	0%,

@@ -61,3 +61,19 @@ faqItems.addEventListener('click', (e) => {
 const faqBtn = document.querySelector('.faq__footer-btn');
 
 faqBtn.addEventListener('click', () => FB.CustomerChat.showDialog());
+
+// Instargram curator.io
+
+/* curator-feed-default-feed-layout */
+(function () {
+	var i,
+		e,
+		d = document,
+		s = 'script';
+	i = d.createElement('script');
+	i.async = 1;
+	i.charset = 'UTF-8';
+	i.src = 'https://cdn.curator.io/published/1e117b9f-ba27-4dfd-b456-042976b52df7.js';
+	e = d.getElementsByTagName(s)[0];
+	e.parentNode.insertBefore(i, e);
+})();

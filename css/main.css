@@ -568,7 +568,6 @@ main {
 
 .header {
   position: relative;
-  background-color: rgba(0, 0, 0, 0.3);
   overflow: hidden;
 }
 .header > .wrapper {
@@ -786,8 +785,8 @@ main {
   	radial-gradient(67.08px at 50% calc(100% - 90px), #000 99%, #0000 101%) calc(50% - 60px) 100%/120px 51% repeat-x,
   	radial-gradient(67.08px at 50% calc(100% + 60px), #0000 99%, #000 101%) 50% calc(100% - 30px) / 120px
   		calc(51% - 30px) repeat-x;
-  -webkit-mask: var(--mask);
   mask: var(--mask);
+  -webkit-mask: var(--mask);
 }
 .brands ::after {
   content: "";
@@ -901,6 +900,28 @@ main {
 }
 .faq__footer-btn:hover {
   color: #1876f2;
+}
+
+.crt-widget.crt-widget-branded .crt-logo.crt-tag {
+  display: none;
+}
+
+.crt-widget-mosaic .crt-post-instagram {
+  background-color: #161a1d;
+}
+
+.crt-widget-mosaic .crt-feed {
+  box-shadow: 0 0 50px rgba(28, 202, 89, 0.2);
+  border-radius: 15px;
+}
+
+.crt-widget .crt-load-more-container .crt-load-more {
+  background-color: #1cca59;
+  border-radius: 25px;
+  transition: background-color 0.3s;
+}
+.crt-widget .crt-load-more-container .crt-load-more:hover {
+  background-color: rgba(28, 202, 89, 0.8);
 }
 
 @keyframes shake {

@@ -278,7 +278,154 @@
 		}
 	}
 }
+// -------------------------------------------------------------------
+// Instagram section
+// Grid carousel styling
+// Instagram curator.io styling
 
+/* 
+// Masaic styles
+// Link under feed
+.crt-widget.crt-widget-branded .crt-logo.crt-tag {
+	display: none;
+}
+
+// Container bg
+.crt-widget-mosaic .crt-post-instagram {
+	background-color: c.$second;
+	// background-color: rgba($color: c.$main, $alpha: 0.8);
+}
+.crt-widget-mosaic .crt-feed {
+	box-shadow: 0 0 50px rgba($color: c.$main, $alpha: 0.2);
+	border-radius: 15px;
+}
+// button
+.crt-widget .crt-load-more-container .crt-load-more {
+	background-color: c.$main;
+	border-radius: 25px;
+	transition: background-color 0.3s;
+	&:hover {
+		background-color: rgba($color: c.$main, $alpha: 0.8);
+	}
+}
+*/
+
+.crt-carousel-feed.crt-controls-over > div {
+	border-radius: 15px;
+	box-shadow: 0 0 50px rgba($color: c.$main, $alpha: 0.2);
+}
+
+div.crt-controls-over .crt-panel-next,
+div.crt-controls-over .crt-panel-prev {
+	background-color: c.$main;
+	transition: transform 0.3s;
+	&:hover {
+		transform: translateY(-50%) scale(1.1);
+	}
+}
+.crt-widget.crt-widget-branded .crt-logo.crt-tag {
+	color: c.$third;
+	font-size: 1.2rem;
+}
+@media (min-width: b.$medium) {
+	.instagram__container {
+		padding: 0 5em;
+	}
+	div.crt-controls-over .crt-panel-next {
+		right: -75px;
+	}
+	div.crt-controls-over .crt-panel-prev {
+		left: -75px;
+	}
+}
+
+// Google qutoes section
+
+.quotes {
+	position: relative;
+	background-image: url('../src/img/brands/bg-3.jpg');
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	backdrop-filter: grayscale(50%);
+
+	--mask: radial-gradient(67.08px at 50% 90px, #000 99%, #0000 101%) calc(50% - 60px) 0/120px 51% repeat-x,
+		radial-gradient(67.08px at 50% -60px, #0000 99%, #000 101%) 50% 30px/120px calc(51% - 30px) repeat-x,
+		radial-gradient(67.08px at 50% calc(100% - 90px), #000 99%, #0000 101%) calc(50% - 60px) 100%/120px 51% repeat-x,
+		radial-gradient(67.08px at 50% calc(100% + 60px), #0000 99%, #000 101%) 50% calc(100% - 30px) / 120px
+			calc(51% - 30px) repeat-x;
+
+	mask: var(--mask);
+	-webkit-mask: var(--mask);
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 3em;
+
+		@media (min-width: b.$medium) {
+			flex-direction: row;
+		}
+	}
+}
+
+.quote {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 2em;
+	padding: 3em;
+	width: 100%;
+	// max-width: 600px;
+	color: c.$second;
+	background-color: c.$quote-bg;
+	border-radius: 2px;
+	box-shadow: 5px 5px 10px rgba($color: c.$quote-bg, $alpha: 0.4);
+
+	&::before {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		right: 50px;
+		width: 100px;
+		height: 100px;
+		color: red;
+		background-image: url('../src/img/home/quote.svg');
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+		transform: translateY(50%) rotate(180deg);
+		filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.2));
+	}
+
+	&__text {
+		font-style: italic;
+		font-size: 1.6rem;
+	}
+
+	&__author {
+		padding: 1em;
+		border-top: 2px solid c.$main;
+		font-weight: 700;
+		font-size: 1.8rem;
+		transition: color 0.3s;
+
+		&:hover {
+			color: c.$main;
+		}
+	}
+
+	// &__active {
+	// 	z-index: 100;
+	// 	transform: scale(1.2);
+	// }
+}
+
+// ---------------------------------------------------------------------
+// FAQ section
 .faq {
 	&__items-c {
 		text-align: left;
@@ -382,32 +529,6 @@
 				color: #1876f2;
 			}
 		}
-	}
-}
-
-// Instagram curator.io styling
-
-// Link under feed
-.crt-widget.crt-widget-branded .crt-logo.crt-tag {
-	display: none;
-}
-
-// Container bg
-.crt-widget-mosaic .crt-post-instagram {
-	background-color: c.$second;
-	// background-color: rgba($color: c.$main, $alpha: 0.8);
-}
-.crt-widget-mosaic .crt-feed {
-	box-shadow: 0 0 50px rgba($color: c.$main, $alpha: 0.2);
-	border-radius: 15px;
-}
-// button
-.crt-widget .crt-load-more-container .crt-load-more {
-	background-color: c.$main;
-	border-radius: 25px;
-	transition: background-color 0.3s;
-	&:hover {
-		background-color: rgba($color: c.$main, $alpha: 0.8);
 	}
 }
 

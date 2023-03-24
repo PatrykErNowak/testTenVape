@@ -14,29 +14,32 @@ videoHandler();
 
 // ! Animated logo in section about us
 
-const imageEl = document.querySelector('.about-us__logo');
+const animatedLogo = function () {
+	const imageEl = document.querySelector('.about-us__logo');
 
-window.addEventListener('mousemove', (e) => {
-	const mouse = {
-		x: e.x,
-		y: e.y,
-	};
+	window.addEventListener('mousemove', (e) => {
+		const mouse = {
+			x: e.x,
+			y: e.y,
+		};
 
-	const image = {
-		x: window.innerWidth,
-		y: window.innerHeight,
-	};
+		const image = {
+			x: window.innerWidth,
+			y: window.innerHeight,
+		};
 
-	const calcRotateDEG = (mouseAxis, elAxisDimension, maxDegree) => {
-		return ((mouseAxis / elAxisDimension) * 2 - 1) * maxDegree;
-	};
+		const calcRotateDEG = (mouseAxis, elAxisDimension, maxDegree) => {
+			return ((mouseAxis / elAxisDimension) * 2 - 1) * maxDegree;
+		};
 
-	imageEl.style.transform = `perspective(800px) rotateX(${-calcRotateDEG(
-		mouse.y,
-		image.y,
-		25
-	)}deg) rotateY(${calcRotateDEG(mouse.x, image.x, 25)}deg) scale3d(1.03, 1.03, 1.03)`;
-});
+		imageEl.style.transform = `perspective(800px) rotateX(${-calcRotateDEG(
+			mouse.y,
+			image.y,
+			25
+		)}deg) rotateY(${calcRotateDEG(mouse.x, image.x, 25)}deg) scale3d(1.03, 1.03, 1.03)`;
+	});
+};
+animatedLogo();
 
 // ! FAQ section
 

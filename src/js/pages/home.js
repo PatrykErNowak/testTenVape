@@ -64,12 +64,13 @@ faqItems.addEventListener('click', (e) => {
 		}
 	}
 });
-
+// ---------------------------------------------------------------
 // Invoking messenger chat by clicking btn under the section
 const faqBtn = document.querySelector('.faq__footer-btn');
 
 faqBtn.addEventListener('click', () => FB.CustomerChat.showDialog());
 
+// ------------------------------------------------------------
 // Instargram curator.io
 
 /* curator-feed-default-feed-layout */
@@ -85,3 +86,25 @@ faqBtn.addEventListener('click', () => FB.CustomerChat.showDialog());
 	e = d.getElementsByTagName(s)[0];
 	e.parentNode.insertBefore(i, e);
 })();
+
+// ---------------------------------------------------------------
+// Testimonials
+// Swiper
+var swiper = new Swiper('.mySwiper', {
+	effect: 'coverflow',
+	grabCursor: true,
+	centeredSlides: true,
+	slidesPerView: 'auto',
+	loop: false,
+	initialSlide: 2,
+	coverflowEffect: {
+		rotate: 0,
+		stretch: 0,
+		depth: 700,
+		modifier: 1,
+		slideShadows: false,
+	},
+	pagination: {
+		el: '.swiper-pagination',
+	},
+});

@@ -368,6 +368,38 @@ div.crt-controls-over .crt-panel-prev {
 			flex-direction: row;
 		}
 	}
+	.swiper {
+		height: 100%;
+		width: 100%;
+		overflow: visible;
+
+		.swiper-slide {
+			background-position: center;
+			background-size: cover;
+			width: 100%;
+			max-width: 600px;
+			height: 100%;
+			margin: auto 0;
+			padding-bottom: 2.5em;
+			transition: 0.3s;
+		}
+		.swiper-button-next,
+		.swiper-button-prev {
+			color: c.$main;
+			text-shadow: 0 0 15px rgba(0, 0, 0, 1);
+		}
+		.swiper-pagination {
+			bottom: -20px;
+		}
+
+		.swiper-pagination-bullet {
+			border: 1px solid c.$third;
+		}
+		.swiper-pagination-bullet-active {
+			background-color: c.$main;
+			border: 1px solid c.$second;
+		}
+	}
 }
 
 .quote {
@@ -379,11 +411,10 @@ div.crt-controls-over .crt-panel-prev {
 	gap: 2em;
 	padding: 3em;
 	width: 100%;
-	// max-width: 600px;
 	color: c.$second;
 	background-color: c.$quote-bg;
-	border-radius: 2px;
-	box-shadow: 5px 5px 10px rgba($color: c.$quote-bg, $alpha: 0.4);
+	border-radius: 10px;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 
 	&::before {
 		content: '';
@@ -417,11 +448,6 @@ div.crt-controls-over .crt-panel-prev {
 			color: c.$main;
 		}
 	}
-
-	// &__active {
-	// 	z-index: 100;
-	// 	transform: scale(1.2);
-	// }
 }
 
 // ---------------------------------------------------------------------

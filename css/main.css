@@ -895,6 +895,36 @@ div.crt-controls-over .crt-panel-prev:hover {
     flex-direction: row;
   }
 }
+.quotes .swiper {
+  height: 100%;
+  width: 100%;
+  overflow: visible;
+}
+.quotes .swiper .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  max-width: 600px;
+  height: 100%;
+  margin: auto 0;
+  padding-bottom: 2.5em;
+  transition: 0.3s;
+}
+.quotes .swiper .swiper-button-next,
+.quotes .swiper .swiper-button-prev {
+  color: #1cca59;
+  text-shadow: 0 0 15px rgb(0, 0, 0);
+}
+.quotes .swiper .swiper-pagination {
+  bottom: -20px;
+}
+.quotes .swiper .swiper-pagination-bullet {
+  border: 1px solid #fff;
+}
+.quotes .swiper .swiper-pagination-bullet-active {
+  background-color: #1cca59;
+  border: 1px solid #161a1d;
+}
 
 .quote {
   position: relative;
@@ -907,8 +937,8 @@ div.crt-controls-over .crt-panel-prev:hover {
   width: 100%;
   color: #161a1d;
   background-color: #dddddd;
-  border-radius: 2px;
-  box-shadow: 5px 5px 10px rgba(221, 221, 221, 0.4);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 .quote::before {
   content: "";

@@ -1,6 +1,6 @@
 // ! Background Video
 const videoHandler = function () {
-	const headerVideoEl = document.querySelector('.header__video-c video');
+	const headerVideoEl = document.querySelector('.header__video-bg video');
 	const videoTabletSrc = headerVideoEl.dataset.tabletSrc;
 	const videoDesktopSrc = headerVideoEl.dataset.desktopSrc;
 
@@ -90,6 +90,7 @@ faqBtn.addEventListener('click', () => FB.CustomerChat.showDialog());
 // ---------------------------------------------------------------
 // Testimonials
 // Swiper
+
 var swiper = new Swiper('.mySwiper', {
 	effect: 'coverflow',
 	grabCursor: true,
@@ -99,12 +100,17 @@ var swiper = new Swiper('.mySwiper', {
 	initialSlide: 2,
 	coverflowEffect: {
 		rotate: 0,
-		stretch: 0,
-		depth: 700,
+		scale: 1,
+		stretch: -10,
+		depth: 725,
 		modifier: 1,
 		slideShadows: false,
 	},
-	pagination: {
-		el: '.swiper-pagination',
+	navigation: {
+		nextEl: '.swiper-button-next',
+		prevEl: '.swiper-button-prev',
 	},
+	// pagination: {
+	// 	el: '.swiper-pagination',
+	// },
 });

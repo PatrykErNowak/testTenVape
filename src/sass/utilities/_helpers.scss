@@ -1,6 +1,12 @@
 @use './colors' as c;
 @use './breakpoints' as b;
 
+@mixin flex-center() {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .wrapper {
 	width: min(100% - 2rem, 120rem);
 	margin: 0 auto;
@@ -11,32 +17,7 @@
 
 .section {
 	text-align: center;
-	padding: 7em 0;
-
-	// &__title {
-	// 	display: inline-block;
-	// 	position: relative;
-	// 	margin-bottom: 2em;
-	// 	font-family: 'Cinzel', serif;
-	// 	color: rgb(253, 253, 254);
-	// 	font-weight: 500;
-	// 	text-align: center;
-	// 	letter-spacing: 4px;
-	// 	text-shadow: 1px 1px 3px rgba(253, 253, 254, 0.05), 2px 3px 4px rgba(253, 253, 254, 0.1),
-	// 		3px 5px 4px rgba(253, 253, 254, 0.15), 4px 6px 4px rgba(253, 253, 254, 0.2);
-
-	// 	&::before {
-	// 		content: '';
-	// 		position: absolute;
-	// 		left: 50%;
-	// 		bottom: -15%;
-	// 		transform: translate(-50%);
-	// 		height: 5px;
-	// 		width: 45%;
-	// 		background-color: c.$main;
-	// 		border-radius: 25px;
-	// 	}
-	// }
+	padding: 4em 0;
 	&__title {
 		margin-bottom: 2em;
 		padding-left: 0.5em;
@@ -56,7 +37,7 @@
 	}
 
 	&--wavy {
-		padding: 9em 0;
+		padding: 7em 0;
 	}
 }
 // TODO check it is necessary
@@ -77,5 +58,39 @@ main {
 		display: flex;
 		justify-content: center;
 		align-items: center;
+	}
+}
+
+// Keyframes
+
+@keyframes shake {
+	0%,
+	42% {
+		transform: rotate(0deg) scale(1);
+	}
+	45% {
+		transform: rotate(-20deg) scale(1.1);
+	}
+	48% {
+		transform: rotate(20deg) scale(1.1);
+	}
+	51% {
+		transform: rotate(-20deg) scale(1.1);
+	}
+	54% {
+		transform: rotate(20deg) scale(1.1);
+	}
+	57%,
+	100% {
+		transform: rotate(0deg) scale(1);
+	}
+}
+
+@keyframes arrow-down {
+	from {
+		transform: translate(-50%, 0);
+	}
+	to {
+		transform: translate(-50%, 30px);
 	}
 }

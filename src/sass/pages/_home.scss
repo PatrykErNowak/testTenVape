@@ -64,7 +64,7 @@
 		z-index: -10;
 
 		video {
-			position: fixed;
+			position: absolute;
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);
@@ -72,6 +72,10 @@
 			min-height: 100%;
 			width: auto;
 			height: auto;
+
+			@media (min-width: b.$large) {
+				position: fixed;
+			}
 		}
 	}
 
@@ -232,12 +236,14 @@
 	background-image: url('../src/img/home/brands/brands-bg-mobile.jpg');
 	background-position: center;
 	background-size: cover;
-	background-attachment: fixed;
 	mask: var(--mask);
 	-webkit-mask: var(--mask);
 
 	@media (min-width: b.$medium) {
 		background-image: url('../src/img/home/brands/brands-bg-desktop.jpg');
+	}
+	@media (min-width: b.$large) {
+		background-attachment: fixed;
 	}
 
 	::after {
@@ -336,12 +342,14 @@ div.crt-controls-over .crt-panel-prev {
 	background-image: url('../src/img/home/testimonials/testimonials-bg-mobile.jpg');
 	background-position: center;
 	background-size: cover;
-	background-attachment: fixed;
 	mask: var(--mask);
 	-webkit-mask: var(--mask);
 
 	@media (min-width: b.$medium) {
 		background-image: url('../src/img/home/testimonials/testimonials-bg-desktop.jpg');
+	}
+	@media (min-width: b.$large) {
+		background-attachment: fixed;
 	}
 
 	&::before {

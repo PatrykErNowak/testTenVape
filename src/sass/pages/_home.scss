@@ -12,6 +12,7 @@
 			calc(51% - 30px) repeat-x;
 }
 
+
 .header {
 	position: relative;
 	overflow: hidden;
@@ -91,7 +92,7 @@
 	&__layer-peaks {
 		width: 100%;
 		height: 100%;
-		background-image: url('../src/img/home/layered-peaks-haikei.svg');
+		background-image: url('../img/home/layered-peaks-haikei.svg');
 		background-position: bottom;
 		background-size: cover;
 	}
@@ -233,14 +234,14 @@
 
 .brands {
 	position: relative;
-	background-image: url('../src/img/home/brands/brands-bg-mobile.jpg');
+	background-image: url('../img/home/brands/brands-bg-mobile.jpg');
 	background-position: center;
 	background-size: cover;
 	mask: var(--mask);
 	-webkit-mask: var(--mask);
 
 	@media (min-width: b.$medium) {
-		background-image: url('../src/img/home/brands/brands-bg-desktop.jpg');
+		background-image: url('../img/home/brands/brands-bg-desktop.jpg');
 	}
 	@media (min-width: b.$large) {
 		background-attachment: fixed;
@@ -339,14 +340,14 @@ div.crt-controls-over .crt-panel-prev {
 
 .quotes {
 	position: relative;
-	background-image: url('../src/img/home/testimonials/testimonials-bg-mobile.jpg');
+	background-image: url('../img/home/testimonials/testimonials-bg-mobile.jpg');
 	background-position: center;
 	background-size: cover;
 	mask: var(--mask);
 	-webkit-mask: var(--mask);
 
 	@media (min-width: b.$medium) {
-		background-image: url('../src/img/home/testimonials/testimonials-bg-desktop.jpg');
+		background-image: url('../img/home/testimonials/testimonials-bg-desktop.jpg');
 	}
 	@media (min-width: b.$large) {
 		background-attachment: fixed;
@@ -426,7 +427,7 @@ div.crt-controls-over .crt-panel-prev {
 		width: 100px;
 		height: 100px;
 		color: red;
-		background-image: url('../src/img/home/testimonials/quote.svg');
+		background-image: url('../img/home/testimonials/quote.svg');
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: contain;

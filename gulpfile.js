@@ -12,6 +12,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const rename = require('gulp-rename');
 const imagemin = require('gulp-imagemin');
 const browserSync = require('browser-sync').create();
+const clean = require('gulp-clean');
 
 const paths = {
   sass: './src/sass/**/*.scss',
@@ -20,6 +21,8 @@ const paths = {
   jsDist: './dist/js',
   img: './src/img/**/*',
   imgDist: './dist/img',
+  html: './dist/**/*.html',
+  dist: './dist',
 };
 
 function buildStyles(done) {
@@ -59,21 +62,29 @@ function convertImg(done) {
 function startBrowserSync(done) {
   browserSync.init({
     server: {
-      baseDir: './',
+      baseDir: paths.dist,
     },
   });
   done();
 }
 
-function watchForChanges(done) {
-  gulp.watch('./*.html').on('change', browserSync.reload);
+function cleanStuff(done) {
   gulp
-    .watch([paths.sass, paths.js], gulp.parallel(buildStyles, javascript))
-    .on('change', browserSync.reload);
+    .src([paths.css, paths.imgDist, paths.jsDist], { read: false })
+    .pipe(clean());
+  done();
+}
+
+function watchForChanges(done) {
+  gulp.watch(paths.html).on('change', browserSync.reload);
+  gulp.watch(paths.sass, buildStyles).on('change', browserSync.reload);
+  gulp.watch(paths.js, javascript).on('change', browserSync.reload);
   gulp.watch(paths.img, convertImg).on('change', browserSync.reload);
   done();
 }
 
-const mainFunctions = gulp.parallel(buildStyles, javascript, convertImg);
+const build = gulp.parallel(buildStyles, javascript, convertImg);
 
-exports.default = gulp.series(mainFunctions, startBrowserSync, watchForChanges);
+exports.default = gulp.series(build, startBrowserSync, watchForChanges);
+exports.cleanStuff = cleanStuff;
+exports.build = build;

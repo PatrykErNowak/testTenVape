@@ -1,5 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const gulp = require('gulp');
+
+// HTML
+const fileinclude = require('gulp-file-include');
 // CSS
 const sass = require('gulp-sass')(require('sass'));
 const cssnano = require('gulp-cssnano');
@@ -17,13 +20,27 @@ const clean = require('gulp-clean');
 const paths = {
   sass: './src/sass/**/*.scss',
   css: './dist/css',
-  js: './src/js/**/*.js',
+  js: ['./src/js/**/*.js', '!./src/js/modules/**/*.js'],
   jsDist: './dist/js',
   img: './src/img/**/*',
   imgDist: './dist/img',
-  html: './dist/**/*.html',
+  html: ['./src/**/*.html', '!./src/html/**/*.html'],
   dist: './dist',
 };
+
+function html(done) {
+  gulp
+    .src(paths.html)
+    .pipe(
+      fileinclude({
+        prefix: '@@',
+        basepath: '@file',
+      })
+    )
+    .pipe(gulp.dest(paths.dist));
+
+  done();
+}
 
 function buildStyles(done) {
   gulp
@@ -32,8 +49,8 @@ function buildStyles(done) {
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(cssnano())
-    .pipe(sourcemaps.write())
     .pipe(rename({ suffix: '.min' }))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest(paths.css));
   done();
 }
@@ -48,8 +65,8 @@ function javascript(done) {
       })
     )
     .pipe(uglify())
-    .pipe(sourcemaps.write())
     .pipe(rename({ suffix: '.min' }))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest(paths.jsDist));
   done();
 }
@@ -64,27 +81,34 @@ function startBrowserSync(done) {
     server: {
       baseDir: paths.dist,
     },
+    open: true,
+    browser: 'chrome',
   });
   done();
 }
 
 function cleanStuff(done) {
   gulp
-    .src([paths.css, paths.imgDist, paths.jsDist], { read: false })
+    .src(paths.dist, {
+      read: false,
+      allowEmpty: true,
+    })
     .pipe(clean());
   done();
 }
 
 function watchForChanges(done) {
-  gulp.watch(paths.html).on('change', browserSync.reload);
+  gulp.watch(paths.html[0], html).on('change', browserSync.reload);
   gulp.watch(paths.sass, buildStyles).on('change', browserSync.reload);
   gulp.watch(paths.js, javascript).on('change', browserSync.reload);
   gulp.watch(paths.img, convertImg).on('change', browserSync.reload);
   done();
 }
 
-const build = gulp.parallel(buildStyles, javascript, convertImg);
+const build = gulp.parallel(html, buildStyles, javascript, convertImg);
 
 exports.default = gulp.series(build, startBrowserSync, watchForChanges);
+
 exports.cleanStuff = cleanStuff;
 exports.build = build;
+exports.server = gulp.series(startBrowserSync, watchForChanges);

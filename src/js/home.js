@@ -4,9 +4,9 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable prefer-const */
 /* eslint-disable no-undef */
+
 // ---------------------------------;
 // Navigation handling;
-
 const mobileNavigationHandler = function () {
   const hamburgerEl = document.querySelector('.hamburger');
   const navbarMenuEl = document.querySelector('.navbar__menu');
@@ -23,20 +23,17 @@ const mobileNavigationHandler = function () {
 
   hamburgerEl.addEventListener('click', mobileMenuHandle);
 };
-mobileNavigationHandler();
 
 // Display footer year
-
 const displayFooterYear = function () {
   const yearSpan = document.querySelector('.footer__year');
   const currentYear = new Date().getFullYear();
 
   yearSpan.textContent = currentYear;
 };
-displayFooterYear();
 
-// messenger facebook
-const facebookSDK = function () {
+// Facebook messenger
+const facebookMessenger = function () {
   const chatbox = document.getElementById('fb-customer-chat');
   chatbox.setAttribute('page_id', '109763205136637');
   chatbox.setAttribute('attribution', 'biz_inbox');
@@ -58,7 +55,34 @@ const facebookSDK = function () {
     fjs.parentNode.insertBefore(js, fjs);
   })(document, 'script', 'facebook-jssdk');
 };
-facebookSDK();
+
+// Scroll to Top
+const scrollToTop = function () {
+  const btn = document.querySelector('.btn__scroll-to-top');
+  const mainContent = document.querySelector('header');
+
+  const showBtn = function (entries) {
+    const [entry] = entries;
+
+    if (!entry.isIntersecting) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  };
+
+  const screenObserve = new IntersectionObserver(showBtn, {
+    root: null,
+    threshold: 0.3,
+  });
+
+  const scrollToTopHandle = function () {
+    document.documentElement.scrollTo({ top: 0 });
+  };
+
+  screenObserve.observe(mainContent);
+  btn.addEventListener('click', scrollToTopHandle);
+};
 
 // ! Background Video
 const videoHandler = function () {
@@ -72,11 +96,10 @@ const videoHandler = function () {
   if (window.screen.width >= 1200) headerVideoEl.src = videoDesktopSrc;
   else if (window.screen.width >= 768) headerVideoEl.src = videoTabletSrc;
 };
-videoHandler();
 
 // ! Animated logo in section about us
 
-const animatedLogo = function () {
+const animated3DLogo = function () {
   const imageEl = document.querySelector('.about-us__logo');
 
   window.addEventListener('mousemove', (e) => {
@@ -104,42 +127,49 @@ const animatedLogo = function () {
     )}deg) scale3d(1.03, 1.03, 1.03)`;
   });
 };
-animatedLogo();
+animated3DLogo();
 
 // ! FAQ section
 
 // Displaying and hiding answer for question // Accordion
-const faqItems = document.querySelector('.faq__items-c');
 
-faqItems.addEventListener('click', (e) => {
-  if (e.target.closest('.faq__item')) {
-    const item = e.target.closest('.faq__item');
-    const btn = item.querySelector('.faq__item-btn');
-    const answer = item.querySelector('.faq__item-answer');
+const accordionFAQSection = function () {
+  const faqItems = document.querySelector('.faq__items-c');
 
-    item.classList.toggle('faq__item--active');
+  faqItems.addEventListener('click', (e) => {
+    if (e.target.closest('.faq__item')) {
+      const item = e.target.closest('.faq__item');
+      const btn = item.querySelector('.faq__item-btn');
+      const answer = item.querySelector('.faq__item-answer');
 
-    if (item.classList.contains('faq__item--active')) {
-      answer.style.maxHeight = `${answer.scrollHeight}px`;
-      btn.innerHTML = '<i class="fa-solid fa-circle-minus"></i>';
-    } else {
-      answer.style.maxHeight = '0';
-      btn.innerHTML = '<i class="fa-solid fa-circle-plus"></i>';
-      btn.blur();
+      item.classList.toggle('faq__item--active');
+
+      if (item.classList.contains('faq__item--active')) {
+        answer.style.maxHeight = `${answer.scrollHeight}px`;
+        btn.innerHTML = '<i class="fa-solid fa-circle-minus"></i>';
+      } else {
+        answer.style.maxHeight = '0';
+        btn.innerHTML = '<i class="fa-solid fa-circle-plus"></i>';
+        btn.blur();
+      }
     }
-  }
-});
+  });
+};
+
 // ---------------------------------------------------------------
 // Invoking messenger chat by clicking btn under the section
-const faqBtn = document.querySelector('.faq__footer-btn');
 
-faqBtn.addEventListener('click', () => FB.CustomerChat.showDialog());
+const InvokingMessengerChatbyFAQBtn = function () {
+  const faqBtn = document.querySelector('.faq__footer-btn');
+
+  faqBtn.addEventListener('click', () => FB.CustomerChat.showDialog());
+};
 
 // ------------------------------------------------------------
 // Instargram curator.io
 
 /* curator-feed-default-feed-layout */
-(function () {
+const instagramCurator = function () {
   let i;
   let e;
   const d = document;
@@ -151,32 +181,43 @@ faqBtn.addEventListener('click', () => FB.CustomerChat.showDialog());
     'https://cdn.curator.io/published/1e117b9f-ba27-4dfd-b456-042976b52df7.js';
   e = d.getElementsByTagName(s)[0];
   e.parentNode.insertBefore(i, e);
-})();
+};
 
 // ---------------------------------------------------------------
 // Testimonials
 // Swiper
+const TestimonialsHandler = function () {
+  const swiper = new Swiper('.mySwiper', {
+    effect: 'coverflow',
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: 'auto',
+    loop: false,
+    initialSlide: 2,
+    coverflowEffect: {
+      rotate: 0,
+      scale: 1,
+      stretch: -10,
+      depth: 725,
+      modifier: 1,
+      slideShadows: false,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+};
 
-const swiper = new Swiper('.mySwiper', {
-  effect: 'coverflow',
-  grabCursor: true,
-  centeredSlides: true,
-  slidesPerView: 'auto',
-  loop: false,
-  initialSlide: 2,
-  coverflowEffect: {
-    rotate: 0,
-    scale: 1,
-    stretch: -10,
-    depth: 725,
-    modifier: 1,
-    slideShadows: false,
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  // pagination: {
-  // el: '.swiper-pagination',
-  // },
-});
+// Main functions
+mobileNavigationHandler();
+displayFooterYear();
+facebookMessenger();
+scrollToTop();
+
+// Secondary functions
+videoHandler();
+instagramCurator();
+TestimonialsHandler();
+accordionFAQSection();
+InvokingMessengerChatbyFAQBtn();

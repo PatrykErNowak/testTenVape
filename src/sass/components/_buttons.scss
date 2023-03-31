@@ -17,3 +17,30 @@
 		text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 	}
 }
+
+.btn__scroll-to-top {
+	position: fixed;
+	bottom: 24px;
+	right: 150px;
+	background-color: c.$main;
+	height: 44px;
+	width: 44px;
+	font-size: 3rem;
+	border-radius: 50%;
+	z-index: 1000;
+	opacity: 0;
+	transition: opacity 0.3s;
+	pointer-events: none;
+
+	svg {
+		color: c.$third;
+	}
+	
+	&.active {
+		opacity: 0.8;
+		pointer-events: all;
+		&:hover {
+			opacity: 1;
+		}
+	}
+}

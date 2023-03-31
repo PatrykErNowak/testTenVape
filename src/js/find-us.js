@@ -2,7 +2,6 @@
 /* eslint-disable no-undef */
 // ---------------------------------;
 // Navigation handling;
-
 const mobileNavigationHandler = function () {
   const hamburgerEl = document.querySelector('.hamburger');
   const navbarMenuEl = document.querySelector('.navbar__menu');
@@ -19,20 +18,17 @@ const mobileNavigationHandler = function () {
 
   hamburgerEl.addEventListener('click', mobileMenuHandle);
 };
-mobileNavigationHandler();
 
 // Display footer year
-
 const displayFooterYear = function () {
   const yearSpan = document.querySelector('.footer__year');
   const currentYear = new Date().getFullYear();
 
   yearSpan.textContent = currentYear;
 };
-displayFooterYear();
 
-// messenger facebook
-const facebookSDK = function () {
+// Facebook messenger
+const facebookMessenger = function () {
   const chatbox = document.getElementById('fb-customer-chat');
   chatbox.setAttribute('page_id', '109763205136637');
   chatbox.setAttribute('attribution', 'biz_inbox');
@@ -54,7 +50,6 @@ const facebookSDK = function () {
     fjs.parentNode.insertBefore(js, fjs);
   })(document, 'script', 'facebook-jssdk');
 };
-facebookSDK();
 
 // ! Canvas
 const canvasBg = function () {
@@ -210,4 +205,11 @@ const canvasBg = function () {
   init();
   animate();
 };
+
+// Main functions
+mobileNavigationHandler();
+displayFooterYear();
+facebookMessenger();
+
+// Secondary functions
 canvasBg();

@@ -2,7 +2,6 @@
 /* eslint-disable no-undef */
 // ---------------------------------;
 // Navigation handling;
-
 const mobileNavigationHandler = function () {
   const hamburgerEl = document.querySelector('.hamburger');
   const navbarMenuEl = document.querySelector('.navbar__menu');
@@ -19,20 +18,17 @@ const mobileNavigationHandler = function () {
 
   hamburgerEl.addEventListener('click', mobileMenuHandle);
 };
-mobileNavigationHandler();
 
 // Display footer year
-
 const displayFooterYear = function () {
   const yearSpan = document.querySelector('.footer__year');
   const currentYear = new Date().getFullYear();
 
   yearSpan.textContent = currentYear;
 };
-displayFooterYear();
 
-// messenger facebook
-const facebookSDK = function () {
+// Facebook messenger
+const facebookMessenger = function () {
   const chatbox = document.getElementById('fb-customer-chat');
   chatbox.setAttribute('page_id', '109763205136637');
   chatbox.setAttribute('attribution', 'biz_inbox');
@@ -54,7 +50,34 @@ const facebookSDK = function () {
     fjs.parentNode.insertBefore(js, fjs);
   })(document, 'script', 'facebook-jssdk');
 };
-facebookSDK();
+
+// Scroll to Top
+const scrollToTop = function () {
+  const btn = document.querySelector('.btn__scroll-to-top');
+  const mainContent = document.querySelector('header');
+
+  const showBtn = function (entries) {
+    const [entry] = entries;
+
+    if (!entry.isIntersecting) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  };
+
+  const screenObserve = new IntersectionObserver(showBtn, {
+    root: null,
+    threshold: 0.3,
+  });
+
+  const scrollToTopHandle = function () {
+    document.documentElement.scrollTo({ top: 0 });
+  };
+
+  screenObserve.observe(mainContent);
+  btn.addEventListener('click', scrollToTopHandle);
+};
 
 const mobileScreen = window.innerWidth < 768;
 
@@ -89,8 +112,6 @@ const categorySlider = function () {
   });
 };
 
-categorySlider();
-
 // ----------------------------------------------------------
 
 // Scroll to products clicking by button on specified category
@@ -118,8 +139,6 @@ const scrollToCategoryOfProducts = function () {
     }
   });
 };
-
-scrollToCategoryOfProducts();
 
 // ----------------------------------------------------------
 // TODO not completed
@@ -178,3 +197,12 @@ const displayProductModal = function (e) {
 };
 
 productsList.addEventListener('click', displayProductModal);
+
+// Main functions
+mobileNavigationHandler();
+displayFooterYear();
+facebookMessenger();
+scrollToTop();
+// Secondary functions
+categorySlider();
+scrollToCategoryOfProducts();

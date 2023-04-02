@@ -161,8 +161,13 @@ const accordionFAQSection = function () {
 
 const InvokingMessengerChatbyFAQBtn = function () {
   const faqBtn = document.querySelector('.faq__footer-btn');
+  const btns = document.querySelectorAll('[data-type="messenger"');
 
-  faqBtn.addEventListener('click', () => FB.CustomerChat.showDialog());
+  btns.forEach((btn) =>
+    btn.addEventListener('click', () => FB.CustomerChat.showDialog())
+  );
+
+  // faqBtn.addEventListener('click', () => FB.CustomerChat.showDialog());
 };
 
 // ------------------------------------------------------------

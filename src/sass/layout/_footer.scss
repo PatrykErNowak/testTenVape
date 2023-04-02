@@ -4,7 +4,6 @@
 .footer {
 	position: relative;
 	background-color: c.$footer-bg;
-	color: rgba($color: c.$third, $alpha: 0.8);
 	z-index: 500;
 
 	.wrapper {
@@ -32,8 +31,9 @@
 	}
 	&__title {
 		margin-top: 0.5em;
-		font-family: 'Dancing Script', cursive;
+		font-weight: 700;
 		font-size: clamp(2.8rem, 1rem + 1.5vw, 3.4rem);
+		color: rgba($color: c.$third, $alpha: 0.9);
 	}
 
 	&__copyright,

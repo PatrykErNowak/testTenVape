@@ -111,7 +111,8 @@
 		display: grid;
 		// @include flex-center;
 		// flex-direction: column;
-		gap: 3em;
+		row-gap: 3em;
+		column-gap: 1em;
 
 		@media (min-width: b.$large) {
 			display: grid;
@@ -131,7 +132,9 @@
 	&__section-logo {
 		display: none;
 		@media (min-width: b.$large) {
-			display: block;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 			grid-column: 2/3;
 			grid-row: 1/2;
 		}
@@ -159,29 +162,26 @@
 	}
 
 	&__title {
-		font-family: 'Dancing Script', cursive;
+		font-family: 'Roboto', sans-serif;
+		text-transform: uppercase;
+		text-align: center;
 		font-size: clamp(3rem, 3rem + 2vw, 5rem);
-		background-image: linear-gradient(0deg, rgba(28, 202, 89, 1) 0%, rgba(41, 53, 86, 1) 100%);
+		background-image: linear-gradient(0deg, rgba(28, 202, 89, 1) 0%, rgb(36, 80, 42) 100%);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 	}
 
 	&__desc {
 		margin: 1em 0;
+		span {
+			color: c.$main;
+			font-size: clamp(1.6rem, 1rem + 1.1vw, 2.2rem);
+			font-weight: 600;
+		}
 	}
 
 	&__btn-to-offer {
-		background-color: c.$main;
 		width: 100%;
-		color: c.$text-bright;
-		text-transform: uppercase;
-		letter-spacing: 2px;
-		border-radius: 10px;
-		a {
-			padding: 1.2em;
-			display: block;
-			width: 100%;
-		}
 	}
 
 	&__socials {
@@ -206,10 +206,7 @@
 	padding: 0 2em;
 	max-width: 40rem;
 	color: c.$third;
-	transition: transform 0.3s;
-	&:hover {
-		transform: scale(1.1);
-	}
+
 	&__icon {
 		i {
 			font-size: 4rem;
@@ -225,9 +222,30 @@
 	}
 	&__desc {
 		margin-top: 0.5em;
-		font-size: clamp(1.6rem, 1rem + 2vw, 1.8rem);
-		line-height: 3rem;
 	}
+
+	&__btns {
+		margin-top: 0.5em;
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+	}
+	&__btn {
+		color: c.$main;
+		font-size: 3.5rem;
+		transition: transform 0.3s;
+		text-shadow: 0 0 10px rgba($color: c.$third, $alpha: 0.2);
+		a {
+			padding: 0.5em;
+		}
+		&:hover {
+			transform: scale(1.2);
+		}
+		& :not(a) {
+			padding: 0.5em;
+		}
+	}
+
 }
 // ---------------------------------------------------------------
 // Section Brands
@@ -277,35 +295,7 @@
 }
 // -------------------------------------------------------------------
 // Instagram section
-// Grid carousel styling
-// Instagram curator.io styling
 
-/* 
-// Masaic styles
-// Link under feed
-.crt-widget.crt-widget-branded .crt-logo.crt-tag {
-	display: none;
-}
-
-// Container bg
-.crt-widget-mosaic .crt-post-instagram {
-	background-color: c.$second;
-	// background-color: rgba($color: c.$main, $alpha: 0.8);
-}
-.crt-widget-mosaic .crt-feed {
-	box-shadow: 0 0 50px rgba($color: c.$main, $alpha: 0.2);
-	border-radius: 15px;
-}
-// button
-.crt-widget .crt-load-more-container .crt-load-more {
-	background-color: c.$main;
-	border-radius: 25px;
-	transition: background-color 0.3s;
-	&:hover {
-		background-color: rgba($color: c.$main, $alpha: 0.8);
-	}
-}
-*/
 
 .crt-carousel-feed.crt-controls-over > div {
 	border-radius: 15px;
@@ -405,6 +395,12 @@ div.crt-controls-over .crt-panel-prev {
 			border: 1px solid c.$second;
 		}
 	}
+
+	&__btns {
+		margin-top: 2em;
+		display: flex;
+		justify-content: space-around;
+	}
 }
 
 .quote {
@@ -501,8 +497,8 @@ div.crt-controls-over .crt-panel-prev {
 		justify-content: space-between;
 	}
 	&__item-question {
-		font-size: clamp(1.6rem, 1rem + 1.7vw, 2.1rem);
-		font-weight: 600;
+		font-size: clamp(1.6rem, 1rem + 1.7vw, 2rem);
+		font-weight: 500;
 		letter-spacing: 1px;
 	}
 	&__item-btn {
@@ -530,6 +526,8 @@ div.crt-controls-over .crt-panel-prev {
 		color: rgba($color: c.$text-bright, $alpha: 0.8);
 		transition: max-height 0.5s ease-out;
 		overflow: hidden;
+		cursor: auto;
+
 	}
 
 	// FAQ Footer

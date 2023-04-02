@@ -1,21 +1,50 @@
 @use '../utilities/colors' as c;
 
 .btn {
-	border: 1px solid transparent;
-	border-radius: 40px;
-	background-color: c.$main;
-	cursor: pointer;
+	position: relative;
+	font-family: inherit;
+	font-size: clamp(1.5rem, 1rem + 1.1vw, 1.6rem);
+	font-weight: 600;
+	color: c.$third;
+	text-transform: uppercase;
+	text-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+	border: none;
+	letter-spacing: 2px;
+	border-radius: 20px;
+	background-image: radial-gradient(100% 100% at 100% 0, #82ffa1 0, c.$main 100%);
+	overflow: hidden;
+	transition: transform 0.5s;
+
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: -100%;
+		left: 0;
+		height: 20px;
+		width: 100%;
+		transform: translateX(-60%) rotate(-75deg);
+		background-color: #f3f3f3;
+		box-shadow: 0 0 10px #fff;
+		filter: blur(1px);
+		opacity: 0.9;
+		transition: transform 0.5s;
+
+	}
 	a {
 		display: inline-block;
 		padding: 1em 2em;
 		height: 100%;
 		width: 100%;
-		font-family: 'Roboto', sans-serif;
-		color: white;
-		font-size: clamp(1.6rem, 1rem + 1vw, 3rem);
-		font-weight: 500;
-		text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 	}
+	
+	&:hover {
+		transform: scale(1.02);
+	}
+	&:hover::before {
+		transform: translateX(70%) rotate(-75deg);
+	}
+
 }
 
 .btn__scroll-to-top {

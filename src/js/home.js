@@ -127,7 +127,6 @@ const animated3DLogo = function () {
     )}deg) scale3d(1.03, 1.03, 1.03)`;
   });
 };
-animated3DLogo();
 
 // ! FAQ section
 
@@ -217,6 +216,7 @@ const TestimonialsHandler = function () {
 // Main functions
 mobileNavigationHandler();
 displayFooterYear();
+animated3DLogo();
 facebookMessenger();
 scrollToTop();
 

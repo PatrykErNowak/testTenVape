@@ -1,4 +1,5 @@
 @use '../utilities/colors' as c;
+@use '../utilities/breakpoints' as b;
 
 .btn {
 	position: relative;
@@ -49,27 +50,40 @@
 
 .btn__scroll-to-top {
 	position: fixed;
-	bottom: 24px;
-	right: 150px;
+	bottom: 15px;
+	left: 15px;
 	background-color: c.$main;
-	height: 44px;
-	width: 44px;
+	height: 38px;
+	width: 38px;
 	font-size: 3rem;
 	border-radius: 50%;
 	z-index: 1000;
 	opacity: 0;
-	transition: opacity 0.3s;
+	transition: background-color 0.3s;
 	pointer-events: none;
 
 	svg {
 		color: c.$third;
+		transition: color 0.3s;
 	}
+
+	@media (min-width: b.$large) {
+		bottom: 24px;
+		right: 150px;
+		left: unset;
+		height: 44px;
+		width: 44px;
+	}
+
 	
 	&.active {
-		opacity: 0.8;
+		opacity: 1;
 		pointer-events: all;
 		&:hover {
-			opacity: 1;
+			background-color: c.$third;
+			svg {
+				color: c.$main;
+			}
 		}
 	}
 }

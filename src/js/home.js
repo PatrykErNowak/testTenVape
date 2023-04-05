@@ -84,6 +84,46 @@ const scrollToTop = function () {
   btn.addEventListener('click', scrollToTopHandle);
 };
 
+// Functions for this particural site
+// Scroll to the first main section
+
+const scrollToMainContent = function () {
+  const btn = document.querySelector('.header__btn-scrolldown');
+  const targetSection = document.querySelector('main');
+
+  btn.addEventListener('click', () =>
+    targetSection.scrollIntoView({ behavior: 'smooth' })
+  );
+};
+
+// Section Animation
+
+const sectionAnimationHandle = function () {
+  const sections = document.querySelectorAll('.section');
+
+  const showSection = function (entries, observer) {
+    const [entry] = entries;
+
+    if (entry.isIntersecting) {
+      entry.target.classList.remove('section--hidden');
+      observer.unobserve(entry.target);
+    }
+  };
+
+  const options = {
+    root: null,
+    rootMargin: '-100px',
+    threshold: 0.05,
+  };
+
+  const observeSection = new IntersectionObserver(showSection, options);
+
+  sections.forEach((section) => {
+    section.classList.add('section--hidden');
+    observeSection.observe(section);
+  });
+};
+
 // ! Background Video
 const videoHandler = function () {
   const headerVideoEl = document.querySelector('.header__video-bg video');
@@ -197,7 +237,7 @@ const TestimonialsHandler = function () {
     centeredSlides: true,
     slidesPerView: 'auto',
     loop: false,
-    initialSlide: 2,
+    initialSlide: 3,
     coverflowEffect: {
       rotate: 0,
       scale: 1,
@@ -216,11 +256,13 @@ const TestimonialsHandler = function () {
 // Main functions
 mobileNavigationHandler();
 displayFooterYear();
-animated3DLogo();
 facebookMessenger();
 scrollToTop();
 
 // Secondary functions
+scrollToMainContent();
+animated3DLogo();
+sectionAnimationHandle();
 videoHandler();
 instagramCurator();
 TestimonialsHandler();

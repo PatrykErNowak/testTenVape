@@ -1,4 +1,5 @@
 @use '../utilities/colors' as c;
+@use '../utilities/breakpoints' as b;
 
 *,
 *::before,
@@ -23,4 +24,8 @@ body {
 main {
 	background-color: c.$second;
 	padding-bottom: 4em;
+	scroll-margin-top: 50px;
+	@media (min-width: b.$x-large) {
+		scroll-margin-top: 80px;
+	}
 }

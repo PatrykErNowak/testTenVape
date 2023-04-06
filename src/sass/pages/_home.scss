@@ -28,7 +28,7 @@
 	}
 
 	&__logo {
-		width: clamp(200px, 100px + 50vw, 400px);
+		width: clamp(200px, 100px + 20vw, 400px);
 	}
 
 	&__heading {
@@ -113,7 +113,7 @@
 
 		@media (min-width: b.$large) {
 			display: grid;
-			grid-template-columns: 1fr 1fr;
+			grid-template-columns: 55% 45%;
 			grid-template-rows: 1fr auto;
 			row-gap: 5em;
 		}
@@ -129,9 +129,7 @@
 	&__section-logo {
 		display: none;
 		@media (min-width: b.$large) {
-			display: flex;
-			justify-content: center;
-			align-items: center;
+			@include flex-center;
 			grid-column: 2/3;
 			grid-row: 1/2;
 		}
@@ -208,7 +206,7 @@
 		gap: 4em;
 
 		a {
-			font-size: 5rem;
+			font-size: clamp(4rem, 2rem + 4vw, 5rem);
 			transition: color 0.3s, transform 0.3s;
 			&:focus,
 			&:hover {
@@ -240,9 +238,9 @@
 	}
 	&__title {
 		margin: 1em 0 0.7em;
-		font-size: clamp(2.2rem, 1rem + 2vw, 2.3rem);
+		font-size: clamp(2rem, 1rem + 2vw, 2.3rem);
 		font-weight: 700;
-		letter-spacing: 1px;
+		letter-spacing: 2px;
 	}
 	&__desc {
 		margin-top: 0.5em;
@@ -256,7 +254,7 @@
 	}
 	&__btn {
 		color: c.$main;
-		font-size: 3.5rem;
+		font-size: 2.5rem;
 		transition: transform 0.3s;
 		text-shadow: 0 0 10px rgba($color: c.$third, $alpha: 0.2);
 
@@ -563,12 +561,12 @@ div.crt-controls-over .crt-panel-prev {
 		justify-content: space-between;
 	}
 	&__item-question {
-		font-size: clamp(1.6rem, 1rem + 1.7vw, 1.9rem);
+		font-size: clamp(1.6rem, 1rem + .5vw, 1.9rem);
 		font-weight: 400;
 		letter-spacing: 1px;
 	}
 	&__item-btn {
-		margin-left: 1em;
+		margin-left: 0.5em;
 		font-size: 3rem;
 		color: inherit;
 		background: none;

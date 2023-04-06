@@ -134,7 +134,6 @@ const videoHandler = function () {
 
   // Change video quality depends of screen size
   if (window.screen.width >= 1200) headerVideoEl.src = videoDesktopSrc;
-  else if (window.screen.width >= 768) headerVideoEl.src = videoTabletSrc;
 };
 
 // ! Animated logo in section about us

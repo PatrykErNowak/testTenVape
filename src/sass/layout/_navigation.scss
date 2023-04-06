@@ -8,7 +8,6 @@
 	padding: 0.7em 0;
 	width: 100%;
 	background-color: rgba(0, 0, 0, 0.8);
-	// box-shadow: 0 25px 30px rgba(0, 0, 0, 0.4);
 	z-index: 1000;
 	.wrapper {
 		display: flex;
@@ -58,6 +57,8 @@
 
 		&::before,
 		&::after {
+			content: '';
+			transform: translate(50%, -50%) scale(0);
 			position: absolute;
 			top: 0;
 			right: 0;
@@ -68,14 +69,10 @@
 			opacity: 0;
 		}
 		&::before {
-			content: '';
-			transform: translate(50%, -50%) scale(0);
 			background-color: c.$main;
 			border-radius: 50%;
 		}
 		&::after {
-			content: '';
-			transform: translate(50%, -50%) scale(0);
 			background-color: c.$second;
 			border-radius: 40%;
 		}
@@ -83,6 +80,7 @@
 		&--active {
 			opacity: 1;
 			pointer-events: all;
+	
 			&::before {
 				transform: translate(45%, -50%) scale(1.15);
 				opacity: 0.8;
@@ -148,12 +146,10 @@
 		display: inline-block;
 		position: relative;
 		font-weight: 500;
-		transition: color 0.3s;
 		opacity: 0;
 
 		&:hover,
 		&:focus {
-			color: c.$main;
 			outline: none;
 		}
 		@media (min-width: b.$medium) {
@@ -161,37 +157,59 @@
 		}
 	}
 
-	&__list-item a {
-		padding: 1em 2em;
-		font-size: 1.8rem;
-		@media (min-width: b.$medium) {
-			padding: 1em 1.5em;
-			&::after {
-				content: '';
-				position: absolute;
-				bottom: 0;
-				left: 15%;
-				height: 3px;
-				width: 70%;
-				background-color: c.$main;
-				transform: scaleX(0);
-				transform-origin: right;
-				transition: transform 0.5s;
+	&__list-item {
+		&.active {
+			a {
+				color: c.$main;
 			}
-			&:focus::after,
-			&:hover::after {
-				transform: scaleX(1);
-				transform-origin: left;
+			@media (min-width: b.$medium) {
+				a {
+					color: inherit;
+				}
+				a::after {
+					transform: scaleX(1);
+				}
 			}
 		}
-	}
+
+		a {
+			padding: 1em 2em;
+			font-size: 1.8rem;
+
+			@media (min-width: b.$medium) {
+				padding: 1em 1.5em;
+				&::after {
+					content: '';
+					position: absolute;
+					bottom: 5px;
+					left: 15%;
+					height: 3px;
+					width: 70%;
+					background-color: c.$main;
+					transform: scaleX(0);
+					transform-origin: right;
+					transition: transform 0.5s;
+				}
+				&:focus::after,
+				&:hover::after {
+					transform: scaleX(1);
+					transform-origin: left;
+				}
+		}
+	}}
 	&__socials-item a {
 		padding: 1em;
 		font-size: 3.5rem;
+		transition: color 0.3s;
 		@media (min-width: b.$medium) {
 			padding: 0.4em 0.5em;
 			font-size: 3rem;
 		}
+		&:focus,
+		&:hover {
+			color: c.$main;
+		}
+
 	}
 
 	.hamburger {

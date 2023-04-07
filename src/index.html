@@ -28,23 +28,24 @@
 
     <header class="header">
         <div class="header__content">
-            <img class="header__logo" src="img/tenvape-logo-text.png" alt="">
+            <img class="header__logo" src="img/tenvape-logo-text.png" alt="Ten Vape">
             <h1 class="header__heading">Elektroniczne <br> papierosy</h1>
-            <button class="header__btn-scrolldown"><i class="fa-solid fa-arrow-up-long fa-rotate-180"></i></button>
+            <button class="header__btn-scrolldown" aria-label="Przejdź do głównej treści"><i
+                    class="fa-solid fa-arrow-up-long fa-rotate-180"></i></button>
         </div>
-        <div class="header__video-bg">
+        <div class="header__video-bg" aria-hidden="true">
             <video autoplay loop play-inline muted src="video/header-720p.mp4" type="video/mp4"
                 poster="video/video-poster.png" data-desktop-src="video/header-1080p.mp4">
                 "Twoja przeglądarka nie obsługuje tagu video lub formatu tego pliku."
             </video>
         </div>
-        <div class="header__layer-peaks-container">
+        <div class="header__layer-peaks-container" aria-hidden="true">
             <div class="header__layer-peaks"></div>
         </div>
         <nav class="navbar">
             <div class="wrapper">
 
-                <a class="navbar__logo" href="#">
+                <a class="navbar__logo" href="#" aria-label="Wróc na stronę główną">
                     <svg data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 584.94 492.32">
                         <defs>
                             <style>
@@ -111,14 +112,20 @@
                 <div class="navbar__menu">
 
                     <ul class="navbar__list">
-                        <li class="navbar__list-item active"><a href="#">Ten Vape</a></li>
-                        <li class="navbar__list-item"><a href="./oferta">Oferta sklepu</a></li>
-                        <li class="navbar__list-item"><a href="./adres">Jak nas znaleźć?</a></li>
+                        <li class="navbar__list-item active"><a href="#"
+                                aria-label="Strona Ten Vape - aktualnie aktywna strona">Ten Vape</a></li>
+                        <li class="navbar__list-item"><a href="./oferta"
+                                aria-label="Przejdź do zakładki z ofertą sklepu">Oferta sklepu</a></li>
+                        <li class="navbar__list-item"><a href="./adres"
+                                aria-label="Przejdź do zakładki z danymi teleadresowymi">Jak nas znaleźć?</a></li>
                     </ul>
 
                     <ul class="navbar__socials">
-                        <li class="navbar__socials-item"><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-                        <li class="navbar__socials-item"><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li class="navbar__socials-item"><a
+                                href="https://www.facebook.com/people/Tenvapepl/100083561502823/"
+                                aria-label="Facebook - profil firmowy"><i class="fa-brands fa-facebook"></i></a></li>
+                        <li class="navbar__socials-item"><a href="https://www.instagram.com/tenvape.pl"
+                                aria-label="Instagram - profil firmowy"><i class="fa-brands fa-instagram"></i></a></li>
                     </ul>
 
                 </div>
@@ -153,14 +160,14 @@
                         produkty CBD.</p>
                     <button class="about-us__btn-to-offer btn"><a href="./oferta/">Sprawdź Naszą Ofertę</a></button>
                     <div class="about-us__socials">
-                        <a href="https://www.facebook.com/people/Tenvapepl/100083561502823/" target="_blank"><i
-                                class="fa-brands fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/tenvape.pl" target="_blank"><i
-                                class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/people/Tenvapepl/100083561502823/" target="_blank"
+                            aria-label="Facebook - profil firmowy"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/tenvape.pl" target="_blank"
+                            aria-label="Instagram - profil firmowy"><i class="fa-brands fa-instagram"></i></a>
                     </div>
                 </div>
 
-                <div class="about-us__section-logo">
+                <div class="about-us__section-logo" aria-hidden="true">
                     <img class="about-us__logo" src="img/logo-green.png" alt="">
                 </div>
 
@@ -190,12 +197,17 @@
                             zamówić 😊
                         </p>
                         <div class="strength__btns">
-                            <button class="strength__btn"><a href="tel:+48797699658"><i class="fa-solid fa-phone"></i>
+                            <button class="strength__btn" aria-label="Zadzwoń na numer telefonu +48797699658"><a
+                                    href="tel:+48797699658" aria-label="Zadzwoń na numer telefonu +48797699658"><i
+                                        class="fa-solid fa-phone"></i>
                                 </a></button>
-                            <button data-type="messenger" class="strength__btn"><i
+                            <button data-type="messenger" class="strength__btn"
+                                aria-label="Wyświetl okienko czatu facebook messenger sklepu Ten Vape"><i
                                     class="fa-brands fa-facebook-messenger"></i>
                             </button>
-                            <button class="strength__btn"><a href="mailto:tenvape@gmail.com"><i
+                            <button class="strength__btn" aria-label="Wyślij e-maila na adres tenvape@gmail.com"><a
+                                    href="mailto:tenvape@gmail.com"
+                                    aria-label="Wyślij e-maila na adres tenvape@gmail.com"><i
                                         class="fa-solid fa-envelope"></i>
                                 </a></button>
                         </div>
@@ -215,12 +227,16 @@
         <section class="brands">
             <div class="section section--wavy wrapper">
                 <div class="brands__container">
-                    <img src="img/home/brands/geek-vape.png" alt="" class="brands__item brands__item--white">
-                    <img src="img/home/brands/smok-vape.png" alt="" class="brands__item brands__item--white">
-                    <img src="img/home/brands/wotofo.webp" alt="" class="brands__item">
-                    <img src="img/home/brands/voopoo-vape.png" alt="" class="brands__item brands__item--white">
-                    <img src="img/home/brands/vandy_vape.png" alt="" class="brands__item brands__item--white">
-                    <img src="img/home/brands/lost-vape.png" alt="" class="brands__item">
+                    <img src="img/home/brands/geek-vape.png" alt="Geek vape logo"
+                        class="brands__item brands__item--white">
+                    <img src="img/home/brands/smok-vape.png" alt="Smok vape logo"
+                        class="brands__item brands__item--white">
+                    <img src="img/home/brands/wotofo.webp" alt="Wotofo vape logo" class="brands__item">
+                    <img src="img/home/brands/voopoo-vape.png" alt="Voopoo vape logo"
+                        class="brands__item brands__item--white">
+                    <img src="img/home/brands/vandy_vape.png" alt="Vandy vape logo"
+                        class="brands__item brands__item--white">
+                    <img src="img/home/brands/lost-vape.png" alt="Lost vape logo" class="brands__item">
                 </div>
             </div>
         </section>
@@ -246,7 +262,8 @@
                                 <footer>
                                     <cite>
                                         <a class="quote__author" target="_blank"
-                                            href="https://goo.gl/maps/4g8tQfwaHm2MYdp18">Paweł
+                                            href="https://goo.gl/maps/4g8tQfwaHm2MYdp18"
+                                            aria-label="Przejdź do opini Pawła Mikołajczyka na google">Paweł
                                             Mikołajczyk</a>
                                     </cite>
                                 </footer>
@@ -259,7 +276,8 @@
                                 <footer>
                                     <cite>
                                         <a class="quote__author" target="_blank"
-                                            href="https://goo.gl/maps/1JEP7etNoLMv9ToLA">Natalia
+                                            href="https://goo.gl/maps/1JEP7etNoLMv9ToLA"
+                                            aria-label="Przejdź do opini Natalii Rybickiej na google">Natalia
                                             Rybicka</a>
                                     </cite>
                                 </footer>
@@ -276,7 +294,8 @@
                                 <footer>
                                     <cite>
                                         <a class="quote__author" target="_blank"
-                                            href="https://goo.gl/maps/Pry3Djk5hVY1hxUR9">Alicja
+                                            href="https://goo.gl/maps/Pry3Djk5hVY1hxUR9"
+                                            aria-label="Przejdź do opini Alicji Dziadko na google">Alicja
                                             Dziadko</a>
                                     </cite>
                                 </footer>
@@ -299,7 +318,8 @@
                                 <footer>
                                     <cite>
                                         <a class="quote__author" target="_blank"
-                                            href="https://goo.gl/maps/ErdhSu7zL9egGpwdA">Michał
+                                            href="https://goo.gl/maps/ErdhSu7zL9egGpwdA"
+                                            aria-label="Przejdź do opini Michała Iwańczuka na google">Michał
                                             Iwańczuk</a>
                                     </cite>
                                 </footer>
@@ -317,7 +337,8 @@
                                 <footer>
                                     <cite>
                                         <a class="quote__author" target="_blank"
-                                            href="https://goo.gl/maps/FPJqi2Df1SqzjWfUA">Eliza
+                                            href="https://goo.gl/maps/FPJqi2Df1SqzjWfUA"
+                                            aria-label="Przejdź do opini Elizy Kloc na google">Eliza
                                             Kloc</a>
                                     </cite>
                                 </footer>
@@ -332,7 +353,8 @@
                                 <footer>
                                     <cite>
                                         <a class="quote__author" target="_blank"
-                                            href="https://goo.gl/maps/UVSk6tZnnAbdv65dA">Natalia
+                                            href="https://goo.gl/maps/UVSk6tZnnAbdv65dA"
+                                            aria-label="Przejdź do opini Natalii Zbiegeń na google">Natalia
                                             Zbiegeń</a>
                                     </cite>
                                 </footer>
@@ -347,7 +369,8 @@
                                 <footer>
                                     <cite>
                                         <a class="quote__author" target="_blank"
-                                            href="https://goo.gl/maps/wSqrAmXfJnnPMJbdA">Krzysztof
+                                            href="https://goo.gl/maps/wSqrAmXfJnnPMJbdA"
+                                            aria-label="Przejdź do opini Krzysztofa Zdunek na google">Krzysztof
                                             Zdunek</a>
                                     </cite>
                                 </footer>
@@ -361,9 +384,11 @@
                     <div class="swiper-button-next"></div>
                 </div>
                 <div class="quotes__btns">
-                    <button class="btn"><a href="https://g.page/r/Cee6Ijpm4_E8EBM/review">Zostaw opinię</a></button>
+                    <button class="btn"><a href="https://g.page/r/Cee6Ijpm4_E8EBM/review"
+                            aria-label="Przejdź do strony google i zostaw opinię">Zostaw opinię</a></button>
                     <button class="btn"><a
-                            href="https://www.google.com/maps/place/TEN+VAPE+-+VAPE+SHOP+LUBLIN/@51.2447398,22.5529472,17.75z/data=!4m8!3m7!1s0x472257c6514cc25f:0x3cf1e3663a22bae7!8m2!3d51.2455824!4d22.5520591!9m1!1b1!16s%2Fg%2F11s5vz063c">Przeglądaj
+                            href="https://www.google.com/maps/place/TEN+VAPE+-+VAPE+SHOP+LUBLIN/@51.2447398,22.5529472,17.75z/data=!4m8!3m7!1s0x472257c6514cc25f:0x3cf1e3663a22bae7!8m2!3d51.2455824!4d22.5520591!9m1!1b1!16s%2Fg%2F11s5vz063c"
+                            aria-label="Wyświetl wszystkie opinie na google">Przeglądaj
                             opinie</a></button>
                 </div>
             </div>
@@ -379,13 +404,15 @@
                     <div class="faq__item-header">
                         <p class="faq__item-question">Czy TEN VAPE Shop jest rzeczywiście otwarty również w niedzielę?
                         </p>
-                        <button class="faq__item-btn"><i class="fa-solid fa-circle-plus"></i></button>
+                        <button class="faq__item-btn" aria-label="Wyświetl odpowiedź"><i
+                                class="fa-solid fa-circle-plus"></i></button>
                     </div>
                     <div class="faq__item-answer">
                         <p>Tak! Nasz sklep z elektronicznymi papierosami w Lublinie jest czynny w niedzielę w
                             godzinach 10:00 – 20:00, aby zapewnić Wam nieprzerwany dostęp do wszystkich produktów
                             w sytuacjach awaryjnych jak na przykład spalona grzałka czy też zbite szkiełko 😊 <a
-                                class="link" href="./adres/">Zapraszamy!</a>
+                                class="link" href="./adres/"
+                                aria-label="Przejdź do zakładki z danymi teleadresowymi">Zapraszamy!</a>
                         </p>
                     </div>
                 </div>
@@ -394,7 +421,8 @@
                         <p class="faq__item-question">Czy żeby kupić premix, który nie ma nikotyny bądź jednorazówkę
                             muszę mieć 18 lat?
                         </p>
-                        <button class="faq__item-btn"><i class="fa-solid fa-circle-plus"></i></button>
+                        <button class="faq__item-btn" aria-label="Wyświetl odpowiedź"><i
+                                class="fa-solid fa-circle-plus"></i></button>
                     </div>
                     <div class="faq__item-answer">
                         <p>Tak! Sprzedaż prowadzona jest wyłącznie dla osób pełnoletnich bez względu na rodzaj
@@ -408,7 +436,8 @@
                     <div class="faq__item-header">
                         <p class="faq__item-question">Czy kupię u was jednorazowego papierosa elektronicznego czyli tak
                             zwaną jednorazówkę?</p>
-                        <button class="faq__item-btn"><i class="fa-solid fa-circle-plus"></i></button>
+                        <button class="faq__item-btn" aria-label="Wyświetl odpowiedź"><i
+                                class="fa-solid fa-circle-plus"></i></button>
                     </div>
                     <div class="faq__item-answer">
                         <p>Oczywiście, posiadamy szeroki wybór smaków jednorazówek. Co więcej w asortymencie
@@ -419,7 +448,8 @@
                 <div class="faq__item">
                     <div class="faq__item-header">
                         <p class="faq__item-question">Jak często muszę wymieniać grzałkę w moim e-papierosie?</p>
-                        <button class="faq__item-btn"><i class="fa-solid fa-circle-plus"></i></button>
+                        <button class="faq__item-btn" aria-label="Wyświetl odpowiedź"><i
+                                class="fa-solid fa-circle-plus"></i></button>
                     </div>
                     <div class="faq__item-answer">
                         <p>Możemy założyć, że grzałka powinna być wymieniona chociaż raz na 3-4 tygodnie
@@ -435,7 +465,8 @@
                 <div class="faq__item">
                     <div class="faq__item-header">
                         <p class="faq__item-question">Co to jest liquid, premix oraz longfill?</p>
-                        <button class="faq__item-btn"><i class="fa-solid fa-circle-plus"></i></button>
+                        <button class="faq__item-btn" aria-label="Wyświetl odpowiedź"><i
+                                class="fa-solid fa-circle-plus"></i></button>
                     </div>
                     <div class="faq__item-answer">
                         <p>Liquid – to płyn do elektronicznego papierosa, sprzedawany w buteleczkach o pojemności 10
@@ -460,7 +491,8 @@
             <footer class="faq__footer">
                 <h3>Masz więcej pytań?</h3>
                 <p>Nie znalazłeś odpowiedzi na pytanie? Napisz do nas!</p>
-                <button data-type="messenger" class="faq__footer-btn">
+                <button data-type="messenger" class="faq__footer-btn"
+                    aria-label="Wyświetl okienko czatu facebook messenger sklepu Ten Vape">
                     <i class="fa-brands fa-facebook-messenger"></i>
                 </button>
             </footer>
@@ -474,7 +506,7 @@
         </div>
         <div class="wrapper">
             <div class="footer__main">
-                <img class="footer__logo" src="img/ten vape logo svg.svg" alt="">
+                <img class="footer__logo" src="img/ten vape logo svg.svg" alt="Ten Vape logo">
                 <p class="footer__title">we do explain</p>
             </div>
             <p class="footer__copyright">© <span class="footer__year"></span> TEN VAPE. Wszelkie prawa zastrzeżone.
@@ -489,7 +521,7 @@
     <div id="fb-customer-chat" class="fb-customerchat">
     </div>
 
-    <button class="btn__scroll-to-top"><svg xmlns="http://www.w3.org/2000/svg"
+    <button class="btn__scroll-to-top" aria-label="Przewiń na góre strony"><svg xmlns="http://www.w3.org/2000/svg"
             class="icon icon-tabler icon-tabler-chevron-up" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
             stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>

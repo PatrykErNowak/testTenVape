@@ -418,9 +418,6 @@ div.crt-controls-over .crt-panel-prev {
 	.swiper {
 		height: 100%;
 		width: 100%;
-		@media (min-width: b.$x-large) {
-			overflow: visible;
-		}
 
 		.swiper-slide {
 			margin: auto 0;

@@ -2,7 +2,8 @@
 @use '../utilities/breakpoints' as b;
 @use '../utilities/helpers' as *;
 
-.find-us {
+.find-us { 
+	padding: 6em 0 4em;
 	height: 100%;
 	@include flex-center;
 

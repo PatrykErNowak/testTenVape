@@ -1,0 +1,71 @@
+@use '../utilities/breakpoints' as b;
+@use '../utilities/colors' as c;
+@use '../utilities/helpers' as *;
+
+.modal-container {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.8);
+	backdrop-filter: blur(2px);
+	overflow: auto;
+	z-index: 5000;
+    transition: opacity 0.6s;
+	@media (min-width: b.$medium) {
+		@include flex-center;
+	}
+}
+
+// Modal Age Verification - Home page
+
+.modal-age {
+    @include flex-center;
+    width: 100%;
+    height: 100vh;
+    
+    &__content {
+        padding: 3em 1em;
+        width: 100%;
+        height: 100%;
+        @include flex-center;
+        flex-direction: column;
+        gap: 1.5em;
+        text-align: center;
+        background-color: c.$second;
+        @media (min-width: b.$small) {
+            padding: 4em 1.5em;
+            height: auto;
+            max-width: 550px;
+            border-radius: 15px;
+        }
+    }
+
+    &__logo {
+        width: 60%;
+        max-width: 250px;
+    }
+    &__text {
+        font-size: clamp(1.8rem, 1rem + 0.8vw, 2.4rem);
+        font-weight: 500;
+        letter-spacing: 1px;
+    }
+
+    &__text-small {
+        font-size: clamp(1.2rem, 1rem + 0.4vw, 1.3rem);
+        color: c.$text-greyed;
+    }
+
+    &__btns {
+        margin-top: 1em;
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        gap: 1em;
+    }
+    .btn {
+        width: 100%;
+    }
+
+}

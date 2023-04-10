@@ -47,6 +47,7 @@
 
 		i {
 			padding: 1em;
+			pointer-events: none;
 		}
 
 		&:hover {
@@ -417,6 +418,9 @@ div.crt-controls-over .crt-panel-prev {
 	.swiper {
 		height: 100%;
 		width: 100%;
+		@media (min-width: b.$x-large) {
+			overflow: visible;
+		}
 
 		.swiper-slide {
 			margin: auto 0;
@@ -496,7 +500,6 @@ div.crt-controls-over .crt-panel-prev {
 
 	&__text {
 		font-style: italic;
-		font-size: clamp(1.4rem, 1rem + 0.8vw, 1.6rem);
 	}
 
 	&__author {

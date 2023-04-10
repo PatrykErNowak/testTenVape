@@ -2,51 +2,69 @@
 @use '../utilities/breakpoints' as b;
 
 .btn {
+	padding: 0.8em 2.5em;
+	display: inline-block;
 	position: relative;
 	font-family: inherit;
+	color: c.$third;
 	font-size: clamp(1.4rem, 1rem + 1.1vw, 1.6rem);
 	font-weight: 600;
-	color: c.$third;
+	text-align: center;
 	text-transform: uppercase;
 	text-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
 	border: none;
 	letter-spacing: 2px;
 	border-radius: 20px;
-	background-image: radial-gradient(100% 100% at 100% 0, #82ffa1 0, c.$main 100%);
-	overflow: hidden;
-	transition: transform 0.5s;
 
-
-	&::before {
-		content: '';
-		position: absolute;
-		top: -100%;
-		left: 0;
-		height: 20px;
-		width: 100%;
-		transform: translateX(-60%) rotate(-75deg);
-		background-color: #f3f3f3;
-		box-shadow: 0 0 10px #fff;
-		filter: blur(1px);
-		opacity: 0.9;
+	&--primary {
+		background-image: radial-gradient(100% 100% at 100% 0, #82ffa1 0, c.$main 100%);
+		overflow: hidden;
 		transition: transform 0.5s;
-
-	}
-	a {
-		display: inline-block;
-		padding: 1em 2em;
-		height: 100%;
-		width: 100%;
-	}
 	
-	&:hover {
-		transform: scale(1.02);
+		&::before {
+			content: '';
+			position: absolute;
+			top: -100%;
+			left: 0;
+			height: 20px;
+			width: 100%;
+			transform: translateX(-60%) rotate(-75deg);
+			background-color: #f3f3f3;
+			box-shadow: 0 0 10px #fff;
+			filter: blur(1px);
+			opacity: 0.9;
+			transition: transform 0.5s;
+		}
+	
+		&:hover {
+			transform: scale(1.02);
+		}
+		&:hover::before {
+			transform: translateX(70%) rotate(-75deg);
+		}
 	}
-	&:hover::before {
-		transform: translateX(70%) rotate(-75deg);
+	&--confirm,
+	&--denied {
+		border: 1px solid rgba(255, 255, 255, 0.6);
+        transition: background-color 0.3s, border 0.3s;
+		&:hover {
+			border: 1px solid transparent;
+		}
 	}
 
+	&--confirm {
+        &:hover {
+            background-color: c.$btn-confirm;
+        }
+	}
+	&--denied {
+		&:hover {
+            background-color: c.$btn-denied;
+        }
+	}
 }
+
+
 
 .btn__scroll-to-top {
 	position: fixed;

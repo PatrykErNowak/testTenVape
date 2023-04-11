@@ -79,6 +79,9 @@ const scrollToTop = function () {
   btn.addEventListener('click', scrollToTopHandle);
 };
 
+// Functions for this particural page
+
+// Global Variable used in functions: CategorySlider and scrollToCategory
 const mobileScreen = window.innerWidth < 768;
 
 //
@@ -143,66 +146,74 @@ const scrollToCategoryOfProducts = function () {
 // ----------------------------------------------------------
 // TODO not completed
 
-const productsList = document.querySelector('.products__list');
+const displayProductCard = function () {
+  // Logic to implement
+  // 1. Add listener for all products - on click
+  // 2. Creata database for all products which contains all data for each product
+  // 3. Click on product creates a modal by using product ID and matching it in products database
 
-const modalHTML = `
-<div class="modal-product">
-  <h3 class="modal-product__title">VAPORESSO GEN PT60</h3>
-  <img class="modal-product__image" src="../src/img/offer/products/product--1.jpg" alt="">
+  const productsList = document.querySelector('.products__list');
 
-<div class="modal-product__desc">
-<div class="modal-product__desc-row">
-<h4 class="modal-product__desc-title">OPIS</h4>
-<p class="modal-product__desc-short">Zestaw Max100 producenta Geekvape w kolorze czarno - czerwonym. W skład zestawu wchodzi zasialnie Max100 oraz atomizer Geekvape Z.</p>
-</div>
-<div class="modal-product__desc-row">
-<h4 class="modal-product__desc-title">SPECYFIKACJA</h4>
-<ul class="modal-product__desc-specification">
-<li>Regulacja mocy w zakresie 5-100W</li>
-<li>Kompatybilność z akumulatorami 18650 oraz 21700</li>
-<li>Kolorowy wyświetlacz TFT o przekątnej 1.08"</li>
-<li>Certyfikat IP68 (odporność na wodę, kurz oraz wstrząsy)</li>
-<li>Port USB-C</li>
-</ul>
-</div>
-</div>
-<button class="modal-product__close-btn modal-product__close-btn--top"><i
-class="fa-solid fa-xmark"></i></button>
-<button class="modal-product__close-btn modal-product__close-btn--bottom">Wróć do listy produktów</button>
+  const modalHTML = `
+  <div class="modal-product">
+    <h3 class="modal-product__title">VAPORESSO GEN PT60</h3>
+    <img class="modal-product__image" src="../src/img/offer/products/product--1.jpg" alt="">
+  
+  <div class="modal-product__desc">
+  <div class="modal-product__desc-row">
+  <h4 class="modal-product__desc-title">OPIS</h4>
+  <p class="modal-product__desc-short">Zestaw Max100 producenta Geekvape w kolorze czarno - czerwonym. W skład zestawu wchodzi zasialnie Max100 oraz atomizer Geekvape Z.</p>
+  </div>
+  <div class="modal-product__desc-row">
+  <h4 class="modal-product__desc-title">SPECYFIKACJA</h4>
+  <ul class="modal-product__desc-specification">
+  <li>Regulacja mocy w zakresie 5-100W</li>
+  <li>Kompatybilność z akumulatorami 18650 oraz 21700</li>
+  <li>Kolorowy wyświetlacz TFT o przekątnej 1.08"</li>
+  <li>Certyfikat IP68 (odporność na wodę, kurz oraz wstrząsy)</li>
+  <li>Port USB-C</li>
+  </ul>
+  </div>
+  </div>
+  <button class="modal-product__close-btn modal-product__close-btn--top"><i
+  class="fa-solid fa-xmark"></i></button>
+  <button class="modal-product__close-btn modal-product__close-btn--bottom">Wróć do listy produktów</button>
+  
+  </div>`;
 
-</div>`;
+  const displayProductModal = function (e) {
+    // const product = e.target.closest('.product');
 
-const displayProductModal = function (e) {
-  // const product = e.target.closest('.product');
+    if (e.target.classList.contains('product__btn')) {
+      const modalContainer = document.createElement('div');
+      modalContainer.classList.add('modal-container');
 
-  if (e.target.classList.contains('product__btn')) {
-    const modalContainer = document.createElement('div');
-    modalContainer.classList.add('modal-container');
+      modalContainer.innerHTML = modalHTML;
+      document.body.append(modalContainer);
 
-    modalContainer.innerHTML = modalHTML;
-    document.body.append(modalContainer);
+      document.body.style.overflow = 'hidden';
 
-    document.body.style.overflow = 'hidden';
+      const closeBtns = modalContainer.querySelectorAll(
+        '.modal-product__close-btn'
+      );
+      closeBtns.forEach((btn) =>
+        btn.addEventListener('click', () => {
+          modalContainer.remove();
+          document.body.style.overflow = 'auto';
+        })
+      );
+    }
+  };
 
-    const closeBtns = modalContainer.querySelectorAll(
-      '.modal-product__close-btn'
-    );
-    closeBtns.forEach((btn) =>
-      btn.addEventListener('click', () => {
-        modalContainer.remove();
-        document.body.style.overflow = 'auto';
-      })
-    );
-  }
+  productsList.addEventListener('click', displayProductModal);
 };
-
-productsList.addEventListener('click', displayProductModal);
 
 // Main functions
 mobileNavigationHandler();
 displayFooterYear();
 facebookMessenger();
 scrollToTop();
-// Secondary functions
+// Functions for this particural page
 categorySlider();
 scrollToCategoryOfProducts();
+displayProductCard();

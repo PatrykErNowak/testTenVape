@@ -249,14 +249,14 @@
 
 			.category__body {
 				opacity: 0;
-				animation: show-cat-content 0.8s 0.7s forwards;
+				animation: fade-out 0.8s 0.7s forwards;
 				transform: translateX(-50%);
 			}
 		}
 	}
 }
 
-@keyframes show-cat-content {
+@keyframes fade-out {
 	from {
 		opacity: 0;
 	}
@@ -510,109 +510,4 @@
 	}
 }
 
-.modal-product {
-	margin-top: 5em;
-	padding: 2em 1em;
-	position: relative;
-	display: grid;
 
-	gap: 2em;
-	background-color: c.$second;
-
-	@media (min-width: b.$medium) {
-		grid-template-columns: 45% 1fr;
-		grid-template-rows: auto 1fr auto;
-		padding: 2em;
-		margin: 0;
-		border-radius: 25px;
-		width: min(100%, 1000px);
-	}
-
-	&__title {
-		font-family: 'Cinzel', serif;
-		color: c.$main;
-		text-shadow: 2px 2px 15px rgba($color: c.$third, $alpha: 0.3);
-		letter-spacing: 1px;
-		@media (min-width: b.$medium) {
-			grid-column: 2/3;
-			grid-row: 1/2;
-		}
-	}
-
-	&__image {
-		border-radius: 25px;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-
-		@media (min-width: b.$medium) {
-			grid-column: 1/2;
-			grid-row: 1/-1;
-			width: min(100%, 450px);
-		}
-	}
-
-	&__desc {
-		display: flex;
-		flex-direction: column;
-		gap: 2em;
-		@media (min-width: b.$medium) {
-			grid-column: 2/3;
-			grid-row: 2/3;
-		}
-
-		&-title {
-			margin-bottom: 0.5em;
-			color: c.$main;
-			letter-spacing: 2px;
-		}
-		&-short {
-			text-align: justify;
-		}
-		&-specification {
-			li {
-				position: relative;
-				padding-left: 1em;
-				font-size: clamp(1.4rem, 1rem + 1.2vw, 1.8rem);
-				line-height: clamp(3rem, 1rem + 1.5vw, 3.2rem);
-				&::before {
-					content: '+ ';
-					position: absolute;
-					left: 0;
-					color: c.$main;
-					margin-right: 0.5em;
-				}
-			}
-		}
-	}
-	&__close-btn {
-		&--top {
-			padding: 0.7em;
-			position: absolute;
-			top: 0.3em;
-			right: 0.3em;
-			font-size: 3rem;
-			color: c.$third;
-			transition: color 0.3s;
-			&:hover {
-				color: rgba($color: #ff0000, $alpha: 0.8);
-			}
-		}
-		&--bottom {
-			padding: 0.5em;
-			color: c.$third;
-			font-size: clamp(2rem, 1rem + 1.5vw, 2.4rem);
-			background-color: c.$main;
-			border-radius: 25px;
-			transition: background-color 0.3s;
-			&:hover {
-				background-color: rgba($color: c.$main, $alpha: 0.7);
-			}
-
-			@media (min-width: b.$medium) {
-				grid-column: 2/3;
-				grid-row: 3/4;
-			}
-		}
-	}
-}

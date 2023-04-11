@@ -294,6 +294,7 @@ const showAgeVeryficationModal = function () {
 </div>
 </div>`;
 
+    document.body.style.overflow = 'hidden';
     modalContainer.classList.add('modal-container');
     modalContainer.innerHTML = modalHTML;
 
@@ -304,6 +305,7 @@ const showAgeVeryficationModal = function () {
     btnConfirmAge.addEventListener('click', () => {
       setCookie('ageOver18', 'yes');
       modalContainer.style.opacity = 0;
+      document.body.style.overflow = 'auto';
       setTimeout(() => {
         btnConfirmAge.closest('.modal-container').remove();
       }, 1000);
@@ -323,7 +325,7 @@ displayFooterYear();
 facebookMessenger();
 scrollToTop();
 
-// Secondary functions
+// Functions for this particural page
 showAgeVeryficationModal();
 scrollToMainContent();
 animated3DLogo();

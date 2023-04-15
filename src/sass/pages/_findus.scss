@@ -131,7 +131,11 @@
 		padding: 6px;
 		background: linear-gradient(45deg, rgba(28, 202, 89, 1) 0%, #161a1d 40%, #161a1d 60%, rgba(28, 202, 89, 1) 100%);
 		background-repeat: no-repeat;
-		animation: show-map 1s forwards ease-out;
+		animation: show-map 0.8s forwards ease-out;
+		&--unloaded {
+			animation: none;
+			opacity: 0;
+		}
 	}
 }
 

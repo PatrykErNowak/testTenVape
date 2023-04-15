@@ -206,6 +206,14 @@ const canvasBg = function () {
   animate();
 };
 
+const showMapIfLoaded = function () {
+  const map = document.querySelector('.find-us__map');
+  map.classList.add('find-us__map--unloaded');
+  map.addEventListener('load', () =>
+    map.classList.remove('find-us__map--unloaded')
+  );
+};
+
 // Main functions
 mobileNavigationHandler();
 displayFooterYear();
@@ -213,3 +221,4 @@ facebookMessenger();
 
 // Secondary functions
 canvasBg();
+showMapIfLoaded();

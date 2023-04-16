@@ -208,10 +208,19 @@ const canvasBg = function () {
 
 const showMapIfLoaded = function () {
   const map = document.querySelector('.find-us__map');
+  let mapLoaded = false;
+
   map.classList.add('find-us__map--unloaded');
-  map.addEventListener('load', () =>
-    map.classList.remove('find-us__map--unloaded')
-  );
+  map.addEventListener('load', () => {
+    map.classList.remove('find-us__map--unloaded');
+    mapLoaded = true;
+  });
+
+  setTimeout(() => {
+    if (mapLoaded === false)
+      map.src =
+        'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9990.243353479938!2d22.5520591!3d51.2455824!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x472257c6514cc25f%3A0x3cf1e3663a22bae7!2sTEN%20VAPE%20-%20VAPE%20SHOP%20LUBLIN!5e0!3m2!1spl!2spl!4v1677160856537!5m2!1spl!2spl';
+  }, 1000);
 };
 
 // Main functions

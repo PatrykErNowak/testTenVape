@@ -213,6 +213,7 @@ const showMapIfLoaded = function () {
   map.classList.add('find-us__map--unloaded');
   map.addEventListener('load', () => {
     map.classList.remove('find-us__map--unloaded');
+    map.style.animationDelay = '0s';
     mapLoaded = true;
   });
 

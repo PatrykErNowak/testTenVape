@@ -86,7 +86,7 @@ const mobileScreen = window.innerWidth < 768;
 
 //
 const categorySlider = function () {
-  const categoryContainer = document.querySelector('.categories');
+  const categoryContainer = document.querySelector('.categories__content');
   const categoryItems = categoryContainer.querySelectorAll('.category');
   const categoryBarHeight = 125;
 

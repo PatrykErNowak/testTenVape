@@ -253,20 +253,6 @@
 		justify-content: space-evenly;
 		align-items: center;
 	}
-	&__btn {
-		color: c.$main;
-		font-size: 2.5rem;
-		transition: transform 0.3s;
-		text-shadow: 0 0 10px rgba($color: c.$third, $alpha: 0.2);
-
-		&:hover {
-			transform: scale(1.2);
-		}
-		& :not(a) {
-			padding: 0.5em;
-		}
-	}
-
 }
 // ---------------------------------------------------------------
 // Section Brands

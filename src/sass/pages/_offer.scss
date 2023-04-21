@@ -56,13 +56,24 @@
 		}
 	}
 }
-
 .categories {
-	display: flex;
-	flex-direction: column;
-	gap: 0.5em;
-	@media (min-width: b.$medium) {
-		flex-direction: row;
+	&__desc {
+		margin-bottom: 1em;
+		color: c.$text-greyed;
+		text-align: left;
+		span {
+			margin-right: 0.3em;
+			font-size: clamp(2.7rem, 2rem + 1.5vw, 3.4rem);
+			color: c.$main;
+		}
+	}
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5em;
+		@media (min-width: b.$medium) {
+			flex-direction: row;
+		}
 	}
 }
 

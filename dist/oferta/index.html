@@ -143,8 +143,7 @@
                     aria-label="Przejdź do zakładki z danymi teleadresowymi">skontaktuj się
                     z nami!</a></p>
             <div class="categories__content">
-                <div class="category category--1 category--active">
-
+                <div class="category category--1 category--active" data-category="e-papierosy">
                     <h3 class="category__title">E-Papieros</h3>
                     <div class="category__body">
                         <p class="category__desc">To elektroniczne urządzenie, które w procesie podgrzewania specjalnie
@@ -154,9 +153,10 @@
                             mają do wyboru coraz to więcej urządzeń od tych prostszych w obsłudze zwanymi podami do tych
                             bardziej zaawansowanych zwanymi modami. Inhalowanie wspomnianego już aerozolu przez
                             sympatyków branży potocznie nazywane jest „wapowaniem”.</p>
+                        <button class="category__btn">Dowiedz się więcej</button>
                     </div>
                 </div>
-                <div class="category category--2" data-category="liquidy">
+                <div class="category category--2" data-category="plyny">
                     <h3 class="category__title">LIQUIDY/PŁYNY</h3>
                     <div class="category__body">
                         <p class="category__desc">Są to roztwory wykorzystywane do podgrzewania w elektronicznym
@@ -166,7 +166,7 @@
                             tytoniowe. Wspomniana wcześniej opcjonalna zawartość nikotyny pozwala na wybór liquidu o jej
                             stężeniu w wysokości 3 mg, 6 mg, 12 mg bądź 18 mg. Warto jednak wspomnieć, że dostępne są
                             również płyny niezawierające nikotyny.</p>
-                        <button class="category__btn">Przejdź do produktów</button>
+                        <button class="category__btn">Dowiedz się więcej</button>
                     </div>
                 </div>
                 <div class="category category--3" data-category="jednorazowki">
@@ -176,7 +176,6 @@
                             urządzenia służące również do inhalacji tak jak tradycyjne e-papierosy z tym, że nie
                             istnieje możliwość napełnienia go płynem jeśli ten już się skończy ani naładowania baterii.
                             Jak podają producenci tych urządzeń, przeciętnie wystarczają one na 600-800 zaciągnięć.</p>
-                        <button class="category__btn">Przejdź do produktów</button>
                     </div>
                 </div>
                 <div class="category category--4" data-category="akcesoria">
@@ -186,7 +185,6 @@
                             zaliczamy różne części eksploatacyjne takie jak grzałki lub kartridże z wbudowaną grzałką
                             ale także zestawy narzędzi, akumulatory, koszulki na akumulatory, ładowarki, puste butelki,
                             ustniki, szkiełka, bawełny i wiele innych.</p>
-                        <button class="category__btn">Przejdź do produktów</button>
                     </div>
                 </div>
                 <div class="category category--5" data-category="cbd">
@@ -197,7 +195,6 @@
                             bezpieczeństwa, szerokim spektrum działania a do tego w pełni legalną. Produkty z tej
                             kategorii jakie znajdą Państwo w naszym sklepie to między innymi susz konopny, pre-rollsy,
                             jednorazówki CBD, olejki CBD oraz waporyzatory.</p>
-                        <button class="category__btn">Przejdź do produktów</button>
                     </div>
                 </div>
             </div>
@@ -206,12 +203,14 @@
         </section>
         <section class="products section wrapper">
             <h2 class="section__title">Dowiedz się więcej na temat naszych <span>produktów</span></h2>
-            <div class="products__category-list">
-                <div class="products__category-c" data-category="jednorazowki">
-                    <h3 class="products__category-title">Jednorazówki</h3>
+            <div class="products__categories">
+
+                <div class="products__category" data-category="e-papierosy">
+                    <h3 class="products__category-title">E-papierosy</h3>
+
                     <div class="products__list">
 
-                        <div class="product" data-id="1">
+                        <!-- <div class="product" data-id="1">
                             <p class="product__title">VAPORESSO GEN PT60</p>
                             <div class="product__body">
                                 <div class="product__front">
@@ -228,210 +227,86 @@
                                     <button class="product__btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                                 </div>
                             </div>
-                        </div>
-                        <div class="product" data-id="2">
-                            <p class="product__title">VAPORESSO GEN PT60</p>
-                            <div class="product__body">
-                                <div class="product__front">
-                                    <img src="../img/offer/products/product--2.jpg" alt="">
+                        </div> -->
+
+                        <div class="card" data-id="1">
+                            <p class="card__title">Pody</p>
+                            <div class="card__body">
+                                <div class="card__front">
+                                    <img src="../img/offer/products/pody.jpg" alt="">
                                 </div>
-                                <div class="product__back">
-                                    <ul class="product__info-list">
-                                        <li>60W</li>
-                                        <li>bateria 2500 mAh</li>
-                                        <li>wyświetlacz OLED 0,91"</li>
-                                        <li>atomizer 4,5 ml</li>
-                                    </ul>
-                                    <button class="product__btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product" data-id="3">
-                            <p class="product__title">VAPORESSO GEN PT60</p>
-                            <div class="product__body">
-                                <div class="product__front">
-                                    <img src="../img/offer/products/product--3.webp" alt="">
-                                </div>
-                                <div class="product__back">
-                                    <ul class="product__info-list">
-                                        <li>60W</li>
-                                        <li>bateria 2500 mAh</li>
-                                        <li>grzałki GTX </li>
-                                    </ul>
-                                    <button class="product__btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                <div class="card__back">
+                                    <p class="card__desc">Małe, lekkie oraz kompaktowe i proste w obsłudze
+                                        urządzenia, cieszące się dużą popularnością wśród początkujących użytkowników. W
+                                        ofercie
+                                        posiadamy pody najpopularniejszych marek między innymi takich jak LOST VAPE,
+                                        GEEKVAPE,
+                                        VOOPOO oraz SMOK.</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="product" data-id="4">
-                            <p class="product__title">VAPORESSO GEN PT60</p>
-                            <div class="product__body">
-                                <div class="product__front">
-                                    <img src="../img/offer/products/product--4.jpg" alt="">
+                        <div class="card" data-id="2">
+                            <p class="card__title">Pod mody</p>
+                            <div class="card__body">
+                                <div class="card__front">
+                                    <img src="../img/offer/products/podmod.jpg" alt="">
                                 </div>
-                                <div class="product__back">
-                                    <ul class="product__info-list">
-                                        <li>60W</li>
-                                        <li>bateria 2500 mAh</li>
-                                        <li>wyświetlacz OLED 0,91"</li>
-                                        <li>atomizer 4,5 ml</li>
-                                    </ul>
-                                    <button class="product__btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                <div class="card__back">
+                                    <p class="card__desc">Urządzenia z tej kategorii rozmiarowo zwykle są nieco
+                                        większe od standardowych podów. Pod mody charakteryzują się większą mocą,
+                                        posiadają
+                                        możliwość jej regulacji oraz często wyposażone są w wyświetlacz LED, na którym
+                                        znajdują
+                                        się miedzy innymi takie informacje jak stan naładowania baterii, moc urządzenia
+                                        bądź
+                                        oporność zamontowanej grzałki.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card" data-id="3">
+                            <p class="card__title">Mody</p>
+                            <div class="card__body">
+                                <div class="card__front">
+                                    <img src="../img/offer/products/mod.jpg" alt="">
+                                </div>
+                                <div class="card__back">
+                                    <p class="card__desc">To urządzenia przeznaczone dla zaawansowanych
+                                        waperów, w których znajdziemy możliwość regulacji wielu poszczególnych
+                                        parametrów,
+                                        dzięki czemu można dostosować je do indywidualnego stylu wapowania. Mody zwane
+                                        również
+                                        Boxami sprzedawane są w zestawie z atomizerami jak i oddzielnie.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card" data-id="4">
+                            <p class="card__title">Atomizery</p>
+                            <div class="card__body">
+                                <div class="card__front">
+                                    <img src="../img/offer/products/atomizery.jpg" alt="">
+                                </div>
+                                <div class="card__back">
+                                    <p class="card__desc">Jest to część e-papierosa, która stanowi swojego
+                                        rodzaju zbiornik na liquid. W środku jest umieszczona grzałka,
+                                        która
+                                        odpowiada za podgrzewanie płynu. Wyróżnia się klika kategorii atomizerów takich
+                                        jak
+                                        SUB-OHM, RTA, RDA oraz RDTA. W ofercie posiadamy atomizery firm
+                                        GEEKVAPE,
+                                        LOST VAPE, SMOK, HELL VAPE, WOTOFO, VANDY VAPE i inne.</p>
                                 </div>
                             </div>
                         </div>
 
                     </div>
+
+
                 </div>
-                <div class="products__category-c" data-category="liquidycbd">
-                    <h3 class="products__category-title">Liquidy CBD</h3>
-                    <div class="products__list">
 
-                        <div class="product" data-id="1">
-                            <p class="product__title">VAPORESSO GEN PT60</p>
-                            <div class="product__body">
-                                <div class="product__front">
-                                    <img src="../img/offer/products/product--1.jpg" alt="">
-                                </div>
-                                <div class="product__back">
-                                    <ul class="product__info-list">
-                                        <li>60W</li>
-                                        <li>bateria 2500 mAh</li>
-                                        <li>grzałki GTX </li>
-                                        <li>wyświetlacz OLED 0,91"</li>
-                                        <li>atomizer 4,5 ml</li>
-                                    </ul>
-                                    <button class="product__btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product" data-id="2">
-                            <p class="product__title">VAPORESSO GEN PT60</p>
-                            <div class="product__body">
-                                <div class="product__front">
-                                    <img src="../img/offer/products/product--2.jpg" alt="">
-                                </div>
-                                <div class="product__back">
-                                    <ul class="product__info-list">
-                                        <li>60W</li>
-                                        <li>bateria 2500 mAh</li>
-                                        <li>wyświetlacz OLED 0,91"</li>
-                                        <li>atomizer 4,5 ml</li>
-                                    </ul>
-                                    <button class="product__btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product" data-id="3">
-                            <p class="product__title">VAPORESSO GEN PT60</p>
-                            <div class="product__body">
-                                <div class="product__front">
-                                    <img src="../img/offer/products/product--3.webp" alt="">
-                                </div>
-                                <div class="product__back">
-                                    <ul class="product__info-list">
-                                        <li>60W</li>
-                                        <li>bateria 2500 mAh</li>
-                                        <li>grzałki GTX </li>
-                                    </ul>
-                                    <button class="product__btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product" data-id="4">
-                            <p class="product__title">VAPORESSO GEN PT60</p>
-                            <div class="product__body">
-                                <div class="product__front">
-                                    <img src="../img/offer/products/product--4.jpg" alt="">
-                                </div>
-                                <div class="product__back">
-                                    <ul class="product__info-list">
-                                        <li>60W</li>
-                                        <li>bateria 2500 mAh</li>
-                                        <li>wyświetlacz OLED 0,91"</li>
-                                        <li>atomizer 4,5 ml</li>
-                                    </ul>
-                                    <button class="product__btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
+                <div class="products__category" data-category="plyny">
+                    <h3 class="products__category-title">Płyny</h3>
                 </div>
-                <div class="products__category-c" data-category="akcesoria">
-                    <h3 class="products__category-title">Akcesoria</h3>
-                    <div class="products__list">
 
-                        <div class="product" data-id="1">
-                            <p class="product__title">VAPORESSO GEN PT60</p>
-                            <div class="product__body">
-                                <div class="product__front">
-                                    <img src="../img/offer/products/product--1.jpg" alt="">
-                                </div>
-                                <div class="product__back">
-                                    <ul class="product__info-list">
-                                        <li>60W</li>
-                                        <li>bateria 2500 mAh</li>
-                                        <li>grzałki GTX </li>
-                                        <li>wyświetlacz OLED 0,91"</li>
-                                        <li>atomizer 4,5 ml</li>
-                                    </ul>
-                                    <button class="product__btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product" data-id="2">
-                            <p class="product__title">VAPORESSO GEN PT60</p>
-                            <div class="product__body">
-                                <div class="product__front">
-                                    <img src="../img/offer/products/product--2.jpg" alt="">
-                                </div>
-                                <div class="product__back">
-                                    <ul class="product__info-list">
-                                        <li>60W</li>
-                                        <li>bateria 2500 mAh</li>
-                                        <li>wyświetlacz OLED 0,91"</li>
-                                        <li>atomizer 4,5 ml</li>
-                                    </ul>
-                                    <button class="product__btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product" data-id="3">
-                            <p class="product__title">VAPORESSO GEN PT60</p>
-                            <div class="product__body">
-                                <div class="product__front">
-                                    <img src="../img/offer/products/product--3.webp" alt="">
-                                </div>
-                                <div class="product__back">
-                                    <ul class="product__info-list">
-                                        <li>60W</li>
-                                        <li>bateria 2500 mAh</li>
-                                        <li>grzałki GTX </li>
-                                    </ul>
-                                    <button class="product__btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product" data-id="4">
-                            <p class="product__title">VAPORESSO GEN PT60</p>
-                            <div class="product__body">
-                                <div class="product__front">
-                                    <img src="../img/offer/products/product--4.jpg" alt="">
-                                </div>
-                                <div class="product__back">
-                                    <ul class="product__info-list">
-                                        <li>60W</li>
-                                        <li>bateria 2500 mAh</li>
-                                        <li>wyświetlacz OLED 0,91"</li>
-                                        <li>atomizer 4,5 ml</li>
-                                    </ul>
-                                    <button class="product__btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
             </div>
         </section>
     </main>

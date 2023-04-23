@@ -292,7 +292,7 @@
 // Section products
 
 .products {
-	&__category-list {
+	&__categories {
 		display: flex;
 		flex-direction: column;
 		gap: 4em;
@@ -302,6 +302,7 @@
 		position: relative;
 		margin-bottom: 1em;
 		padding: 0.5em 0.5em 0.5em 0;
+		text-transform: uppercase;
 		text-align: left;
 		letter-spacing: 2px;
 		&::before {
@@ -312,25 +313,148 @@
 			height: 2px;
 			background-color: c.$main;
 		}
-		// &::after {
-		// 	content: '';
-		// 	position: absolute;
-		// 	height: 100%;
-		// 	width: 100%;
-		// 	background-color: c.$main;
-		// 	z-index: -1;
-		// }
 	}
 
 	&__list {
 		display: grid;
 		grid-auto-rows: 1fr;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 1fr;
 		gap: 1em;
-		@media (min-width: b.$medium) {
+		@media (min-width: b.$large) {
 			padding: 0;
-			grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+			grid-template-columns: 1fr 1fr;
 			gap: 2em;
+		}
+	}
+}
+
+// card
+
+.card {
+	position: relative;
+	display: flex;
+	flex-direction: column-reverse;
+	background-color: c.$second;
+	box-shadow: 2px 2px 15px rgba($color: c.$main, $alpha: 0.4);
+
+	&::before {
+		content: '';
+		position: absolute;
+		background: linear-gradient(
+				45deg,
+				#ff0000 0%,
+				#ff9a00 10%,
+				#d0de21 20%,
+				#4fdc4a 30%,
+				#3fdad8 40%,
+				#2fc9e2 50%,
+				#1c7fee 60%,
+				#5f15f2 70%,
+				#ba0cf8 80%,
+				#fb07d9 90%,
+				#ff0000 100%
+			)
+			repeat 0% 0% / 300% 100%;
+		inset: -1px;
+		filter: blur(8px);
+		animation: rgb 6s infinite linear;
+		transition: opacity 0.4s;
+		opacity: 0;
+	}
+
+	&__title {
+		position: relative;
+		padding: 0.4em;
+		font-family: 'Cinzel', serif;
+		font-size: clamp(1.6rem, 1rem + 1.5vw, 1.9rem);
+		color: c.$main;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 3px;
+		text-shadow: 2px 2px 15px rgba($color: c.$third, $alpha: 0.3);
+		background-color: c.$second;
+		transition: color 0.4s;
+
+		&::before {
+			content: '';
+			position: absolute;
+			left: 50%;
+			top: 3px;
+			transform: translateX(-50%) scaleX(0);
+			height: 3px;
+			width: 75%;
+			background-color: c.$main;
+			border-radius: 15px;
+			transition: transform 0.5s ease;
+		}
+		@media (min-width: b.$medium) {
+			padding: 0.8em;
+		}
+	}
+	&__body {
+		position: relative;
+		overflow: hidden;
+	}
+
+	// Front side of card
+	&__front {
+		img {
+			display: block;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
+
+	// Back side of card
+	&__back {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0.5em;
+		height: 100%;
+		width: 100%;
+		transform: translateY(100%);
+		pointer-events: none;
+		transition: transform 0.5s ease-out;
+		background-color: rgba($color: c.$second, $alpha: 1);
+
+		@media (min-width: b.$medium) {
+			padding: 2em 3em;
+		}
+	}
+
+	&__desc {
+		font-size: clamp(1.2rem, 1rem + 1vw, 1.7rem);
+		line-height: clamp(2.1rem, 1rem + 3vw, 3.2rem);
+		opacity: 0;
+		transition: opacity 0.5s;
+	}
+
+	// Hover behavior for entire product card
+
+	&:hover {
+		// RGB Border
+		&::before {
+			opacity: 1;
+		}
+
+		.card__title {
+			color: c.$third;
+
+			// Bar above title
+			&::before {
+				transform: translateX(-50%) scaleX(1);
+			}
+		}
+		.card__back {
+			pointer-events: all;
+			transform: translateY(0);
+		}
+		.card__desc {
+			opacity: 1;
 		}
 	}
 }

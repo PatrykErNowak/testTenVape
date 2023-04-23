@@ -216,4 +216,4 @@ scrollToTop();
 // Functions for this particural page
 categorySlider();
 scrollToCategoryOfProducts();
-displayProductCard();
+// displayProductCard();

@@ -115,16 +115,19 @@
 	}
 
 	&--1 {
-		background-image: url('../img/offer/category/category-1--mobile.jpg');
+		background-image: url('../img/offer/category/category-1--desktop.jpg');
 	}
 	&--2 {
-		background-image: url('../img/offer/category/category-2--mobile.jpg');
+		background-image: url('../img/offer/category/category-2--desktop.jpg');
 	}
 	&--3 {
-		background-image: url('../img/offer/category/category-3--mobile.jpg');
+		background-image: url('../img/offer/category/category-3--desktop.jpg');
 	}
 	&--4 {
-		background-image: url('../img/offer/category/category-4--mobile.png');
+		background-image: url('../img/offer/category/category-4--desktop.jpg');
+	}
+	&--5 {
+		background-image: url('../img/offer/category/category-5--desktop.jpg');
 	}
 	&::before {
 		content: '';
@@ -180,10 +183,10 @@
 			left: 50%;
 			transform: translateX(-50%);
 			width: 90%;
-			background-color: rgba(0, 0, 0, 0.7);
+			background-color: rgba(0, 0, 0, 0.8);
 			border-radius: 10px;
 		}
-		@media (min-width: b.$large) {
+		@media (min-width: b.$x-large) {
 			width: 80%;
 		}
 	}
@@ -285,9 +288,10 @@
 		grid-auto-rows: 1fr;
 		grid-template-columns: 1fr;
 		gap: 1em;
-		@media (min-width: b.$large) {
+		@media (min-width: b.$medium) {
 			padding: 0;
 			grid-template-columns: 1fr 1fr;
+			grid-auto-rows: 550px;
 			gap: 2em;
 		}
 	}
@@ -359,13 +363,16 @@
 	&__body {
 		position: relative;
 		overflow: hidden;
+		height: 100%;
 	}
 
 	// Front side of card
 	&__front {
+		height: 100%;
 		img {
 			display: block;
 			width: 100%;
+			height: 100%;
 			object-fit: cover;
 		}
 	}

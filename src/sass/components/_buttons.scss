@@ -8,7 +8,7 @@
 	font-family: inherit;
 	color: c.$third;
 	font-size: clamp(1.4rem, 1rem + 1.1vw, 1.6rem);
-	font-weight: 600;
+	font-weight: 700;
 	text-align: center;
 	text-transform: uppercase;
 	text-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
@@ -36,9 +36,6 @@
 			transition: transform 0.5s;
 		}
 	
-		&:hover {
-			transform: scale(1.02);
-		}
 		&:hover::before {
 			transform: translateX(70%) rotate(-75deg);
 		}

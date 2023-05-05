@@ -19,10 +19,10 @@ function getCookie(cname) {
   let ca = document.cookie.split(';');
   for (let i = 0; i < ca.length; i++) {
     let c = ca[i];
-    while (c.charAt(0) == ' ') {
+    while (c.charAt(0) === ' ') {
       c = c.substring(1);
     }
-    if (c.indexOf(name) == 0) {
+    if (c.indexOf(name) === 0) {
       return c.substring(name.length, c.length);
     }
   }
@@ -108,8 +108,9 @@ const scrollToTop = function () {
   btn.addEventListener('click', scrollToTopHandle);
 };
 
+// --------------------------------------------------------------------------------------------------------
 // Functions for this particural site
-// Scroll to the first main section
+// ! Scroll to the first main section
 
 const scrollToMainContent = function () {
   const btn = document.querySelector('.header__btn-scrolldown');
@@ -120,7 +121,7 @@ const scrollToMainContent = function () {
   );
 };
 
-// Section Animation
+// ! Section Animation
 
 const sectionAnimationHandle = function () {
   const sections = document.querySelectorAll('.section');
@@ -151,7 +152,6 @@ const sectionAnimationHandle = function () {
 // ! Background Video
 const videoHandler = function () {
   const headerVideoEl = document.querySelector('.header__video-bg video');
-  const videoTabletSrc = headerVideoEl.dataset.tabletSrc;
   const videoDesktopSrc = headerVideoEl.dataset.desktopSrc;
 
   headerVideoEl.playbackRate = 0.8;

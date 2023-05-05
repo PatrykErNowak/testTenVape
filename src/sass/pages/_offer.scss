@@ -90,6 +90,16 @@
 	}
 }
 
+.section.section--anime {
+
+	
+	.category {
+		animation-name: showUp;
+	}
+	
+} 
+
+
 .category {
 	display: flex;
 	flex-direction: column;
@@ -101,7 +111,7 @@
 	box-shadow: inset 0 0 15px rgba(0, 0, 0, 1);
 	border-radius: 10px;
 	overflow: hidden;
-	transition: 0.5s;
+	transition: 1s;
 	cursor: pointer;
 
 	&--1 {
@@ -124,29 +134,38 @@
 		max-height: none;
 		height: 700px;
 		flex-grow: 1;
-		transition: flex-grow 0.8s;
+		transition: flex-grow 0.8s, opacity 0.5s ;
 	}
 	@media (min-width: b.$large) {
 		height: 600px;
+		opacity: 0;
+		// animation: showUp 0.8s ease-out both;
+		animation-duration: 0.8s;
+		animation-timing-function: ease-out;
+		animation-fill-mode: both;
 
 		&--1 {
 			background-image: url('../img/offer/category/category-1--desktop.jpg');
+			animation-delay: 0.25s;
 		}
 		&--2 {
 			background-image: url('../img/offer/category/category-2--desktop.jpg');
+			animation-delay: 0.5s;
 		}
 		&--3 {
 			background-image: url('../img/offer/category/category-3--desktop.jpg');
+			animation-delay: 0.75s;
 		}
 		&--4 {
-			background-image: url('../img/offer/category/category-4--desktop.jpg');
+			background-image: url('../img/offer/category/category-5--desktop.jpg');
+			animation-delay: 1s;
 		}
 		&--5 {
-			background-image: url('../img/offer/category/category-5--desktop.jpg');
+			background-image: url('../img/offer/category/category-4--desktop.jpg');
+
+			animation-delay: 1.25s;
 		}
 	}
-
-
 
 	&::before {
 		content: '';
@@ -283,6 +302,12 @@
 		display: flex;
 		flex-direction: column;
 		gap: 4em;
+	} 
+
+	&__category{
+		@media (min-width: b.$medium) {
+			transition: opacity 1s, transform 0.8s;			
+		}
 	}
 
 	&__category-title {
@@ -474,18 +499,5 @@
 		.card__desc-list {
 			opacity: 1;
 		}
-	}
-}
-
-// Animation for RGB border background
-@keyframes rgb {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
 	}
 }

@@ -50,10 +50,6 @@
 		transform: translateY(8em);
 	}
 }
-// TODO check it is necessary
-// main {
-// 	position: relative;
-// }
 
 
 .link {
@@ -127,3 +123,27 @@
 		opacity: 1;
 	  }
   }
+
+  // Card - Animation for RGB border background
+  @keyframes rgb {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes showUp {
+	from {
+		opacity: 0;
+		transform: translateX(250px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}

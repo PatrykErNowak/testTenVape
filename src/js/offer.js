@@ -1,6 +1,7 @@
 /* eslint-disable prefer-const */
 /* eslint-disable no-undef */
 // ---------------------------------;
+
 // Navigation handling;
 const mobileNavigationHandler = function () {
   const hamburgerEl = document.querySelector('.hamburger');
@@ -84,15 +85,12 @@ const scrollToTop = function () {
 // Global Variable used in functions: CategorySlider and scrollToCategory
 const mobileScreen = window.innerWidth < 768;
 
-//
+// ! Category slide
+
 const categorySlider = function () {
   const categoryContainer = document.querySelector('.categories__content');
   const categoryItems = categoryContainer.querySelectorAll('.category');
   const categoryBarHeight = 150;
-
-  // Init for desktop
-  // if (mobileScreen)
-  //   categoryItems[0].style.maxHeight = `${categoryItems[0].scrollHeight}px`;
 
   const removeActiveClass = function () {
     categoryItems.forEach((cat) => {
@@ -124,15 +122,11 @@ const categorySlider = function () {
   });
 };
 
-// ----------------------------------------------------------
+// !  Scroll to products clicking by button on specified category
 
-// Scroll to products clicking by button on specified category
 const scrollToCategoryOfProducts = function () {
   const productsContainer = document.querySelector('.products');
   const catLinksContainer = document.querySelector('.categories');
-  const navHeight = document
-    .querySelector('.navbar')
-    .getBoundingClientRect().height;
 
   catLinksContainer.addEventListener('click', (e) => {
     if (e.target.classList.contains('category__btn')) {
@@ -140,16 +134,65 @@ const scrollToCategoryOfProducts = function () {
       const section = productsContainer.querySelector(
         `[data-category="${category}"]`
       );
-      const categoryHeight = e.target
-        .closest('.category__body')
+      const navHeight = document
+        .querySelector('.navbar')
         .getBoundingClientRect().height;
 
-      section.style.scrollMarginTop = `${
-        mobileScreen ? +categoryHeight : +navHeight
-      }px`;
-      section.scrollIntoView({ behavior: 'smooth' });
+      window.scrollTo({
+        top: section.offsetTop - +navHeight,
+        behavior: 'smooth',
+      });
     }
   });
+};
+
+// ! Section Animation
+
+const sectionAnimationHandle = function () {
+  if (mobileScreen) return;
+  const categories = document.querySelector('.categories');
+  const products = document.querySelectorAll('.products__category');
+
+  const showCategories = function (entries, observer) {
+    const [entry] = entries;
+
+    if (entry.isIntersecting) {
+      entry.target.classList.add('section--anime');
+      observer.unobserve(entry.target);
+    }
+  };
+
+  const showProducts = function (entries, observer) {
+    const [entry] = entries;
+
+    if (entry.isIntersecting) {
+      entry.target.classList.remove('section--hidden');
+      observer.unobserve(entry.target);
+    }
+  };
+
+  const catOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.45,
+  };
+  const proOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15,
+  };
+
+  const observeCategories = new IntersectionObserver(
+    showCategories,
+    catOptions
+  );
+  const observeProducts = new IntersectionObserver(showProducts, proOptions);
+
+  products.forEach((section) => {
+    section.classList.add('section--hidden');
+    observeProducts.observe(section);
+  });
+  observeCategories.observe(categories);
 };
 
 // ----------------------------------------------------------
@@ -162,3 +205,4 @@ scrollToTop();
 // Functions for this particural page
 categorySlider();
 scrollToCategoryOfProducts();
+sectionAnimationHandle();

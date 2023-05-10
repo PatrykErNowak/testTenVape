@@ -477,8 +477,34 @@
 
 	// Hover behavior for entire product card
 
-	&:hover {
+	// Hover only for desktop devices
+	@media (hover: hover) and (pointer: fine) {
+    &:hover {
 		// RGB Border
+		&::before {
+			opacity: 1;
+		}
+
+		.card__title {
+			color: c.$third;
+
+			// Bar above title
+			&::before {
+				transform: translateX(-50%) scaleX(1);
+			}
+		}
+		.card__back {
+			pointer-events: all;
+			transform: translateY(0);
+		}
+		.card__desc,
+		.card__desc-list {
+			opacity: 1;
+		}
+	}
+}
+	// Hover for mobile by adding class
+	&.active {
 		&::before {
 			opacity: 1;
 		}

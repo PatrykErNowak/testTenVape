@@ -122,10 +122,12 @@
 
                     <ul class="navbar__socials">
                         <li class="navbar__socials-item"><a
-                                href="https://www.facebook.com/people/Tenvapepl/100083561502823/"
-                                aria-label="Facebook - profil firmowy"><i class="fa-brands fa-facebook"></i></a></li>
-                        <li class="navbar__socials-item"><a href="https://www.instagram.com/tenvape.pl"
-                                aria-label="Instagram - profil firmowy"><i class="fa-brands fa-instagram"></i></a></li>
+                                href="https://www.facebook.com/people/Tenvapepl/100083561502823/" target="_blank"
+                                rel="noopener" aria-label="Facebook - profil firmowy"><i
+                                    class="fa-brands fa-facebook"></i></a></li>
+                        <li class="navbar__socials-item"><a href="https://www.instagram.com/tenvape.pl" target="_blank"
+                                rel="noopener" aria-label="Instagram - profil firmowy"><i
+                                    class="fa-brands fa-instagram"></i></a></li>
                     </ul>
 
                 </div>
@@ -161,8 +163,9 @@
                     <a class="about-us__btn-to-offer btn btn--primary" href="./oferta/">Sprawdź Naszą Ofertę</a>
                     <div class="about-us__socials">
                         <a href="https://www.facebook.com/people/Tenvapepl/100083561502823/" target="_blank"
-                            aria-label="Facebook - profil firmowy"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/tenvape.pl" target="_blank"
+                            rel="noopener" aria-label="Facebook - profil firmowy"><i
+                                class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/tenvape.pl" target="_blank" rel="noopener"
                             aria-label="Instagram - profil firmowy"><i class="fa-brands fa-instagram"></i></a>
                     </div>
                 </div>
@@ -241,7 +244,7 @@
         <section class="instagram section wrapper">
             <h2 class="section__title">Nasz <span>Instagram</span></h2>
             <div class="instagram__container">
-                <div id="curator-feed-default-feed-layout"><a href="https://curator.io" target="_blank"
+                <div id="curator-feed-default-feed-layout"><a href="https://curator.io" target="_blank" rel="noopener"
                         class="crt-logo crt-tag">Powered by Curator.io</a></div>
             </div>
         </section>
@@ -498,18 +501,23 @@
 
     </main>
     <footer class="footer">
-        <div class="footer__wave-c">
+        <div class="footer__wave-c" aria-hidden="true">
             <div class="footer__wave"></div>
         </div>
         <div class="wrapper">
             <div class="footer__main">
-                <img class="footer__logo" src="img/ten vape logo svg.svg" alt="Ten Vape logo">
+                <img class="footer__logo" src="../img/ten vape logo svg.svg" alt="Ten Vape logo">
                 <p class="footer__title">we do explain</p>
             </div>
-            <p class="footer__copyright">© <span class="footer__year"></span> TEN VAPE. Wszelkie prawa zastrzeżone.
-            </p>
-            <p class="footer__creator">Created and Designed by <a href="https://pendev.me" target="_blank">Patryk
-                    Nowak</a></p>
+            <div class="footer__bottom-c">
+                <p class="footer__copyright">© <span class="footer__year"></span> TEN VAPE. Wszelkie prawa
+                    zastrzeżone.
+                </p>
+                <a class="footer__cookie" href="../polityka-cookies/">Polityka Cookies</a>
+                <p class="footer__creator">Created and Designed by <a href="https://pendev.me" target="_blank">Patryk
+                        Nowak</a></p>
+            </div>
+
         </div>
     </footer>
 

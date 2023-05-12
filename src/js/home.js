@@ -29,6 +29,73 @@ function getCookie(cname) {
   return '';
 }
 
+const showAgeVeryficationModal = function () {
+  // Check Cookie
+  if (getCookie('ageOver18') === 'yes') return;
+
+  // Creating & Add modal
+  const modalContainer = document.createElement('div');
+  const modalHTML = `<div class="modal-age">
+<div class="modal-age__content">
+    <img class="modal-age__logo" src="./img/tenvape-logo-text.png" alt="">
+    <p class="modal-age__text">Czy masz skończone 18 lat?</p>
+    <div class="modal-age__btns">
+        <button class="btn btn--confirm">Tak</button>
+        <button class="btn btn--denied">Nie</button>
+    </div>
+    <p class="modal-age__text-small">Wchodząc na stronę naszego sklepu potwierdzasz, że jesteś osobą
+        pełnoletnią.</p>
+</div>
+</div>`;
+
+  document.body.style.overflow = 'hidden';
+  modalContainer.classList.add('modal-container');
+  modalContainer.innerHTML = modalHTML;
+
+  // Modal behavior
+  const btnConfirmAge = modalContainer.querySelector('.btn--confirm');
+  const btnDeniedAge = modalContainer.querySelector('.btn--denied');
+
+  btnConfirmAge.addEventListener('click', () => {
+    setCookie('ageOver18', 'yes', 7);
+    modalContainer.style.opacity = 0;
+    document.body.style.overflow = 'auto';
+    setTimeout(() => {
+      btnConfirmAge.closest('.modal-container').remove();
+    }, 1000);
+  });
+
+  btnDeniedAge.addEventListener('click', () => {
+    window.location.href = 'https://www.google.pl';
+  });
+
+  document.body.append(modalContainer);
+};
+
+const cookiesModal = function () {
+  // Check cookies
+  if (getCookie('cookies') === 'yes') return;
+
+  // Create modal
+  const modal = document.createElement('div');
+
+  modal.classList.add('modal-cookies');
+  modal.innerHTML = `<p class="modal-cookies__text">Ta strona wykorzystuje pliki cookie. Używamy informacji zapisanych za pomocą
+  plików cookies w celu zapewnienia maksymalnej wygody w korzystaniu z naszego serwisu.</p><button class="modal-cookies__btn btn btn--confirm">Akceptuję</button>`;
+
+  document.body.append(modal);
+
+  // Modal Behavior
+  const btn = modal.querySelector('button');
+
+  const acceptCookies = function () {
+    setCookie('cookies', 'yes', 365);
+    modal.remove();
+  };
+
+  btn.addEventListener('click', acceptCookies);
+};
+
 // ---------------------------------;
 // Navigation handling;
 const mobileNavigationHandler = function () {
@@ -222,14 +289,11 @@ const accordionFAQSection = function () {
 // Invoking messenger chat by clicking btn under the section
 
 const InvokingMessengerChatbyFAQBtn = function () {
-  const faqBtn = document.querySelector('.faq__footer-btn');
   const btns = document.querySelectorAll('[data-type="messenger"');
 
   btns.forEach((btn) =>
     btn.addEventListener('click', () => FB.CustomerChat.showDialog())
   );
-
-  // faqBtn.addEventListener('click', () => FB.CustomerChat.showDialog());
 };
 
 // ------------------------------------------------------------
@@ -276,49 +340,6 @@ const TestimonialsHandler = function () {
   });
 };
 
-const showAgeVeryficationModal = function () {
-  // Check Cookie
-  if (getCookie('ageOver18') !== 'yes') {
-    // Creating & Add modal
-    const modalContainer = document.createElement('div');
-    const modalHTML = `<div class="modal-age">
-<div class="modal-age__content">
-    <img class="modal-age__logo" src="./img/tenvape-logo-text.png" alt="">
-    <p class="modal-age__text">Czy masz skończone 18 lat?</p>
-    <div class="modal-age__btns">
-        <button class="btn btn--confirm">Tak</button>
-        <button class="btn btn--denied">Nie</button>
-    </div>
-    <p class="modal-age__text-small">Wchodząc na stronę naszego sklepu potwierdzasz, że jesteś osobą
-        pełnoletnią.</p>
-</div>
-</div>`;
-
-    document.body.style.overflow = 'hidden';
-    modalContainer.classList.add('modal-container');
-    modalContainer.innerHTML = modalHTML;
-
-    // Modal behavior
-    const btnConfirmAge = modalContainer.querySelector('.btn--confirm');
-    const btnDeniedAge = modalContainer.querySelector('.btn--denied');
-
-    btnConfirmAge.addEventListener('click', () => {
-      setCookie('ageOver18', 'yes');
-      modalContainer.style.opacity = 0;
-      document.body.style.overflow = 'auto';
-      setTimeout(() => {
-        btnConfirmAge.closest('.modal-container').remove();
-      }, 1000);
-    });
-
-    btnDeniedAge.addEventListener('click', () => {
-      window.location.href = 'https://www.google.pl';
-    });
-
-    document.body.append(modalContainer);
-  }
-};
-
 // Main functions
 mobileNavigationHandler();
 displayFooterYear();
@@ -335,3 +356,5 @@ instagramCurator();
 TestimonialsHandler();
 accordionFAQSection();
 InvokingMessengerChatbyFAQBtn();
+
+cookiesModal();

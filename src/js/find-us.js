@@ -1,6 +1,96 @@
 /* eslint-disable prefer-const */
 /* eslint-disable no-undef */
 // ---------------------------------;
+
+function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+  let expires = `expires=${d.toUTCString()}`;
+  document.cookie = `${cname}=${cvalue};${expires};path=/`;
+}
+
+function getCookie(cname) {
+  let name = `${cname}=`;
+  let ca = document.cookie.split(';');
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) === ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) === 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return '';
+}
+
+const showAgeVeryficationModal = function () {
+  // Check Cookie
+  if (getCookie('ageOver18') === 'yes') return;
+
+  // Creating & Add modal
+  const modalContainer = document.createElement('div');
+  const modalHTML = `<div class="modal-age">
+<div class="modal-age__content">
+    <img class="modal-age__logo" src="./img/tenvape-logo-text.png" alt="">
+    <p class="modal-age__text">Czy masz skończone 18 lat?</p>
+    <div class="modal-age__btns">
+        <button class="btn btn--confirm">Tak</button>
+        <button class="btn btn--denied">Nie</button>
+    </div>
+    <p class="modal-age__text-small">Wchodząc na stronę naszego sklepu potwierdzasz, że jesteś osobą
+        pełnoletnią.</p>
+</div>
+</div>`;
+
+  document.body.style.overflow = 'hidden';
+  modalContainer.classList.add('modal-container');
+  modalContainer.innerHTML = modalHTML;
+
+  // Modal behavior
+  const btnConfirmAge = modalContainer.querySelector('.btn--confirm');
+  const btnDeniedAge = modalContainer.querySelector('.btn--denied');
+
+  btnConfirmAge.addEventListener('click', () => {
+    setCookie('ageOver18', 'yes', 7);
+    modalContainer.style.opacity = 0;
+    document.body.style.overflow = 'auto';
+    setTimeout(() => {
+      btnConfirmAge.closest('.modal-container').remove();
+    }, 1000);
+  });
+
+  btnDeniedAge.addEventListener('click', () => {
+    window.location.href = 'https://www.google.pl';
+  });
+
+  document.body.append(modalContainer);
+};
+
+const cookiesModal = function () {
+  // Check cookies
+  if (getCookie('cookies') === 'yes') return;
+
+  // Create modal
+  const modal = document.createElement('div');
+
+  modal.classList.add('modal-cookies');
+  modal.innerHTML = `<p class="modal-cookies__text">Ta strona wykorzystuje pliki cookie. Używamy informacji zapisanych za pomocą
+  plików cookies w celu zapewnienia maksymalnej wygody w korzystaniu z naszego serwisu.</p><button class="modal-cookies__btn btn btn--confirm">Akceptuję</button>`;
+
+  document.body.append(modal);
+
+  // Modal Behavior
+  const btn = modal.querySelector('button');
+
+  const acceptCookies = function () {
+    setCookie('cookies', 'yes', 365);
+    modal.remove();
+  };
+
+  btn.addEventListener('click', acceptCookies);
+};
+
 // Navigation handling;
 const mobileNavigationHandler = function () {
   const hamburgerEl = document.querySelector('.hamburger');
@@ -228,6 +318,8 @@ const showMapIfLoaded = function () {
 mobileNavigationHandler();
 displayFooterYear();
 facebookMessenger();
+showAgeVeryficationModal();
+cookiesModal();
 
 // Secondary functions
 canvasBg();

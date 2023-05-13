@@ -216,17 +216,6 @@ const sectionAnimationHandle = function () {
   });
 };
 
-// ! Background Video
-const videoHandler = function () {
-  const headerVideoEl = document.querySelector('.header__video-bg video');
-  const videoDesktopSrc = headerVideoEl.dataset.desktopSrc;
-
-  headerVideoEl.playbackRate = 0.8;
-
-  // Change video quality depends of screen size
-  if (window.screen.width >= 1200) headerVideoEl.src = videoDesktopSrc;
-};
-
 // ! Animated logo in section about us
 
 const animated3DLogo = function () {
@@ -345,16 +334,14 @@ mobileNavigationHandler();
 displayFooterYear();
 facebookMessenger();
 scrollToTop();
+cookiesModal();
+showAgeVeryficationModal();
 
 // Functions for this particural page
-showAgeVeryficationModal();
 scrollToMainContent();
 animated3DLogo();
 sectionAnimationHandle();
-videoHandler();
 instagramCurator();
 TestimonialsHandler();
 accordionFAQSection();
 InvokingMessengerChatbyFAQBtn();
-
-cookiesModal();

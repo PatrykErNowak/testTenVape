@@ -1,0 +1,34 @@
+@use '../utilities/colors' as c;
+@use '../utilities/breakpoints' as b;
+@use '../utilities/helpers' as *;
+
+
+
+.error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8em 0 4em;
+    height: 100%;
+    text-align: center;
+
+    @media (min-width: b.$medium) {
+        flex-direction: row;
+        gap: 5em;
+    }
+
+    &__title {
+        color: c.$main;
+        text-transform: uppercase;
+  
+    }
+    &__text {
+        margin: 2em 0;
+
+    }
+    &__img {
+        width: min(60%, 400px);
+
+    }
+}

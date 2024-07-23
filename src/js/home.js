@@ -183,9 +183,7 @@ const scrollToMainContent = function () {
   const btn = document.querySelector('.header__btn-scrolldown');
   const targetSection = document.querySelector('main');
 
-  btn.addEventListener('click', () =>
-    targetSection.scrollIntoView({ behavior: 'smooth' })
-  );
+  btn.addEventListener('click', () => targetSection.scrollIntoView({ behavior: 'smooth' }));
 };
 
 // ! Section Animation
@@ -232,14 +230,9 @@ const animated3DLogo = function () {
       y: window.innerHeight,
     };
 
-    const calcRotateDEG = (mouseAxis, elAxisDimension, maxDegree) =>
-      ((mouseAxis / elAxisDimension) * 2 - 1) * maxDegree;
+    const calcRotateDEG = (mouseAxis, elAxisDimension, maxDegree) => ((mouseAxis / elAxisDimension) * 2 - 1) * maxDegree;
 
-    imageEl.style.transform = `perspective(800px) rotateX(${-calcRotateDEG(
-      mouse.y,
-      image.y,
-      25
-    )}deg) rotateY(${calcRotateDEG(
+    imageEl.style.transform = `perspective(800px) rotateX(${-calcRotateDEG(mouse.y, image.y, 25)}deg) rotateY(${calcRotateDEG(
       mouse.x,
       image.x,
       25
@@ -280,9 +273,7 @@ const accordionFAQSection = function () {
 const InvokingMessengerChatbyFAQBtn = function () {
   const btns = document.querySelectorAll('[data-type="messenger"');
 
-  btns.forEach((btn) =>
-    btn.addEventListener('click', () => FB.CustomerChat.showDialog())
-  );
+  btns.forEach((btn) => btn.addEventListener('click', () => FB.CustomerChat.showDialog()));
 };
 
 // ------------------------------------------------------------
@@ -297,8 +288,7 @@ const instagramCurator = function () {
   i = d.createElement('script');
   i.async = 1;
   i.charset = 'UTF-8';
-  i.src =
-    'https://cdn.curator.io/published/1e117b9f-ba27-4dfd-b456-042976b52df7.js';
+  i.src = 'https://cdn.curator.io/published/1e117b9f-ba27-4dfd-b456-042976b52df7.js';
   e = d.getElementsByTagName(s)[0];
   e.parentNode.insertBefore(i, e);
 };

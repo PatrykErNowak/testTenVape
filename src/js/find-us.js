@@ -225,20 +225,16 @@ const canvasBg = function () {
   // create particle array
   const init = function () {
     particlesArray = [];
-    const numberOfParticles = (canvas.height * canvas.width) / 10000;
+    const numberOfParticles = (canvas.height * canvas.width) / 20000;
     for (let i = 0; i < numberOfParticles; i++) {
       const size = Math.random() * 5 + 1;
-      const x =
-        Math.random() * (window.innerWidth - size * 2 - size * 2) + size * 2;
-      const y =
-        Math.random() * (window.innerHeight - size * 2 - size * 2) + size * 2;
+      const x = Math.random() * (window.innerWidth - size * 2 - size * 2) + size * 2;
+      const y = Math.random() * (window.innerHeight - size * 2 - size * 2) + size * 2;
       const directionX = Math.random() * 0.2;
       const directionY = Math.random() * 0.2;
       const color = '#1cca59';
 
-      particlesArray.push(
-        new Particle(x, y, directionX, directionY, size, color)
-      );
+      particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
     }
   };
 
@@ -249,10 +245,8 @@ const canvasBg = function () {
     for (let a = 0; a < particlesArray.length; a++) {
       for (let b = 0; b < particlesArray.length; b++) {
         const distance =
-          (particlesArray[a].x - particlesArray[b].x) *
-            (particlesArray[a].x - particlesArray[b].x) +
-          (particlesArray[a].y - particlesArray[b].y) *
-            (particlesArray[a].y - particlesArray[b].y);
+          (particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x) +
+          (particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y);
         if (distance < ((canvas.width / 7) * canvas.height) / 7) {
           opacityValue = 1 - distance / 15000;
           ctx.strokeStyle = `rgba(28, 202, 89,${opacityValue})`;

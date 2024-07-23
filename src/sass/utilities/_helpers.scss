@@ -2,148 +2,148 @@
 @use './breakpoints' as b;
 
 @mixin flex-center() {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .wrapper {
-	width: min(100% - 2rem, 120rem);
-	margin: 0 auto;
-	@media (min-width: b.$medium) {
-		width: min(100% - 4rem, 120rem);
-	}
-	@media (min-width: b.$xx-large) {
-		width: min(100% - 4rem, 140rem);
-	}
+  width: min(100% - 2rem, 120rem);
+  margin: 0 auto;
+  @media (min-width: b.$medium) {
+    width: min(100% - 4rem, 120rem);
+  }
+  @media (min-width: b.$xx-large) {
+    width: min(100% - 4rem, 140rem);
+  }
 }
-
-
 
 .section {
-	text-align: center;
-	padding: 4em 0;
-	transition: opacity 1s, transform 0.8s;
-	&__title {
-		margin-bottom: 2em;
-		padding-left: 0.5em;
-		font-family: 'Cinzel', serif;
-		font-family: 'Roboto', sans-serif;
-		font-family: 'Raleway', sans-serif;
-		font-weight: 300;
-		text-align: left;
-		text-transform: uppercase;
-		letter-spacing: 2px;
-		border-left: 5px solid c.$main;
+  text-align: center;
+  padding: 4em 0;
+  transition: opacity 1s, transform 0.8s;
+  &__title {
+    margin-bottom: 2em;
+    padding-left: 0.5em;
+    font-family: 'Cinzel', serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-left: 5px solid c.$main;
 
-		span {
-			color: c.$main;
-			font-weight: 600;
-		}
-	}
+    span {
+      color: c.$main;
+      font-weight: 600;
+    }
+  }
 
-	&--wavy {
-		padding: 7em 0;
-	}
-	&--hidden {
-		opacity: 0;
-		transform: translateY(8em);
-	}
+  &--wavy {
+    padding: 7em 0;
+  }
+  &--hidden {
+    opacity: 0;
+    transform: translateY(8em);
+  }
 }
-
 
 .link {
-	position: relative;
-	font-weight: 700;
-	transition: 0.3s color;
-	z-index: 0;
-	&::before {
-		content: '';
-		position: absolute;
-		bottom: -4px;
-		left: 50%;
-		width: 102%;
-		height: 100%;
-		transform: scaleY(5%) translateX(-50%);
-		transform-origin: bottom;
-		background-color: c.$main;
-		transition: transform 0.3s;
-		z-index: -1;
-	}
-	&:hover {
-		color: c.$text-dark;
-	}
-	&:hover::before {
-		transform: scaleY(1.2) translateX(-50%);
-	}
+  position: relative;
+  font-weight: 700;
+  transition: 0.3s color;
+  z-index: 0;
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 102%;
+    height: 100%;
+    transform: scaleY(5%) translateX(-50%);
+    transform-origin: bottom;
+    background-color: c.$main;
+    transition: transform 0.3s;
+    z-index: -1;
+  }
+  &:hover {
+    color: c.$text-dark;
+  }
+  &:hover::before {
+    transform: scaleY(1.2) translateX(-50%);
+  }
 }
 
+.p-bottom {
+  padding: 0.5em 0;
+}
 
 // Keyframes
 
 @keyframes shake {
-	0%,
-	42% {
-		transform: rotate(0deg) scale(1);
-	}
-	45% {
-		transform: rotate(-20deg) scale(1.1);
-	}
-	48% {
-		transform: rotate(20deg) scale(1.1);
-	}
-	51% {
-		transform: rotate(-20deg) scale(1.1);
-	}
-	54% {
-		transform: rotate(20deg) scale(1.1);
-	}
-	57%,
-	100% {
-		transform: rotate(0deg) scale(1);
-	}
+  0%,
+  42% {
+    transform: rotate(0deg) scale(1);
+  }
+  45% {
+    transform: rotate(-20deg) scale(1.1);
+  }
+  48% {
+    transform: rotate(20deg) scale(1.1);
+  }
+  51% {
+    transform: rotate(-20deg) scale(1.1);
+  }
+  54% {
+    transform: rotate(20deg) scale(1.1);
+  }
+  57%,
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
 }
 
 @keyframes arrow-down {
-	from {
-		transform: translate(-50%, 0);
-	}
-	to {
-		transform: translate(-50%, 30px);
-	}
+  from {
+    transform: translate(-50%, 0);
+  }
+  to {
+    transform: translate(-50%, 30px);
+  }
 }
 
 @keyframes fade-in {
-	0% {
-		transform: translateZ(-1400px);
-		opacity: 0;
-	  }
-	  100% {
-		transform: translateZ(0);
-		opacity: 1;
-	  }
+  0% {
+    transform: translateZ(-1400px);
+    opacity: 0;
   }
+  100% {
+    transform: translateZ(0);
+    opacity: 1;
+  }
+}
 
-  // Card - Animation for RGB border background
-  @keyframes rgb {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+// Card - Animation for RGB border background
+@keyframes rgb {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @keyframes showUp {
-	from {
-		opacity: 0;
-		transform: translateX(250px);
-	}
-	to {
-		opacity: 1;
-		transform: translateX(0);
-	}
+  from {
+    opacity: 0;
+    transform: translateX(250px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
